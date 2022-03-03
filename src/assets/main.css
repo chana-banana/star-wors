@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap");
 
-#form {
+body {
+  margin: 0;
+}
+
+.view {
+  background-color: black;
+}
+
+form {
   width: 400px;
   height: 300px;
   display: block;
@@ -25,10 +33,6 @@ input {
   font-size: 1em;
 }
 
-.input-block {
-  padding: 30px, 0, 30px, 0;
-}
-
 input:focus::placeholder {
   color: transparent;
 }
@@ -48,6 +52,7 @@ p {
   height: 50px;
   background-color: #ffe81f;
   font-weight: bold;
+  color: black;
 }
 
 h1 {
@@ -72,4 +77,52 @@ button:hover {
   color: #ffe81f;
   background-color: black;
   border: 2px solid #ffe81f;
+}
+
+/* reversey-wersey */
+
+.view.reverse {
+  background-color: #ffe81f;
+}
+
+.reverse form {
+  width: 400px;
+  height: 300px;
+  display: block;
+}
+
+.reverse input {
+  color: black;
+  border-color: black;
+}
+
+.reverse ::placeholder {
+  color: black;
+}
+
+.reverse p {
+  color: black;
+}
+
+.reverse .submit {
+  background-color: black;
+  color: #ffe81f;
+}
+
+.reverse h1 {
+  color: black;
+}
+
+.reverse a {
+  color: black;
+}
+
+.reverse a:hover {
+  color: black;
+}
+
+.reverse button:hover {
+  color: black;
+  background-color: #ffe81f;
+  border: 2px solid black;
 }

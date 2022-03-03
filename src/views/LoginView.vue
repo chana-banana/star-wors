@@ -1,5 +1,5 @@
 <template>
-    <div class="view">
+    <div class="view login">
         <LoginForm />
     </div>
 </template>
@@ -16,14 +16,18 @@
 </script>
 
 <style scoped>
-  .view {
+  .login.view {
     display: flex;
     height: 100vh;
     width: 100vw;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    /* background-size: cover; */
   }
+
+  /* @media screen and (min-width: 720px) {
+  .view {
+    background-color: lightgreen;
+  }
+} */
 
 </style>
