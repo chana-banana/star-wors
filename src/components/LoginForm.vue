@@ -30,6 +30,4 @@
 
 <style scoped>
 
-
-
 </style>
