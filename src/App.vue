@@ -7,14 +7,20 @@
 </template>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap');
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
-  color: #2c3e50;
 }
 
-@import './assets/main.css'
+  @import 'assets/styles/main.css'
 
 </style>
+
+
+
+
+
+

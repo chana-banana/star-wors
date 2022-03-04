@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap");
-
 body {
   margin: 0;
   background-color: black;
+  /* font-family: "Montserrat", sans-serif !important; */
 }
 
 form {
@@ -128,3 +127,11 @@ button:hover {
   margin: 0;
   background-color: #ffe81f;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap");
+
+/* @font-face {
+  font-family: "anakinmono";
+  src: local("anakinmono"), url(../fonts/anakinmomo.ttf) format("truetype"),
+    url(../fonts/Starjedi.ttf) format("truetype"),
+    url(../fonts/Starjhol.ttf) format("truetype"); */

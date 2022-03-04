@@ -1,7 +1,7 @@
 <template>
 <div class="columns">
   <div class="cut">
-    <img src="../assets/star-wars-cut.png" alt="">
+    <img src="../assets/images/star-wars-cut.png" alt="">
   </div>
   <div class="view login">
     <LoginForm />
@@ -44,7 +44,7 @@
     max-height: 98vh;
   }
 
-  @media screen and (max-width: 1043px) {
+  @media screen and (max-width: 1200px) {
   .cut {
     display: none;
   }
