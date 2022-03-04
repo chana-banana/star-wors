@@ -28,6 +28,18 @@
   }
 </script>
 
-<style scoped>
+<style>
+
+  @media screen and (max-width: 393px) {
+  input {
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: 393px) {
+  .submit {
+    width: 320px;
+  }
+}
 
 </style>

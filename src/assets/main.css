@@ -2,9 +2,6 @@
 
 body {
   margin: 0;
-}
-
-.view {
   background-color: black;
 }
 
@@ -125,4 +122,9 @@ button:hover {
   color: black;
   background-color: #ffe81f;
   border: 2px solid black;
+}
+
+.reverse body {
+  margin: 0;
+  background-color: #ffe81f;
 }
