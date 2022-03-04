@@ -13,7 +13,7 @@ form {
 input {
   font: 1em sans-serif;
   color: #ffe81f;
-  width: 360px;
+  width: 300px;
   height: 50px;
   box-sizing: border-box;
   border-radius: 10px;
@@ -44,7 +44,7 @@ p {
   padding: 1em;
   border-radius: 10px;
   border: none;
-  width: 360px;
+  width: 300px;
   height: 50px;
   background-color: #ffe81f;
   font-weight: bold;
@@ -126,6 +126,15 @@ button:hover {
 .reverse body {
   margin: 0;
   background-color: #ffe81f;
+}
+
+@media screen and (min-width: 393px) {
+  .submit {
+    width: 360px;
+  }
+  input {
+    width: 360px;
+  }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap");

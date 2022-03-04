@@ -34,9 +34,7 @@
   }
 
   .cut {
-    width: 60vw;
-    padding: 0;
-    margin: 0;
+  display: none;
   }
 
   img{
@@ -44,9 +42,12 @@
     max-height: 98vh;
   }
 
-  @media screen and (max-width: 1200px) {
-  .cut {
-    display: none;
+  @media screen and (min-width: 1696px) {
+    .cut {
+    display: block;
+    width: 60vw;
+    padding: 0;
+    margin: 0;
   }
 }
 

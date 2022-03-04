@@ -30,22 +30,4 @@
 
 <style>
 
-  form {
-  width: 400px;
-  height: 300px;
-  display: block;
-}
-
-  @media screen and (max-width: 393px) {
-  input {
-    width: 300px;
-  }
-}
-
-  @media screen and (max-width: 393px) {
-  .submit {
-    width: 300px;
-  }
-}
-
 </style>
