@@ -23,6 +23,11 @@ input {
   margin-bottom: 30px;
 }
 
+.input-icon {
+  position: relative;
+  color: #ffe81f;
+}
+
 ::placeholder {
   color: #ffe81f;
   font-size: 1em;
@@ -30,6 +35,15 @@ input {
 
 input:focus::placeholder {
   color: transparent;
+}
+
+.toggle-password {
+  border: none;
+  background-color: transparent;
+}
+
+.columns {
+  display: inline-flex;
 }
 
 p {
@@ -75,10 +89,6 @@ button:hover {
 
 /* reversey-wersey */
 
-.view.reverse {
-  background-color: #ffe81f;
-}
-
 .reverse form {
   width: 400px;
   height: 300px;
@@ -88,6 +98,11 @@ button:hover {
 .reverse input {
   color: black;
   border-color: black;
+}
+
+.reverse .input-icon {
+  position: relative;
+  color: black;
 }
 
 .reverse ::placeholder {
@@ -119,11 +134,6 @@ button:hover {
   color: black;
   background-color: #ffe81f;
   border: 2px solid black;
-}
-
-.reverse body {
-  margin: 0;
-  background-color: #ffe81f;
 }
 
 @media screen and (min-width: 393px) {
