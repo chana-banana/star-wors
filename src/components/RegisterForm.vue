@@ -6,7 +6,7 @@
             <input type="email" id="mail" name="user_email" placeholder="Email" v-model="email" />
             <input type="password" id="password" name="user_password" placeholder="Password" v-model="password" />
             <input type="password" id="password" name="user_password" placeholder="Confirm Password" v-model="password" />
-            <button class="submit" type="submit" @click="signIn">Sign Up</button>
+            <!-- <router-link id="sign-up" to="/"><button class="submit" type="submit" @click="signIn">Sign Up</button></router-link> -->
           </form>
         </div>
   </div>

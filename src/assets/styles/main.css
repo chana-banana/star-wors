@@ -32,6 +32,10 @@ input:focus::placeholder {
   color: transparent;
 }
 
+.columns {
+  display: inline-flex;
+}
+
 p {
   font: 1em sans-serif;
   color: #ffe81f;
@@ -75,10 +79,6 @@ button:hover {
 
 /* reversey-wersey */
 
-.view.reverse {
-  background-color: #ffe81f;
-}
-
 .reverse form {
   width: 400px;
   height: 300px;
@@ -119,11 +119,6 @@ button:hover {
   color: black;
   background-color: #ffe81f;
   border: 2px solid black;
-}
-
-.reverse body {
-  margin: 0;
-  background-color: #ffe81f;
 }
 
 @media screen and (min-width: 393px) {
