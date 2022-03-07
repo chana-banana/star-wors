@@ -37,10 +37,6 @@ input:focus::placeholder {
   color: transparent;
 }
 
-/* .buttonIn {
-  width: 360px;
-} */
-
 .toggle-password {
   border: none;
   background-color: transparent;
