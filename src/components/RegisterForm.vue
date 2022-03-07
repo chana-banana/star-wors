@@ -2,11 +2,11 @@
   <div>
         <div>
           <form>
-            <h1>Sign In</h1>
+            <h1>Sign Up</h1>
             <input type="email" id="mail" name="user_email" placeholder="Email" v-model="email" />
             <input type="password" id="password" name="user_password" placeholder="Password" v-model="password" />
-            <button class="submit" type="submit" @click="signIn">Submit</button>
-            <p>Not a member yet? <router-link id="sign-up" to="/register">Sign up here</router-link></p>
+            <input type="password" id="password" name="user_password" placeholder="Confirm Password" v-model="password" />
+            <button class="submit" type="submit" @click="signIn">Sign Up</button>
           </form>
         </div>
   </div>
