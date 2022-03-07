@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: black;
+  /* background-color: black; */
 }
 
 form {
@@ -23,6 +23,11 @@ input {
   margin-bottom: 30px;
 }
 
+.input-icon {
+  position: relative;
+  color: #ffe81f;
+}
+
 ::placeholder {
   color: #ffe81f;
   font-size: 1em;
@@ -30,6 +35,11 @@ input {
 
 input:focus::placeholder {
   color: transparent;
+}
+
+.toggle-password {
+  border: none;
+  background-color: transparent;
 }
 
 .columns {
@@ -88,6 +98,11 @@ button:hover {
 .reverse input {
   color: black;
   border-color: black;
+}
+
+.reverse .input-icon {
+  position: relative;
+  color: black;
 }
 
 .reverse ::placeholder {
