@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  background-color: black;
+}
+
+form {
+  width: 400px;
+  height: 300px;
+  display: block;
+}
+
+input {
+  font: 1em sans-serif;
+  color: #ffe81f;
+  width: 300px;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #ffe81f;
+  border-width: 2px;
+  padding: 1em;
+  background-color: transparent;
+  margin-bottom: 30px;
+}
+
+::placeholder {
+  color: #ffe81f;
+  font-size: 1em;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+p {
+  font: 1em sans-serif;
+  color: #ffe81f;
+  margin-top: 20px;
+}
+
+.submit {
+  font: 1em sans-serif;
+  padding: 1em;
+  border-radius: 10px;
+  border: none;
+  width: 300px;
+  height: 50px;
+  background-color: #ffe81f;
+  font-weight: bold;
+  color: black;
+}
+
+h1 {
+  font: 2em sans-serif;
+  color: #ffe81f;
+}
+
+a {
+  font: 1em sans-serif;
+  line-height: 1rem;
+  font-weight: bold;
+  color: #ffe81f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
+button:hover {
+  color: #ffe81f;
+  background-color: black;
+  border: 2px solid #ffe81f;
+}
+
+/* reversey-wersey */
+
+.view.reverse {
+  background-color: #ffe81f;
+}
+
+.reverse form {
+  width: 400px;
+  height: 300px;
+  display: block;
+}
+
+.reverse input {
+  color: black;
+  border-color: black;
+}
+
+.reverse ::placeholder {
+  color: black;
+}
+
+.reverse p {
+  color: black;
+}
+
+.reverse .submit {
+  background-color: black;
+  color: #ffe81f;
+}
+
+.reverse h1 {
+  color: black;
+}
+
+.reverse a {
+  color: black;
+}
+
+.reverse a:hover {
+  color: black;
+}
+
+.reverse button:hover {
+  color: black;
+  background-color: #ffe81f;
+  border: 2px solid black;
+}
+
+.reverse body {
+  margin: 0;
+  background-color: #ffe81f;
+}
+
+@media screen and (min-width: 393px) {
+  .submit {
+    width: 360px;
+  }
+  input {
+    width: 360px;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap");

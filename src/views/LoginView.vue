@@ -1,7 +1,12 @@
 <template>
-    <div class="view">
-        <LoginForm />
-    </div>
+<div class="columns">
+  <div class="cut">
+    <img src="../assets/images/star-wars-cut.png" alt="">
+  </div>
+  <div class="view login">
+    <LoginForm />
+  </div>
+</div>
 </template>
 
 <script>
@@ -16,14 +21,34 @@
 </script>
 
 <style scoped>
-  .view {
+  .login.view {
     display: flex;
     height: 100vh;
-    width: 100vw;
+    width: 40vw;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    /* background-size: cover; */
   }
+
+  .columns {
+    display: inline-flex;
+  }
+
+  .cut {
+  display: none;
+  }
+
+  img{
+    float:left;
+    max-height: 98vh;
+  }
+
+  @media screen and (min-width: 1696px) {
+    .cut {
+    display: block;
+    width: 60vw;
+    padding: 0;
+    margin: 0;
+  }
+}
 
 </style>
