@@ -64,11 +64,6 @@ p {
   color: black;
 }
 
-h1 {
-  font: 2em sans-serif;
-  color: #ffe81f;
-}
-
 a {
   font: 1em sans-serif;
   line-height: 1rem;
@@ -118,10 +113,6 @@ button:hover {
   color: #ffe81f;
 }
 
-.reverse h1 {
-  color: black;
-}
-
 .reverse a {
   color: black;
 }
@@ -144,5 +135,3 @@ button:hover {
     width: 360px;
   }
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap");
