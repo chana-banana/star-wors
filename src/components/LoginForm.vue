@@ -17,13 +17,11 @@
 
 <script>
   export default {
-    data() {
-    return {
-      email: '',
-      password: '',
-      passwordType: 'password'
-    }
-  },
+    computed: {
+      idono(){
+          return this.$Store.state
+      }
+    },
     methods: {
       signIn() {
         console.log(this.email,this.password)
