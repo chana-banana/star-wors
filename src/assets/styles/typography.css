@@ -4,7 +4,7 @@ h1 {
 }
 
 h2 {
-  font: 1.75em sans-serif;
+  font: 1em sans-serif;
   color: #ffe81f;
 }
 
@@ -20,4 +20,16 @@ h3 {
 
 .reverse h2 {
   color: #000000;
+}
+
+@media screen and (min-width: 768px) {
+  h2 {
+    font: 2em sans-serif;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  h2 {
+    font: 2em sans-serif;
+  }
 }
