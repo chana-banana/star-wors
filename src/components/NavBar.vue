@@ -5,9 +5,9 @@
       <input type="text" class="search" placeholder="Search" />
     </div>
     <div class="nav-right">
-      <router-link id="history" to=""><p>Order History</p></router-link>
-      <router-link id="cart" to=""><img src="../assets/icons/cart-yellow.svg" alt="cart" class="nav-icon"></router-link>
-      <router-link id="exit" to=""><img src="../assets/icons/exit-yellow.svg" alt="exit" class="nav-icon"></router-link>
+      <router-link to=""><p>Order History</p></router-link>
+      <router-link to=""><img src="../assets/icons/cart-yellow.svg" alt="cart" class="nav-icon"></router-link>
+      <router-link to=""><img src="../assets/icons/exit-yellow.svg" alt="exit" class="nav-icon"></router-link>
     </div>
   </nav>
 </template>
@@ -22,13 +22,13 @@
     position: sticky;
     left: 0;
     top: 0;
-    background-color: black;
+    background-color: #000000;
     align-items: center;
   }
 
   .nav-right {
     position: absolute;
-    right: 0px;
+    right: 0;
     padding-right: 20px;
     display: flex;
     justify-content: center;

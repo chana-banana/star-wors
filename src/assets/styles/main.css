@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: black;
+  background-color: #000000;
   box-sizing: border-box;
 }
 
@@ -62,7 +62,7 @@ p {
   height: 50px;
   background-color: #ffe81f;
   font-weight: bold;
-  color: black;
+  color: #000000;
 }
 
 a {
@@ -79,7 +79,7 @@ a:hover {
 
 button:hover {
   color: #ffe81f;
-  background-color: black;
+  background-color: #000000;
   border: 2px solid #ffe81f;
 }
 
@@ -92,40 +92,40 @@ button:hover {
 }
 
 .reverse input {
-  color: black;
-  border-color: black;
+  color: #000000;
+  border-color: #000000;
 }
 
 .reverse .input-icon {
   position: relative;
-  color: black;
+  color: #000000;
 }
 
 .reverse ::placeholder {
-  color: black;
+  color: #000000;
 }
 
 .reverse p {
-  color: black;
+  color: #000000;
 }
 
 .reverse .submit {
-  background-color: black;
+  background-color: #000000;
   color: #ffe81f;
 }
 
 .reverse a {
-  color: black;
+  color: #000000;
 }
 
 .reverse a:hover {
-  color: black;
+  color: #000000;
 }
 
 .reverse button:hover {
-  color: black;
+  color: #000000;
   background-color: #ffe81f;
-  border: 2px solid black;
+  border: 2px solid #000000;
 }
 
 @media screen and (min-width: 393px) {
