@@ -1,7 +1,9 @@
 <template>
   <nav>
     <div class="nav-left">
-      <router-link id="home" to="/"><img src="../assets/icons/falcon-yellow.svg" alt="home" class="home"></router-link>
+        <div @click="router.push('/')" class="home-btn-wrapper">
+          <img src="../assets/icons/falcon-yellow.svg" alt="home" class="home">
+        </div>
       <input type="text" class="search" placeholder="Search" />
     </div>
     <div class="nav-right">
@@ -35,13 +37,23 @@
     align-items: center;
   }
 
+  .nav-left {
+    display: flex;
+    align-items: stretch;
+    padding-top: 35px;
+  }
+
   .nav-icon {
     padding-left: 20px;
   }
 
   .home {
     height: 55px;
-    margin: 0 20px 0 20px;
+    margin: 0 20px;
+  }
+
+  .home-btn-wrapper {
+    height: 55px;
   }
 
 </style>

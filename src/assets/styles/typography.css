@@ -3,6 +3,11 @@ h1 {
   color: #ffe81f;
 }
 
+h2 {
+  font: 1.75em sans-serif;
+  color: #ffe81f;
+}
+
 h3 {
   color: #000000;
 }
@@ -10,5 +15,9 @@ h3 {
 /* reversey-wersey */
 
 .reverse h1 {
+  color: #000000;
+}
+
+.reverse h2 {
   color: #000000;
 }
