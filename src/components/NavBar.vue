@@ -56,5 +56,9 @@
     height: 55px;
   }
 
+  .home-btn-wrapper:hover {
+    cursor: pointer;
+  }
+
 </style>
 

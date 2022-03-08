@@ -34,6 +34,10 @@
     align-items: center;
   }
 
+  .columns {
+    display: flex;
+  }
+
   .cut {
   display: none;
   }

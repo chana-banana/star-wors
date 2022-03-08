@@ -30,21 +30,35 @@ import NavBar from '../components/NavBar'
 
 <style>
   .wrapper {
-    display: inline-flex;
+    display: block;
     justify-content: center;
     align-items: center;
   }
 
   .trooper {
-    display: none;
+    display: block;
+    height: 300px;
+
   }
 
-  @media screen and (min-width: 1696px) {
+   .star-wars-logo {
+     display: none;
+   }
+
+  @media screen and (min-width: 1300px) {
     .trooper {
       display: block;
-      height: 550px;
+      height: 700px;
       padding: 125px;
    }
+
+    .star-wars-logo {
+      display: block;
+   }
+    .wrapper {
+      display: inline-flex;
+   }
+
   }
 
 </style>
