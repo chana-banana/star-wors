@@ -13,27 +13,26 @@
   </template>
 
 <style scoped>
+
   .brand-link {
     height: 30px;
-    padding: 10px 30px 10px 0px;
+    padding-left: 10px;
   }
 
   .footer {
-    height: 100px;
-    width: 90vw;
-    display: block;
-    justify-content: space-between;
+    background-color: #ffe81f;
+    min-height: 50px;
+    width: 100vw;
     position: fixed;
     bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding: 0px 20px 0 20px;
   }
 
   @media screen and (min-width: 615px) {
     .footer {
-    height: 50px;
-    width: 80vw;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     }
   }
 

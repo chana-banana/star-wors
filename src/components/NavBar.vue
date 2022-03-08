@@ -13,6 +13,7 @@
 </template>
 
 <style scoped>
+
   nav {
     height: 80px;
     width: 100vw;
@@ -22,6 +23,7 @@
     left: 0;
     top: 0;
     background-color: black;
+    align-items: center;
   }
 
   .nav-right {
