@@ -60,17 +60,38 @@ import NavBar from '../components/NavBar'
 
   @media screen and (min-width: 1024px) {
     .trooper {
-      margin-left: 160px;
-      margin: 9em auto 5em auto;
+      margin: 15em auto 5em auto;
     }
   }
 
   @media screen and (min-width: 1440px) {
     .trooper {
-      margin-left: 50px;
+      margin: 8em 8em auto auto;
     }
     .star-wars-logo {
-     display: block;
+      height: 250px;
+      display: block;
+      margin: 13em auto 7em auto;
+    }
+    .wrapper {
+      display: inline-flex;
+    }
+  }
+
+  @media screen and (min-width: 2560px) {
+    .trooper {
+      height: 900px;
+      margin: 15em 10em auto auto;
+    }
+    .star-wars-logo {
+      height: 550px;
+      margin: 25em auto 7em auto;
+    }
+  }
+
+  @media screen and (min-width: 3072px) {
+    .trooper {
+      height: 1200px;
     }
   }
 

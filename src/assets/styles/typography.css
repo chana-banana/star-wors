@@ -33,3 +33,9 @@ h3 {
     font: 2em sans-serif;
   }
 }
+
+@media screen and (min-width: 2560px) {
+  h2 {
+    font: 4em sans-serif;
+  }
+}
