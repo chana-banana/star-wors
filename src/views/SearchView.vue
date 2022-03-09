@@ -1,6 +1,8 @@
 <template class="reverse">
+  <div>
     <NavBar />
     <FooterComponent />
+  </div>
 </template>
 
 
