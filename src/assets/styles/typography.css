@@ -1,5 +1,10 @@
 h1 {
-  font: 2em sans-serif;
+  font-size: 1.5rem;
+  color: #ffe81f;
+}
+
+h2 {
+  font-size: 1.5rem;
   color: #ffe81f;
 }
 
@@ -9,6 +14,26 @@ h3 {
 
 /* reversey-wersey */
 
-.reverse h1 {
+.reverse h1,
+.reverse h2,
+.reverse h3 {
   color: #000000;
+}
+
+@media screen and (min-width: 768px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  h2 {
+    font-size: 5rem;
+  }
 }
