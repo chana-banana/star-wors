@@ -1,10 +1,10 @@
 h1 {
-  font: 2em sans-serif;
+  font: 1.5rem sans-serif;
   color: #ffe81f;
 }
 
 h2 {
-  font: 1em sans-serif;
+  font: 1.5rem sans-serif;
   color: #ffe81f;
 }
 
@@ -28,18 +28,18 @@ h3 {
 
 @media screen and (min-width: 768px) {
   h2 {
-    font: 2em;
+    font: 2.5rem sans-serif;
   }
 }
 
 @media screen and (min-width: 1440px) {
   h2 {
-    font: 3em;
+    font: 3rem sans-serif;
   }
 }
 
 @media screen and (min-width: 2560px) {
   h2 {
-    font: 4em;
+    font: 5rem sans-serif;
   }
 }

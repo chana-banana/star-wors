@@ -39,8 +39,8 @@ import NavBar from '../components/NavBar'
 
   .trooper {
     height: 150px;
-    margin-top: 5em;
-    margin: 5em auto 1em auto;
+    margin-top: 5rem;
+    margin: 5rem auto 1rem auto;
   }
 
    .star-wars-logo {
@@ -49,31 +49,31 @@ import NavBar from '../components/NavBar'
 
   @media screen and (min-width: 375px) {
     .trooper {
-      margin-top: 9em;
+      margin-top: 9rem;
     }
   }
 
   @media screen and (min-width: 768px) {
     .trooper {
       height: 500px;
-      margin: 7em auto 5em auto;
+      margin: 7rem auto 5rem auto;
     }
   }
 
   @media screen and (min-width: 1024px) {
     .trooper {
-      margin: 15em auto 5em auto;
+      margin: 15rem auto 5rem auto;
     }
   }
 
   @media screen and (min-width: 1440px) {
     .trooper {
-      margin: 8em 8em auto auto;
+      margin: 8rem 8rem auto auto;
     }
     .star-wars-logo {
       height: 250px;
       display: block;
-      margin: 13em auto 7em auto;
+      margin: 13rem auto 7rem auto;
     }
     .wrapper {
       display: inline-flex;
@@ -83,11 +83,11 @@ import NavBar from '../components/NavBar'
   @media screen and (min-width: 2560px) {
     .trooper {
       height: 900px;
-      margin-top: 15em;
+      margin-top: 15rem;
     }
     .star-wars-logo {
       height: 550px;
-      margin: 25em auto 7em auto;
+      margin: 25rem auto 7rem auto;
     }
   }
 
