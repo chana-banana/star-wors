@@ -16,11 +16,15 @@
 </template>
 
 <script>
+import store from '@/store/store'
   export default {
     computed: {
       idono(){
           return this.$Store.state
       }
+    },
+    mounted() {
+      console.log(store.state.email)
     },
     methods: {
       signIn() {

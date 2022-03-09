@@ -1,13 +1,15 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
 
-Vue.use(Vuex);
-
-export const store = new Vuex.Store ({
-    state: {
+// Create a new store instance.
+const store = createStore({
+  state () {
+    return {
         email: '',
         password: '',
         passwordType: 'password'
     }
-
+  }
 })
+
+// Install the store instance as a plugin
+export default store
