@@ -1,4 +1,5 @@
 <template class="reverse">
+  <div>
     <NavBar />
       <div class="wrapper">
         <div>
@@ -10,6 +11,7 @@
         </div>
       </div>
     <FooterComponent />
+  </div>
 </template>
 
 
@@ -81,7 +83,7 @@ import NavBar from '../components/NavBar'
   @media screen and (min-width: 2560px) {
     .trooper {
       height: 900px;
-      margin: 15em 10em auto auto;
+      margin-top: 15em;
     }
     .star-wars-logo {
       height: 550px;

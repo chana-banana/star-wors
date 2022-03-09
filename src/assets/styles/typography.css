@@ -22,20 +22,24 @@ h3 {
   color: #000000;
 }
 
+.reverse h3 {
+  color: #000000;
+}
+
 @media screen and (min-width: 768px) {
   h2 {
-    font: 2em sans-serif;
+    font: 2em;
   }
 }
 
 @media screen and (min-width: 1440px) {
   h2 {
-    font: 2em sans-serif;
+    font: 3em;
   }
 }
 
 @media screen and (min-width: 2560px) {
   h2 {
-    font: 4em sans-serif;
+    font: 4em;
   }
 }
