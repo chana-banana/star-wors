@@ -1,0 +1,14 @@
+h1 {
+  font: 2em sans-serif;
+  color: #ffe81f;
+}
+
+h3 {
+  color: #000000;
+}
+
+/* reversey-wersey */
+
+.reverse h1 {
+  color: #000000;
+}
