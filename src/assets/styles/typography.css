@@ -6,6 +6,8 @@ h5,
 h6 {
   text-align: left;
   color: #ffe81f;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {

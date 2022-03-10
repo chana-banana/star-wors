@@ -4,7 +4,11 @@
             <h3>Luke Skywalker</h3>
         </div>
         <div class="character-arr">
-            <h5>Birth Year:</h5><h5>19BBY</h5>
+            <div class="atribute"><h5>Birth Year:</h5><h5 class="arr-result">{{  }}</h5></div>
+            <div class="atribute"><h5>Hair Color:</h5><h5 class="arr-result">blond</h5></div>
+            <div class="atribute"><h5>Skin Color:</h5><h5 class="arr-result">fair</h5></div>
+            <div class="atribute"><h5>Eye Color:</h5><h5 class="arr-result">blue</h5></div>
+            <div class="atribute"><h5>Gender:</h5><h5 class="arr-result">male</h5></div>
         </div>
         <div class="price">
             <h5 class="price-text">R100</h5>
@@ -14,15 +18,22 @@
     </div>
 </template>
 
+
+
+
 <style scoped>
 .card-wrapper {
     width: 243px;
-    height: 344px;
+    min-height: 344px;
     border-style: solid;
     border-color: #ffe81f;
     border-radius: 13px;
     border-width: 2px;
-    margin: auto;
+    margin: 3rem auto auto auto;
+}
+
+h3 {
+    padding-top: 1rem;
 }
 
 h3, h5 {
@@ -56,7 +67,16 @@ h3, h5 {
 }
 
 .character-arr {
+    display: block;
+}
+
+.atribute {
     display: flex;
+    padding: 0.75rem 0;
+}
+
+.arr-result {
+    font-weight: 100;
 }
 
 </style>
