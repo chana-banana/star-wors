@@ -7,7 +7,7 @@
         </div>
         <div>
           <img src="../assets/icons/star-wars-logo-yellow.svg" alt="star-wars-logo" class="star-wars-logo">
-          <h2>Go ahead, search for any Star Wars character!</h2>
+          <p class="hero-text">Go ahead, search for any Star Wars character!</p>
         </div>
       </div>
     <FooterComponent />
