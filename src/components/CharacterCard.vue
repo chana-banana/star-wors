@@ -1,14 +1,15 @@
 <template>
     <div class="card-wrapper">
         <div>
-            <h3>Luke Skywalker</h3>
+            <h3>{{ people[0]?.name }}</h3>
         </div>
         <div class="character-arr">
-            <div class="atribute"><h5>Birth Year:</h5><h5 class="arr-result">{{  }}</h5></div>
-            <div class="atribute"><h5>Hair Color:</h5><h5 class="arr-result">blond</h5></div>
-            <div class="atribute"><h5>Skin Color:</h5><h5 class="arr-result">fair</h5></div>
-            <div class="atribute"><h5>Eye Color:</h5><h5 class="arr-result">blue</h5></div>
-            <div class="atribute"><h5>Gender:</h5><h5 class="arr-result">male</h5></div>
+            <div class="atribute"><h5>Birth Year:</h5><h5 class="arr-result">{{ people[0]?.birth_year }}</h5></div>
+            <div class="atribute"><h5>Hair Color:</h5><h5 class="arr-result">{{ people[0]?.hair_color }}</h5></div>
+            <div class="atribute"><h5>Skin Color:</h5><h5 class="arr-result">{{ people[0]?.skin_color }}</h5></div>
+            <div class="atribute"><h5>Eye Color:</h5><h5 class="arr-result">{{ people[0]?.eye_color }}</h5></div>
+            <div class="atribute"><h5>Gender:</h5><h5 class="arr-result">{{ people[0]?.gender }}</h5></div>
+            <button class="fetch-all" @click="fetchAllCharacters"></button>
         </div>
         <div class="price">
             <h5 class="price-text">R100</h5>
@@ -18,10 +19,34 @@
     </div>
 </template>
 
-
+<script>
+    export default {
+        data() {
+            return {
+                people: [],
+            }
+        },
+        methods: {
+            fetchAllCharacters() {
+                fetch("https://swapi.dev/api/people")
+                .then(response => response.json())
+                .then(data => {
+                    this.people.push(...data.results)
+                })
+                console.log(this.people)
+            }
+        }
+    }
+</script>
 
 
 <style scoped>
+.fetch-all {
+    height: 30px;
+    width: 30px;
+    background-color: #ffffff;
+}
+
 .card-wrapper {
     width: 243px;
     min-height: 344px;

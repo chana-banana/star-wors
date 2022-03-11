@@ -10,6 +10,12 @@
           <p class="hero-text">Go ahead, search for any Star Wars character!</p>
         </div>
       </div>
+
+      <div>
+            <CharacterCard />
+        </div>
+
+
     <FooterComponent />
   </div>
 </template>
@@ -20,13 +26,30 @@
 
 import FooterComponent from '../components/FooterComponent'
 import NavBar from '../components/NavBar'
+import CharacterCard from '../components/CharacterCard'
 
     export default {
-    components: {
-    FooterComponent,
-    NavBar
+      data() {
+        return {
+          people: [],
+        }
+      },
+      components: {
+      FooterComponent,
+      NavBar,
+      CharacterCard,
+      },
+  methods: {
+      fetchAllCharacters() {
+        fetch("https://swapi.dev/api/people")
+        .then(response => response.json())
+        .then(data => {
+            this.people.push(...data.results)
+        })
+        console.log(this.people)
+      }
+        }
   }
-}
 
 </script>
 
