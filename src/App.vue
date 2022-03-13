@@ -1,14 +1,17 @@
 <template>
   <Navbar v-if="!$route.meta.isPublic" />
   <router-view/>
+  <FooterComponent v-if="!$route.meta.isPublic" />
 </template>
 
 <script>
   import Navbar from './components/NavBar.vue';
+  import FooterComponent from './components/FooterComponent.vue';
 
   export default {
     components: {
-      Navbar
+      Navbar,
+      FooterComponent
     }
   }
 </script>

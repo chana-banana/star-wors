@@ -20,16 +20,12 @@
           :person="person"
           />
         </div>
-
-    <FooterComponent />
   </div>
 </template>
 
 
 <script>
 
-
-import FooterComponent from '../components/FooterComponent'
 import CharacterCard from '../components/CharacterCard'
 
     export default {
@@ -40,7 +36,6 @@ import CharacterCard from '../components/CharacterCard'
         }
       },
       components: {
-      FooterComponent,
       CharacterCard,
       },
       methods: {
