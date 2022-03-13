@@ -9,6 +9,7 @@
     <div class="nav-right">
       <router-link to=""><p>Order History</p></router-link>
       <router-link to=""><img src="../assets/icons/cart-yellow.svg" alt="cart" class="nav-icon"></router-link>
+      <div class="cart-quantity">(0)</div>
       <router-link to=""><img src="../assets/icons/exit-yellow.svg" alt="exit" class="nav-icon"></router-link>
     </div>
   </nav>
@@ -55,6 +56,11 @@
   .home-btn-wrapper {
     height: 55px;
     cursor: pointer;
+  }
+
+  .cart-quantity {
+    color: #ffe81f;
+    padding: 0 1rem;
   }
 
 </style>
