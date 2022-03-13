@@ -1,6 +1,17 @@
 <template>
+  <Navbar v-if="!$route.meta.isPublic" />
   <router-view/>
 </template>
+
+<script>
+  import Navbar from './components/NavBar.vue';
+
+  export default {
+    components: {
+      Navbar
+    }
+  }
+</script>
 
 <style>
 

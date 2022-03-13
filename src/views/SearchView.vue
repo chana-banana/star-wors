@@ -1,6 +1,5 @@
 <template class="reverse">
   <div>
-    <NavBar />
     <div v-if="!people.length">
       <div v-if="!filter" class="search-cta">
         <div>
@@ -31,7 +30,6 @@
 
 
 import FooterComponent from '../components/FooterComponent'
-import NavBar from '../components/NavBar'
 import CharacterCard from '../components/CharacterCard'
 
     export default {
@@ -43,7 +41,6 @@ import CharacterCard from '../components/CharacterCard'
       },
       components: {
       FooterComponent,
-      NavBar,
       CharacterCard,
       },
       methods: {

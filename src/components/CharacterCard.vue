@@ -4,11 +4,11 @@
             <h4>{{ person.name }}</h4>
         </div>
         <div class="character-arr">
-            <div class="atribute"><h5>Birth Year:</h5><h5 class="arr-result">{{ person.birth_year }}</h5></div>
-            <div class="atribute"><h5>Hair Color:</h5><h5 class="arr-result">{{ person.hair_color }}</h5></div>
-            <div class="atribute"><h5>Skin Color:</h5><h5 class="arr-result">{{ person.skin_color }}</h5></div>
-            <div class="atribute"><h5>Eye Color:</h5><h5 class="arr-result">{{ person.eye_color }}</h5></div>
-            <div class="atribute"><h5>Gender:</h5><h5 class="arr-result">{{ person.gender }}</h5></div>
+            <div class="atribute"><h5>Birth Year: &nbsp;</h5><h5 class="arr-result">{{ person.birth_year }}</h5></div>
+            <div class="atribute"><h5>Hair Color: &nbsp;</h5><h5 class="arr-result">{{ person.hair_color }}</h5></div>
+            <div class="atribute"><h5>Skin Color: &nbsp;</h5><h5 class="arr-result">{{ person.skin_color }}</h5></div>
+            <div class="atribute"><h5>Eye Color: &nbsp;</h5><h5 class="arr-result">{{ person.eye_color }}</h5></div>
+            <div class="atribute"><h5>Gender: &nbsp;</h5><h5 class="arr-result">{{ person.gender }}</h5></div>
         </div>
         <div class="price-wrapper">
             <div class="price-text">
