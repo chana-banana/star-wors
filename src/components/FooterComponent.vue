@@ -6,8 +6,8 @@
       </h5>
     </div>
     <div>
-      <fa :icon="['fab', 'linkedin']" class="brand-link" />
-      <fa :icon="['fab', 'github']" class="brand-link" />
+      <a href="linkedin.com/in/chanlé-van-der-merwe-15506019b"><fa :icon="['fab', 'linkedin']" class="brand-link" /></a>
+      <a href="https://github.com/Chana-98"><fa :icon="['fab', 'github']" class="brand-link" /></a>
     </div>
   </div>
   </template>
