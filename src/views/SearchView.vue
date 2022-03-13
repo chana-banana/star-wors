@@ -1,7 +1,8 @@
 <template class="reverse">
   <div>
     <NavBar />
-      <div class="wrapper">
+    <div v-if="!people.length">
+      <div v-if="!filter" class="search-cta">
         <div>
           <img src="../assets/icons/stormtrooper-icon-yellow.svg" alt="stormtrooper" class="trooper">
         </div>
@@ -10,11 +11,16 @@
           <p class="hero-text">Go ahead, search for any Star Wars character!</p>
         </div>
       </div>
-
-      <div>
-            <CharacterCard />
+      <div v-else class="no-results">
+          <p>Oops</p>
+      </div>
+    </div>
+      <div v-else class="character-cards">
+          <CharacterCard
+          v-for="person in people" :key="person.id"
+          :person="person"
+          />
         </div>
-
 
     <FooterComponent />
   </div>
@@ -32,6 +38,7 @@ import CharacterCard from '../components/CharacterCard'
       data() {
         return {
           people: [],
+          filter: '',
         }
       },
       components: {
@@ -39,22 +46,32 @@ import CharacterCard from '../components/CharacterCard'
       NavBar,
       CharacterCard,
       },
-  methods: {
-      fetchAllCharacters() {
-        fetch("https://swapi.dev/api/people")
-        .then(response => response.json())
-        .then(data => {
+      methods: {
+        fetchAllCharacters() {
+          fetch("https://swapi.dev/api/people")
+          .then(response => response.json())
+          .then(data => {
             this.people.push(...data.results)
         })
-        console.log(this.people)
-      }
+          console.log(this.people)
         }
-  }
-
+      },
+      beforeMount(){
+        this.fetchAllCharacters()
+      }
+    }
 </script>
 
 <style>
-  .wrapper {
+.character-cards {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1280px;
+  margin: 0 auto;
+  justify-content: left;
+}
+
+  .search-cta {
     display: block;
     justify-content: center;
     align-items: center;
