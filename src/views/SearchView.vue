@@ -45,7 +45,6 @@ export default {
       .then(data => {
         this.people.push(...data.results)
     })
-      console.log(this.people)
     }
   },
   beforeMount(){
