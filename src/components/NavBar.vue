@@ -59,7 +59,6 @@
   }
 
   .cart-quantity {
-    color: #ffe81f;
     padding: 0 1rem;
   }
 
