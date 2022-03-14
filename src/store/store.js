@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 
-// Create a new store instance.
+const baseUrl = "https://swapi.dev/api";
+
 const store = createStore({
   state () {
     return {
@@ -17,7 +18,7 @@ const store = createStore({
   },
   actions: {
     fetchAllCharacters() {
-      fetch("https://swapi.dev/api/people")
+      fetch(`${baseUrl}/people`)
       .then(response => response.json())
       .then(data => {
         this.state.characterList.people.push(...data.results)

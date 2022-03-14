@@ -1,6 +1,6 @@
 <template class="reverse">
   <div>
-    <div v-if="!characters.people.length">
+    <div v-if="!characters.length">
       <div v-if="!filter" class="search-cta">
         <div>
           <img src="../assets/icons/stormtrooper-icon-yellow.svg" alt="stormtrooper" class="trooper">
@@ -16,7 +16,7 @@
     </div>
       <div v-else class="character-cards">
           <CharacterCard
-          v-for="person in characters.people" :key="person.id"
+          v-for="person in characters" :key="person.id"
           :person="person"
           />
         </div>
@@ -31,7 +31,7 @@ import CharacterCard from '../components/CharacterCard'
 export default {
   computed: {
     characters(){
-          return this.$store.state.characterList
+          return this.$store.state.characterList?.people
       }
   },
   methods: {
