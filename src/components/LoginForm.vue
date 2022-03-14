@@ -19,7 +19,7 @@
   export default {
     computed: {
       authentication(){
-          return this.$Store.state.auth
+          return this.$store.state.auth
       }
     },
     mounted() {
