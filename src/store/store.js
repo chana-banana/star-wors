@@ -13,7 +13,15 @@ const store = createStore({
       characterList: {
         people: [],
         filter: '',
+      },
+      cart: {
+        items: []
       }
+    }
+  },
+  mutations: {
+    appendCart() {
+      return
     }
   },
   actions: {
