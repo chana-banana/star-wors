@@ -1,9 +1,9 @@
 <template>
   <div class="footer">
     <div>
-      <h3>
+      <h5>
       Created this app, I have - Chanlé
-      </h3>
+      </h5>
     </div>
     <div>
       <fa :icon="['fab', 'linkedin']" class="brand-link" />

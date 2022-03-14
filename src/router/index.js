@@ -7,17 +7,19 @@ const routes = [
   {
     path: '/',
     name: 'SearchView',
-    component: SearchView
+    component: SearchView,
   },
   {
     path: '/login',
     name: 'LoginView',
-    component: LoginView
+    component: LoginView,
+    meta: {isPublic: true}
   },
     {
     path: '/register',
     name: 'RegisterView',
-    component: RegisterView
+    component: RegisterView,
+    meta: {isPublic: true}
   }
 ]
 
