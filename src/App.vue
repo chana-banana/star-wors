@@ -1,7 +1,9 @@
 <template>
-  <Navbar v-if="!$route.meta.isPublic" />
-  <router-view/>
-  <FooterComponent v-if="!$route.meta.isPublic" />
+  <div>
+    <Navbar v-if="!$route.meta.isPublic" />
+      <router-view/>
+    <FooterComponent v-if="!$route.meta.isPublic" />
+  </div>
 </template>
 
 <script>
