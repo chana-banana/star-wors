@@ -28,30 +28,29 @@
 
 import CharacterCard from '../components/CharacterCard'
 
-    export default {
-      data() {
-        return {
-          people: [],
-          filter: '',
-        }
-      },
-      components: {
-      CharacterCard,
-      },
-      methods: {
-        fetchAllCharacters() {
-          fetch("https://swapi.dev/api/people")
-          .then(response => response.json())
-          .then(data => {
-            this.people.push(...data.results)
-        })
-          console.log(this.people)
-        }
-      },
-      beforeMount(){
-        this.fetchAllCharacters()
-      }
+export default {
+  data() {
+    return {
+      people: [],
+      filter: '',
     }
+  },
+  components: {
+  CharacterCard,
+  },
+  methods: {
+    fetchAllCharacters() {
+      fetch("https://swapi.dev/api/people")
+      .then(response => response.json())
+      .then(data => {
+        this.people.push(...data.results)
+    })
+    }
+  },
+  beforeMount(){
+    this.fetchAllCharacters()
+  }
+}
 </script>
 
 <style>
