@@ -1,6 +1,6 @@
 <template class="reverse">
   <div>
-    <div v-if="!people.length">
+    <div v-if="!characters.people.length">
       <div v-if="!filter" class="search-cta">
         <div>
           <img src="../assets/icons/stormtrooper-icon-yellow.svg" alt="stormtrooper" class="trooper">
@@ -16,7 +16,7 @@
     </div>
       <div v-else class="character-cards">
           <CharacterCard
-          v-for="person in people" :key="person.id"
+          v-for="person in characters.people" :key="person.id"
           :person="person"
           />
         </div>
@@ -29,26 +29,21 @@
 import CharacterCard from '../components/CharacterCard'
 
 export default {
-  data() {
-    return {
-      people: [],
-      filter: '',
-    }
-  },
-  components: {
-  CharacterCard,
+  computed: {
+    characters(){
+          return this.$store.state.characterList
+      }
   },
   methods: {
     fetchAllCharacters() {
-      fetch("https://swapi.dev/api/people")
-      .then(response => response.json())
-      .then(data => {
-        this.people.push(...data.results)
-    })
+      this.$store.dispatch('fetchAllCharacters')
     }
   },
+  components: {
+    CharacterCard,
+  },
   beforeMount(){
-    this.fetchAllCharacters()
+    this.$store.dispatch('fetchAllCharacters')
   }
 }
 </script>
