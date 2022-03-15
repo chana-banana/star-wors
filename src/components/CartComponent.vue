@@ -16,11 +16,38 @@
 </template>
 
 <style scoped>
-    .item-wrapper {
-        display: inline-flex;
-    }
+.cart-wrapper {
+    display: block;
+}
 
-    .quantity-wrapper {
-        display: flex;
-    }
+.item-wrapper {
+    display: inline-flex;
+}
+
+.quantity-wrapper {
+    display: flex;
+}
+
+.quantity {
+    border-radius: 5px;
+    border: 1px solid #ffe81f;
+    border-width: 2px;
+    background-color: transparent;
+    padding: 5px;
+}
+
+.quantity-icon, .remove-item {
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    padding: 0.5rem;
+    color: #ffe81f;
+    height: 15px;
+}
+
+.quantity-icon:hover, .remove-item:hover {
+    color: #ffffff;
+}
+
+
 </style>

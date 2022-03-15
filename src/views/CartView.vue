@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="cart-wrapper">
         <CartComponent />
         <CartSummary />
     </div>
@@ -17,3 +17,12 @@
 }
 
 </script>
+
+<style>
+    .cart-wrapper {
+        /* max-width: 80vw; */
+        display: flex;
+        justify-content: center;
+
+    }
+</style>
