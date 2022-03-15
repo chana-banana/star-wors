@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div>
-      <h5>
+      <h5 class="footer-txt">
       Created this app, I have - Chanlé
       </h5>
     </div>
@@ -17,6 +17,15 @@
   .brand-link {
       height: 30px;
       padding-left: 10px;
+      color: #000000;
+  }
+
+  .brand-link:hover {
+      color: #ffffff;
+  }
+
+  .footer-txt {
+    color: #000000;
   }
 
   .footer {
