@@ -14,7 +14,7 @@
             <div class="price-text">
                 <div>R100</div>
             </div>
-            <button @click="appendCart(person.name)" class="add-cart">
+            <button @click="addItemToCart(person.name)" class="add-cart">
                 <fa icon="plus" class="fa-plus" />
                 <img src="../assets/icons/cart-yellow.svg" alt="cart" class="cart-yellow">
                 <img src="../assets/icons/cart-black.svg" alt="cart" class="cart-black">
@@ -24,11 +24,16 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            person: Object
+export default {
+    props: {
+        person: Object
+    },
+    methods: {
+        addItemToCart(name) {
+            this.$store.dispatch('addItemToCart', name)
         }
-    }
+    },
+}
 </script>
 
 
@@ -108,6 +113,10 @@
 
 .arr-result {
     font-weight: 100;
+}
+
+.price-text {
+    font-weight: bold;
 }
 
 </style>

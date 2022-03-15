@@ -17,7 +17,7 @@ const store = createStore({
       cart: {
         items: [
           {
-            name: 'name',
+            id: 'name',
             count: 0,
           }
         ]
@@ -38,13 +38,20 @@ const store = createStore({
       })
     },
     addItemToCart(name){
-      let index = this.state.cart.items.filter(x => x.name === name)?.index
+      let index = this.state.cart.items.filter(x => x.id === name)?.index
+
       if(index){
         this.mutations.appendCart(index)
       }
-        else {
-          this.state.cart.items.push(...name)
+      else {
+        console.log(String(name))
+        var cartItemObject = {
+          id: name,
+          count: 1
         }
+        this.state.cart.items.push(cartItemObject)
+        console.log(cartItemObject)
+      }
     }
   }
 })

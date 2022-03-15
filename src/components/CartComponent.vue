@@ -3,7 +3,7 @@
         <div>Cart</div>
         <div class="item-wrapper">
             <div class="item-icon"></div>
-            <div class="item-name">Luke Skywalker</div>
+            <div class="item-name">{{ person }}</div>
             <div class="quantity-wrapper">
                 <button class="quantity-icon"><fa icon="minus" class="fa-quantity-icon" /></button>
                 <div class="quantity">02</div>
@@ -14,6 +14,14 @@
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        props: {
+            person: Object
+        }
+    }
+</script>
 
 <style scoped>
 .cart-wrapper {
