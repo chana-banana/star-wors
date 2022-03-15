@@ -15,13 +15,18 @@ const store = createStore({
         filter: '',
       },
       cart: {
-        items: []
+        items: [
+          {
+            name: 'name',
+            count: 0,
+          }
+        ]
       }
     }
   },
   mutations: {
-    appendCart() {
-      return
+    appendCart(index) {
+      this.state.cart.items[index].count +=1
     }
   },
   actions: {
@@ -31,6 +36,15 @@ const store = createStore({
       .then(data => {
         this.state.characterList.people.push(...data.results)
       })
+    },
+    addItemToCart(name){
+      let index = this.state.cart.items.filter(x => x.name === name)?.index
+      if(index){
+        this.mutations.appendCart(index)
+      }
+        else {
+          this.state.cart.items.push(...name)
+        }
     }
   }
 })

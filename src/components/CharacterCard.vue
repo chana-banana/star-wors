@@ -14,7 +14,7 @@
             <div class="price-text">
                 <div>R100</div>
             </div>
-            <button @click="appendCart" class="add-cart">
+            <button @click="appendCart(person.name)" class="add-cart">
                 <fa icon="plus" class="fa-plus" />
                 <img src="../assets/icons/cart-yellow.svg" alt="cart" class="cart-yellow">
                 <img src="../assets/icons/cart-black.svg" alt="cart" class="cart-black">
