@@ -26,16 +26,17 @@
 <script>
 export default {
     props: {
-        person: Object
+        person: Object,
     },
     methods: {
         addItemToCart(name) {
+            console.log(name)
             this.$store.dispatch('addItemToCart', name)
+            console.log(name)
         }
     },
 }
 </script>
-
 
 <style scoped>
 .card-wrapper {
