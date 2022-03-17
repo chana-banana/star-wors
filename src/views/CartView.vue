@@ -6,22 +6,22 @@
 </template>
 
 <script>
-    import CartComponent from '../components/CartComponent'
-    import CartSummary from '../components/CartSummary'
+import CartComponent from '../components/CartComponent'
+import CartSummary from '../components/CartSummary'
 
-    export default {
+export default {
     components: {
     CartComponent,
     CartSummary,
-  }
+    }
 }
 
 </script>
 
 <style>
-    .cart-wrapper {
-        display: flex;
-        justify-content: center;
+.cart-wrapper {
+    display: flex;
+    justify-content: center;
 
-    }
+}
 </style>
