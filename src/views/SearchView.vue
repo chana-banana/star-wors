@@ -34,15 +34,10 @@ export default {
           return this.$store.state.characterList?.people
       }
   },
-  methods: {
-    fetchAllCharacters() {
-      this.$store.dispatch('fetchAllCharacters')
-    }
-  },
   components: {
     CharacterCard,
   },
-  beforeMount(){
+  beforeMount(){ // life cycle hook
     this.$store.dispatch('fetchAllCharacters')
   }
 }

@@ -3,6 +3,7 @@ import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import SearchView from '../views/SearchView.vue'
 import DisplayView from '../views/DisplayView.vue'
+import CartView from '../views/CartView.vue'
 
 const routes = [
   {
@@ -23,9 +24,15 @@ const routes = [
     meta: {isPublic: true}
   },
   {
-    path: '/display',
+    path: '/display/:id',
     name: 'DisplayView',
-    component: DisplayView
+    component: DisplayView,
+    props: true
+  },
+  {
+    path: '/cart',
+    name: 'CartView',
+    component: CartView,
   }
 ]
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bio-wrapper">
+        <div class="bio-wrapper" v-if="person">
             <h4>{{ person.name }}</h4>
             <div><h5>Birth Year: &nbsp;</h5><h5>{{ person.birth_year }}</h5></div>
             <div><h5>Hair Color: &nbsp;</h5><h5>{{ person.hair_color }}</h5></div>

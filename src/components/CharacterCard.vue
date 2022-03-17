@@ -1,5 +1,5 @@
 <template>
-    <div class="card-wrapper">
+    <div class="card-wrapper" @click="viewCharacter">
         <div>
             <h4>{{ person.name }}</h4>
         </div>
@@ -14,7 +14,7 @@
             <div class="price-text">
                 <div>R100</div>
             </div>
-            <button class="add-cart">
+            <button @click.stop="addItemToCart(person.name)" class="add-cart">
                 <fa icon="plus" class="fa-plus" />
                 <img src="../assets/icons/cart-yellow.svg" alt="cart" class="cart-yellow">
                 <img src="../assets/icons/cart-black.svg" alt="cart" class="cart-black">
@@ -24,13 +24,20 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            person: Object
+export default {
+    props: {
+        person: Object,
+    },
+    methods: {
+        addItemToCart(name) {
+            this.$store.dispatch('addItemToCart', name)
+        },
+        viewCharacter() {
+            this.$router.push({ name: 'DisplayView', params: { id: this.person.name } })
         }
     }
+}
 </script>
-
 
 <style scoped>
 .card-wrapper {
@@ -43,6 +50,7 @@
     margin: 1rem 3rem;
     padding: 1rem;
     position: relative;
+    cursor: pointer;
 }
 
 .price-wrapper {
@@ -108,6 +116,10 @@
 
 .arr-result {
     font-weight: 100;
+}
+
+.price-text {
+    font-weight: bold;
 }
 
 </style>

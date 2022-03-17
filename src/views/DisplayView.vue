@@ -6,14 +6,22 @@
 </template>
 
 <script>
-    import CharacterDisplay from '../components/CharacterDisplay'
+import CharacterDisplay from '../components/CharacterDisplay'
 
 export default {
     props: {
-        name: String
+        id: { type: String, required: true }
     },
   components: {
     CharacterDisplay,
+  },
+  computed: {
+      person() {
+          return this.$store.state.characterList.people.find(item => item.name === this.id)
+      }
+  },
+  mounted() {
+      console.log(this.id)
   }
 }
 </script>
