@@ -30,9 +30,7 @@ export default {
     },
     methods: {
         addItemToCart(name) {
-            console.log(name)
             this.$store.dispatch('addItemToCart', name)
-            console.log(name)
         }
     },
 }
