@@ -8,12 +8,29 @@
     </div>
     <div class="nav-right">
       <router-link to=""><p>Order History</p></router-link>
+<<<<<<< HEAD
       <router-link to="/cart"><img src="../assets/icons/cart-yellow.svg" alt="cart" class="nav-icon"></router-link>
       <div class="cart-quantity">(0)</div>
       <router-link to="/login"><img src="../assets/icons/exit-yellow.svg" alt="exit" class="nav-icon"></router-link>
+=======
+      <router-link to=""><img src="../assets/icons/cart-yellow.svg" alt="cart" class="nav-icon"></router-link>
+      <div class="cart-quantity">({{ countItems }})</div>
+      <router-link to=""><img src="../assets/icons/exit-yellow.svg" alt="exit" class="nav-icon"></router-link>
+>>>>>>> develop
     </div>
   </nav>
 </template>
+
+
+<script>
+export default {
+    computed: {
+      countItems() {
+        return this.$store.state.cart?.totalCartCount
+      }
+    }
+}
+</script>
 
 <style scoped>
 

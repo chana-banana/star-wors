@@ -1,19 +1,27 @@
 <template>
-    <div>
+    <div class="cart-wrapper">
         <CartComponent />
         <CartSummary />
     </div>
 </template>
 
 <script>
-    import CartComponent from '../components/CartComponent'
-    import CartSummary from '../components/CartSummary'
+import CartComponent from '../components/CartComponent'
+import CartSummary from '../components/CartSummary'
 
-    export default {
+export default {
     components: {
-    CartComponent,
-    CartSummary,
-  }
+        CartComponent,
+        CartSummary,
+    }
 }
 
 </script>
+
+<style>
+.cart-wrapper {
+    display: flex;
+    justify-content: center;
+
+}
+</style>
