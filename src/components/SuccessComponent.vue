@@ -1,37 +1,65 @@
 <template>
-    <div>
-        <div class="r2d2-wrapper">
+    <div class="success-wrapper">
+        <div>
           <img src="../assets/icons/success-R2D2-yellow.svg" alt="R2D2" class="r2d2">
         </div>
-        <div>
+        <div class="success-right">
           <p class="hero-text">Success.. We have received the order we were looking for</p>
           <button class="back-btn"><router-link to="/cart">back to search</router-link></button>
         </div>
     </div>
 </template>
 
-<style>
-.r2d2-wrapper {
-    display: block;
-    justify-content: center;
-    align-items: center;
-  }
+<style scoped>
+.success-wrapper {
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90vw;
+  margin: auto;
+}
+
+.r2d2 {
+  max-width: 145px;
+}
 
 .back-btn {
-    background-color: #ffe81f;
-    border-radius: 5px;
-    border-color: #ffe81f;
-    color: #000000;
-    display: flex;
-    align-items: center;
-    padding: 0.5rem;
-    font-weight: bold;
+  background-color: #ffe81f;
+  border-radius: 5px;
+  border-color: #ffe81f;
+  color: #000000;
+  position: relative;
+  margin: 0 auto;
+  padding: 0.5rem;
+  font-weight: bold;
 }
 
 .back-btn:hover {
-    background-color: #000000;
-    border-color: #ffe81f;
-    color: #ffe81f;
+  background-color: #000000;
+  border-color: #ffe81f;
+  color: #ffe81f;
 }
+
+@media screen and (min-width: 1440px) {
+  .success-wrapper {
+    display: flex;
+    max-width: 80vw;
+  }
+
+  .r2d2 {
+    min-width: 460px;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .r2d2 {
+  min-width: 900px;
+}
+  }
+
+  @media screen and (min-width: 3072px) {
+
+  }
+
 </style>
 
