@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import SearchView from '../views/SearchView.vue'
+import CartView from '../views/CartView.vue'
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     name: 'RegisterView',
     component: RegisterView,
     meta: {isPublic: true}
+  },
+  {
+    path: '/cart',
+    name: 'CartView',
+    component: CartView,
   }
 ]
 
