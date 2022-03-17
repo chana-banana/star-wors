@@ -20,7 +20,6 @@
 
 <style>
     .cart-wrapper {
-        /* max-width: 80vw; */
         display: flex;
         justify-content: center;
 
