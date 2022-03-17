@@ -15,6 +15,7 @@ const store = createStore({
         filter: '',
       },
       cart: {
+        totalCartCount: 0,
         items: [ // array of objects
           { // object
             id: 'name', //string
@@ -26,7 +27,11 @@ const store = createStore({
   },
   mutations: {
     appendCart(state, index) { // index number
+      console.log(this.state.cart.items[index])
       this.state.cart.items[index].count +=1 // mutate count by adding 1
+    },
+    appendCartTotal(state) { // index number
+      state.cart.totalCartCount +=1 // mutate count by adding 1
     },
 
   },
@@ -40,18 +45,23 @@ const store = createStore({
     },
     addItemToCart({commit}, name){
       let findCharacter = (this.state.cart.items.find(x => x.id === name)) // object  - looking for object in array of objects using the name
-
+      console.log('addItemToCart')
+      console.log(findCharacter)
       if(findCharacter){
-        // store.commit('appendCart', index)
-        commit(this.mutations.appendCart, this.state.cart.items.indexOf(findCharacter));
+        console.log('found character')
+        console.log(this.state.cart.items.indexOf(findCharacter))
+        commit('appendCart', this.state.cart.items.indexOf(findCharacter));
       }
       else {
-        var cartItemObject = {
+        console.log('not found')
+        const cartItemObject = {
           id: name,
           count: 1
         }
         this.state.cart.items.push(cartItemObject)
       }
+
+      commit('appendCartTotal')
     }
   }
 })

@@ -20,7 +20,7 @@
 export default {
     computed: {
       countItems() {
-        return this.$store.state.cart?.items.length
+        return this.$store.state.cart?.totalCartCount
       }
     },
     props: {
