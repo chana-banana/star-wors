@@ -61,5 +61,3 @@ const store = createStore({
 })
 
 export default store
-
-// properties of undefined - the thing you are trying to change does nnot exist (cannot be read)

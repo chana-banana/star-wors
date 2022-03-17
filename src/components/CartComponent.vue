@@ -38,8 +38,7 @@
 
 .quantity {
     border-radius: 5px;
-    border: 1px solid #ffe81f;
-    border-width: 2px;
+    border: 2px solid #ffe81f;
     background-color: transparent;
     padding: 5px;
 }
