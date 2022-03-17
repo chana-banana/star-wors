@@ -1,17 +1,19 @@
 <template>
     <div>
-        <div>hallo</div>
-        <CharacterDisplay />
+        <CharacterDisplay
+        :person="person" />
     </div>
 </template>
 
 <script>
     import CharacterDisplay from '../components/CharacterDisplay'
 
-    export default {
-    components: {
-    CharacterDisplay
+export default {
+    props: {
+        name: String
+    },
+  components: {
+    CharacterDisplay,
   }
 }
-
 </script>
