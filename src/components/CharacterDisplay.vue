@@ -7,6 +7,7 @@
             <div class="atribute"><h5>Skin Color: &nbsp;</h5><h5 class="arr-result">{{ person.skin_color }}</h5></div>
             <div class="atribute"><h5>Eye Color: &nbsp;</h5><h5 class="arr-result">{{ person.eye_color }}</h5></div>
             <div class="atribute"><h5>Gender: &nbsp;</h5><h5 class="arr-result">{{ person.gender }}</h5></div>
+            <div class="atribute"><h5>Starships: &nbsp;</h5><h5 class="arr-result">{{ person.starships }}</h5></div>
 
             <div class="price-wrapper">
             <div class="price-text">
@@ -19,6 +20,21 @@
             </button>
             </div>
         </div>
+        <!-- <div class="container vue">
+            <div v-for="(group, name) in groups">
+                <a @click="group.open = !group.open" v-text="group.name"></a>
+                    <ul v-show="group.open">
+                        <li v-for="item in group.items" v-text="item"></li>
+                    </ul>
+                <hr>
+            </div>
+        </div> -->
+        <div @click="toggleAccordian" class="accordian-wrapper">
+            <button class="accordion">Films</button>
+                <div class="panel">
+                    <p>All the films</p>
+                </div>
+        </div>
     </div>
 </template>
 
@@ -28,10 +44,13 @@ export default {
         person: Object
     },
     methods: {
-    addItemToCart(name) {
-        this.$store.dispatch('addItemToCart', name)
+        addItemToCart(name) {
+            this.$store.dispatch('addItemToCart', name)
+        },
+        toggleAccordian() {
+            this.$store.dispatch('toggleAccordian')
+        }
     }
-}
 }
 </script>
 
@@ -42,7 +61,7 @@ export default {
     border-style: solid;
     border-color: #ffe81f;
     border-width: 2px;
-    margin: auto;
+    margin: 2rem auto;
     padding: 1rem;
     position: relative;
 }
@@ -106,5 +125,42 @@ export default {
 
 .arr-result {
     font-weight: 100;
+}
+
+/* accordian styling */
+
+/* .accordian-wrapper {
+  display: block;
+  justify-content: center;
+  align-items: center;
+} */
+
+.accordion {
+  background-color: #ffe81f;
+  color: #000000;
+  cursor: pointer;
+  padding: 18px;
+  width: 278px;
+  text-align: left;
+  font-weight: bold;
+  display: block;
+  border: none;
+  outline: none;
+  margin: auto;
+}
+
+
+/* .active, .accordion:hover {
+
+} */
+
+.panel {
+  padding: 0 1rem;
+  background-color: transparent;
+  border: 2px solid #ffe81f;
+  display: none;
+  overflow: hidden;
+  /* width: 278px */
+  text-align: left;
 }
 </style>
