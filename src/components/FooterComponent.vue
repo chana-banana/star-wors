@@ -1,13 +1,13 @@
 <template>
   <div class="footer">
     <div>
-      <h5>
+      <h5 class="footer-txt">
       Created this app, I have - Chanlé
       </h5>
     </div>
     <div>
-      <fa :icon="['fab', 'linkedin']" class="brand-link" />
-      <fa :icon="['fab', 'github']" class="brand-link" />
+      <a href="https://linkedin.com/in/chanlé-van-der-merwe-15506019b" target="_blank"><fa :icon="['fab', 'linkedin']" class="brand-link" /></a>
+      <a href="https://github.com/Chana-98" target="_blank"><fa :icon="['fab', 'github']" class="brand-link" /></a>
     </div>
   </div>
   </template>
@@ -17,6 +17,15 @@
   .brand-link {
       height: 30px;
       padding-left: 10px;
+      color: #000000;
+  }
+
+  .brand-link:hover {
+      color: #ffffff;
+  }
+
+  .footer-txt {
+    color: #000000;
   }
 
   .footer {

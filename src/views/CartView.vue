@@ -11,8 +11,8 @@ import CartSummary from '../components/CartSummary'
 
 export default {
     components: {
-    CartComponent,
-    CartSummary,
+        CartComponent,
+        CartSummary,
     }
 }
 

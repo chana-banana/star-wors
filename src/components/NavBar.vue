@@ -22,9 +22,6 @@ export default {
       countItems() {
         return this.$store.state.cart?.totalCartCount
       }
-    },
-    props: {
-        count: Number
     }
 }
 </script>

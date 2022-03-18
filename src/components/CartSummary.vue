@@ -14,8 +14,7 @@
 <style scoped>
 
 .wrapper-summary {
-  border-color: #ffe81f;
-  border-width: 3px;
+  border: 3px solid #ffe81f;
   width: 261px;
   height: 166px;
 }
