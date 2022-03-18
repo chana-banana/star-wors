@@ -14,6 +14,10 @@ const store = createStore({
         people: [],
         filter: '',
       },
+      starshipList: {
+        starships: [],
+        filter: '',
+      },
       cart: {
         totalCartCount: 0,
         items: [ // array of objects
@@ -39,7 +43,14 @@ const store = createStore({
       fetch(`${baseUrl}/people`)
       .then(response => response.json())
       .then(data => {
-        this.state.characterList.people.push(...data.results)
+        this.state.starshipList.people.push(...data.results)
+      })
+    },
+    fetchAllStarships() {
+      fetch(`${baseUrl}/starships`)
+      .then(response => response.json())
+      .then(data => {
+        this.state.characterList.starships.push(...data.results)
       })
     },
     addItemToCart({commit}, name){
