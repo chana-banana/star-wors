@@ -17,6 +17,7 @@
   align-items: center;
   max-width: 90vw;
   margin: auto;
+  padding-top: 75px;
 }
 
 .r2d2 {
@@ -40,6 +41,21 @@
   color: #ffe81f;
 }
 
+@media screen and (min-width: 768px) {
+  .success-wrapper {
+    padding-top: 170px;
+  }
+
+  .r2d2 {
+    min-width: 400px;
+    padding-bottom: 50px;
+  }
+
+  .hero-text {
+    font-size: 2.5rem;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .success-wrapper {
     display: flex;
@@ -49,17 +65,38 @@
   .r2d2 {
     min-width: 460px;
   }
+  .success-right {
+    max-width: 45vw;
+  }
 }
 
 @media screen and (min-width: 2560px) {
+  .success-wrapper {
+    padding-top: 300px;
+  }
+
   .r2d2 {
   min-width: 900px;
-}
   }
+
+  .hero-text {
+    font-size: 4rem;
+  }
+
+  .success-right {
+    max-width: 40vw;
+  }
+}
 
   @media screen and (min-width: 3072px) {
-
+    .r2d2 {
+  min-width: 1100px;
   }
+
+  .hero-text {
+    font-size: 5rem;
+  }
+}
 
 </style>
 
