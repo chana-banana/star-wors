@@ -87,6 +87,13 @@
   .success-right {
     max-width: 40vw;
   }
+
+  .back-btn {
+    height: 76px;
+    width: 300px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+  }
 }
 
   @media screen and (min-width: 3072px) {
