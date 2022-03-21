@@ -20,6 +20,12 @@ export default {
           return this.$store.state.characterList.people.find(item => item.name === this.id)
       }
   },
+  beforeMount(){ // life cycle hook
+    this.$store.dispatch('fetchAllFilms')
+    // this.$store.dispatch('fetchAllStarships')
+    // this.$store.dispatch('fetchAllSpecies')
+    // this.$store.dispatch('fetchAllVehicles')
+  },
   mounted() {
       console.log(this.id)
   }

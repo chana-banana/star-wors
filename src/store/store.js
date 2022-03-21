@@ -14,10 +14,22 @@ const store = createStore({
         people: [],
         filter: '',
       },
-      starshipList: {
-        starships: [],
+      filmList: {
+        films: [],
         filter: '',
       },
+      // starshipList: {
+      //   starships: [],
+      //   filter: '',
+      // },
+      // speciesList: {
+      //   species: [],
+      //   filter: '',
+      // },
+      // vehicleList: {
+      //   vehicles: [],
+      //   filter: '',
+      // },
       cart: {
         totalCartCount: 0,
         items: [ // array of objects
@@ -43,16 +55,38 @@ const store = createStore({
       fetch(`${baseUrl}/people`)
       .then(response => response.json())
       .then(data => {
-        this.state.starshipList.people.push(...data.results)
+        this.state.characterList.people.push(...data.results)
       })
     },
-    fetchAllStarships() {
-      fetch(`${baseUrl}/starships`)
+    fetchAllFilms() {
+      fetch(`${baseUrl}/films`)
       .then(response => response.json())
       .then(data => {
-        this.state.characterList.starships.push(...data.results)
+        this.state.filmList.films.push(...data.results)
       })
+      console.log(this.state.filmList.films)
     },
+    // fetchAllStarships() {
+    //   fetch(`${baseUrl}/starships`)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     this.state.starshipList.starships.push(...data.results)
+    //   })
+    // },
+    // fetchAllSpecies() {
+    //   fetch(`${baseUrl}/species`)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     this.state.speciesList.species.push(...data.results)
+    //   })
+    // },
+    // fetchAllVehicles() {
+    //   fetch(`${baseUrl}/vehicles`)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     this.state.vehicleList.vehicles.push(...data.results)
+    //   })
+    // },
     addItemToCart({commit}, name){
       let findCharacter = (this.state.cart.items.find(x => x.id === name)) // object  - looking for object in array of objects using the name
       if(findCharacter){

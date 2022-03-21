@@ -7,7 +7,8 @@
             <div class="atribute"><h5>Skin Color: &nbsp;</h5><h5 class="arr-result">{{ person.skin_color }}</h5></div>
             <div class="atribute"><h5>Eye Color: &nbsp;</h5><h5 class="arr-result">{{ person.eye_color }}</h5></div>
             <div class="atribute"><h5>Gender: &nbsp;</h5><h5 class="arr-result">{{ person.gender }}</h5></div>
-            <div class="atribute"><h5>Starships: &nbsp;</h5><h5 class="arr-result">{{ person.starships }}</h5></div>
+            <div class="atribute"><h5>Films: &nbsp;</h5><h5 class="arr-result">{{ person.films }}</h5></div>
+             <div class="atribute"><h5>Actual Films: &nbsp;</h5><h5 class="arr-result">{{  }}xx</h5></div>
 
             <div class="price-wrapper">
             <div class="price-text">
@@ -20,50 +21,30 @@
             </button>
             </div>
         </div>
-        <!-- <div class="container vue">
-            <div v-for="(group, name) in groups">
-                <a @click="group.open = !group.open" v-text="group.name"></a>
-                    <ul v-show="group.open">
-                        <li v-for="item in group.items" v-text="item"></li>
-                    </ul>
-                <hr>
-            </div>
-        </div> -->
-        <div @click="toggleAccordian" class="accordian-wrapper">
+        <!-- <div @click="toggleAccordian" class="accordian-wrapper">
             <button class="accordion">Films</button>
                 <div class="panel">
                     <p>All the films</p>
                 </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        person: Object
+        person: Object,
+        film: String
     },
     methods: {
         addItemToCart(name) {
             this.$store.dispatch('addItemToCart', name)
         },
-            toggleAccordian() {
-      var acc = document.getElementsByClassName("accordion");
-      var i;
-
-      for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click",
-        function() {
-          this.classList.toggle("active");        // Toggle between adding and removing the "active" class, to highlight the button that controls the panel
-          var panel = this.nextElementSibling;    // Toggle between hiding and showing the active panel
-        if (panel.style.display === "block") {
-          panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-          }
-        });
-      }
-    }
+        // displayCharacterFilms() {
+        //     .forEach(function (film) {
+        //         console.log(film)
+        //     }
+        // }
     }
 }
 </script>
@@ -142,13 +123,6 @@ export default {
 }
 
 /* accordian styling */
-
-/* .accordian-wrapper {
-  display: block;
-  justify-content: center;
-  align-items: center;
-} */
-
 .accordion {
   background-color: #ffe81f;
   color: #000000;
