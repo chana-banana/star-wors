@@ -1,7 +1,7 @@
 <template>
     <div class="success-wrapper">
         <div>
-          <img src="../assets/icons/success-R2D2-yellow.svg" alt="R2D2" class="r2d2">
+          <img src="../assets/icons/success-R2D2-yellow.svg" class="r2d2">
         </div>
         <div class="success-right">
           <p class="hero-text">Success.. We have received the order we were looking for</p>
@@ -13,8 +13,6 @@
 <style scoped>
 .success-wrapper {
   display: block;
-  justify-content: space-between;
-  align-items: center;
   max-width: 90vw;
   margin: auto;
   padding-top: 75px;
@@ -60,6 +58,8 @@
 @media screen and (min-width: 1440px) {
   .success-wrapper {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     max-width: 80vw;
   }
 
@@ -77,7 +77,7 @@
   }
 
   .r2d2 {
-  min-width: 900px;
+    min-width: 900px;
   }
 
   .hero-text {
@@ -96,9 +96,9 @@
   }
 }
 
-  @media screen and (min-width: 3072px) {
-    .r2d2 {
-  min-width: 1100px;
+@media screen and (min-width: 3072px) {
+  .r2d2 {
+    min-width: 1100px;
   }
 
   .hero-text {

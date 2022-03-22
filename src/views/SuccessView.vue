@@ -5,12 +5,12 @@
 </template>
 
 <script>
-    import SuccessComponent from '../components/SuccessComponent'
+import SuccessComponent from '../components/SuccessComponent'
 
-    export default {
+export default {
     components: {
-    SuccessComponent
-  }
+        SuccessComponent
+    }
 }
 
 </script>
