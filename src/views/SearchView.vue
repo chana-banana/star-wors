@@ -16,7 +16,8 @@
     </div>
       <div v-else class="character-cards">
           <CharacterCard
-          v-for="person in characters" :key="person.id"
+          v-for="person in characters"
+          :key="person.id"
           :person="person"
           />
         </div>

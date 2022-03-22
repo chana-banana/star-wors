@@ -66,6 +66,14 @@ const store = createStore({
       })
       console.log(this.state.filmList.films)
     },
+    compareCharacterFilms() {
+      let same = this.state.characterList.person.films.filter(x => this.state.filmList.films.url.includes(x));
+      if (same.length > 0) {
+        return same
+      } else if (same.length < 0) {
+              return ('no films')
+      }
+  },
     // fetchAllStarships() {
     //   fetch(`${baseUrl}/starships`)
     //   .then(response => response.json())

@@ -1,35 +1,24 @@
 <template>
     <div>
-        <div class="bio-wrapper" v-if="person">
-            <h4>{{ person.name }}</h4>
-            <div class="atribute"><h5>Birth Year: &nbsp;</h5><h5 class="arr-result">{{ person.birth_year }}</h5></div>
-            <div class="atribute"><h5>Hair Color: &nbsp;</h5><h5 class="arr-result">{{ person.hair_color }}</h5></div>
-            <div class="atribute"><h5>Skin Color: &nbsp;</h5><h5 class="arr-result">{{ person.skin_color }}</h5></div>
-            <div class="atribute"><h5>Eye Color: &nbsp;</h5><h5 class="arr-result">{{ person.eye_color }}</h5></div>
-            <div class="atribute"><h5>Gender: &nbsp;</h5><h5 class="arr-result">{{ person.gender }}</h5></div>
-
-            <div class="price-wrapper">
-            <div class="price-text">
-            <div>R100</div>
+        <div class="bio-wrapper" >
+            <h4>{{ title }}</h4>
+             <div class="atribute"><h5>Label: &nbsp;</h5><h5 class="arr-result">{{ nameList }}xx</h5></div>
             </div>
-            <button @click.stop="addItemToCart(person.name)" class="add-cart">
-            <fa icon="plus" class="fa-plus" />
-            <img src="../assets/icons/cart-yellow.svg" alt="cart" class="cart-yellow">
-            <img src="../assets/icons/cart-black.svg" alt="cart" class="cart-black">
-            </button>
-            </div>
-        </div>
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        person: Object,
+        title: String,
+        nameList: Array
     },
-    methods: {
-        addItemToCart(name) {
-            this.$store.dispatch('addItemToCart', name)
+    onMount() {
+        this.$store.dispatch('compareCharacterFilms')
+    },
+    computed: {
+        characterFilms() {
+            return this.$store.actions.compareCharacterFilms.same
         }
     }
 }
@@ -109,4 +98,33 @@ export default {
     font-weight: 100;
 }
 
+/* accordian styling */
+.accordion {
+  background-color: #ffe81f;
+  color: #000000;
+  cursor: pointer;
+  padding: 18px;
+  width: 278px;
+  text-align: left;
+  font-weight: bold;
+  display: block;
+  border: none;
+  outline: none;
+  margin: auto;
+}
+
+
+/* .active, .accordion:hover {
+
+} */
+
+.panel {
+  padding: 0 1rem;
+  background-color: transparent;
+  border: 2px solid #ffe81f;
+  display: none;
+  overflow: hidden;
+  /* width: 278px */
+  text-align: left;
+}
 </style>
