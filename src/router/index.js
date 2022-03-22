@@ -3,6 +3,7 @@ import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import SearchView from '../views/SearchView.vue'
 import DisplayView from '../views/DisplayView.vue'
+import SuccessView from '../views/SuccessView.vue'
 import CartView from '../views/CartView.vue'
 
 const routes = [
@@ -28,6 +29,12 @@ const routes = [
     name: 'DisplayView',
     component: DisplayView,
     props: true
+  },
+  {
+    path: '/success',
+    name: 'SuccessView',
+    component: SuccessView,
+    meta: {isPublic: true}
   },
   {
     path: '/cart',
