@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import SearchView from '../views/SearchView.vue'
+import SuccessView from '../views/SuccessView.vue'
 import CartView from '../views/CartView.vue'
 
 const routes = [
@@ -20,6 +21,12 @@ const routes = [
     path: '/register',
     name: 'RegisterView',
     component: RegisterView,
+    meta: {isPublic: true}
+  },
+  {
+    path: '/success',
+    name: 'SuccessView',
+    component: SuccessView,
     meta: {isPublic: true}
   },
   {
