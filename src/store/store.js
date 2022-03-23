@@ -18,6 +18,13 @@ const store = createStore({
         films: [],
         filter: '',
       },
+      characterItems: {
+        person: [],
+        films: [],
+        starships: [],
+        species: [],
+        vehicles: []
+      },
       // starshipList: {
       //   starships: [],
       //   filter: '',
@@ -66,14 +73,23 @@ const store = createStore({
       })
       console.log(this.state.filmList.films)
     },
+
+
+
+    characterSpecific() {
+      // let getPerson =
+      return this.$store.state.characterList.people.find(item => item.name === this.id)
+      // this.state.characterItems.person.push(getPerson)
+    },
     compareCharacterFilms() {
       let same = this.state.characterList.person.films.filter(x => this.state.filmList.films.url.includes(x));
       if (same.length > 0) {
-        return same
+        this.state.characterItems.films.push(...same) // using spread operator because of array within array?
       } else if (same.length < 0) {
               return ('no films')
       }
   },
+
     // fetchAllStarships() {
     //   fetch(`${baseUrl}/starships`)
     //   .then(response => response.json())

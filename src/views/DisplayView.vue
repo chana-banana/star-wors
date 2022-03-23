@@ -3,10 +3,9 @@
         <CharacterDisplay
         :person="person" ></CharacterDisplay>
         <AccordianComponent
-        v-for="film in films"
-        :key="film.id"
-        :film="same"
-        title="Films" />
+        title="Films"
+        :characterItems="characterItems"
+        />
         <!-- <AccordianComponent
         title="Starships" />
         <AccordianComponent
@@ -23,8 +22,6 @@ import AccordianComponent from '../components/AccordianComponent'
 export default {
     props: {
         id: { type: String, required: true },
-        same: Array
-
     },
   components: {
     CharacterDisplay,
@@ -32,11 +29,9 @@ export default {
   },
   computed: {
       person() {
-          return this.$store.state.characterList.people.find(item => item.name === this.id)
+          return this.$store.state.characterList.people.find(item => item.name === this.id) // create action  return this.$store.state.person
       },
-    //   characterFilms() {
-    //       return this.$store.actions.compareCharacterFilms.same
-    //   }
+
   },
   beforeMount(){ // life cycle hook
     this.$store.dispatch('fetchAllFilms')
@@ -45,11 +40,8 @@ export default {
     // this.$store.dispatch('fetchAllVehicles')
   },
   onMount() {
+    this.$store.dispatch('characterSpecific')  // create action person dispatch
     this.$store.dispatch('compareCharacterFilms')
   },
-  mounted() {
-      console.log(this.id)
-  },
-
 }
 </script>

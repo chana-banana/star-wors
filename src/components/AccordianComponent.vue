@@ -2,7 +2,7 @@
     <div>
         <div class="bio-wrapper" >
             <h4>{{ title }}</h4>
-             <div class="atribute"><h5>Label: &nbsp;</h5><h5 class="arr-result">{{ nameList }}xx</h5></div>
+             <div class="atribute"><h5>Label: &nbsp;</h5><h5 class="arr-result">{{  }}xx</h5></div> // characterItems.films
             </div>
     </div>
 </template>
@@ -11,7 +11,7 @@
 export default {
     props: {
         title: String,
-        nameList: Array
+        characterItems: Object
     },
     onMount() {
         this.$store.dispatch('compareCharacterFilms')
