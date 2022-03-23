@@ -1,7 +1,9 @@
 <template>
     <div>
         <div class="wrapper-summary">
-            <div class="summary-head">Summary</div>
+            <div class="summary-head">
+              <h5 class="summary-text">Summary</h5>
+            </div>
             <div class="summary-content">
               <div>Cart Total: &nbsp;</div>
               <div>R400</div>
@@ -25,12 +27,17 @@
 
 .summary-head {
   background-color: #ffe81f;
-  color: #000000;
   height: 43px;
+  text-align: left;
+  padding: 10px 20px;
 }
 .summary-content {
   display: flex;
   padding: 20px;
+}
+
+.summary-text {
+  color: #000000;
 }
 
 .checkout-btn {
