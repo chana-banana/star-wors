@@ -12,22 +12,25 @@
 </template>
 
 <style scoped>
+* {
+    font-weight: bold;
+}
 
 .wrapper-summary {
   border: 3px solid #ffe81f;
-  width: 261px;
+  width: 90vw;
   height: 166px;
+  margin: auto;
 }
 
 .summary-head {
   background-color: #ffe81f;
   color: #000000;
-  width: 261px;
   height: 43px;
-  font-weight: bold;
 }
 .summary-content {
   display: flex;
+  padding: 20px;
 }
 
 .checkout-btn {
@@ -37,7 +40,6 @@
     align-items: center;
     padding: 0.5rem;
     text-transform: uppercase;
-    font-weight: bold;
 }
 
 .checkout-btn:hover {

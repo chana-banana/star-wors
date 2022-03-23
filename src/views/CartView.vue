@@ -20,8 +20,12 @@ export default {
 
 <style>
 .cart-wrapper {
-    display: flex;
-    justify-content: center;
-
+    display: block;
 }
+
+@media screen and (min-width: 1024px) {
+.cart-wrapper {
+    display: flex;
+}
+  }
 </style>
