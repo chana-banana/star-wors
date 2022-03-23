@@ -52,6 +52,12 @@
     display: flex;
 }
 
+.item-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .cart-head {
     border-bottom: 2px solid #ffe81f;
     padding-bottom: 10px;
@@ -89,11 +95,19 @@
     display: none;
     width: 41px;
     height: 47px;
+    margin-right: 15px;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
     .user-icon {
         display: block;
     }
+
+    .cart-wrapper {
+        display: block;
+        min-width: 972px;
+    }
   }
+
+
 </style>

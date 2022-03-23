@@ -53,4 +53,11 @@
     background-color: #000000;
 }
 
+@media screen and (min-width: 1440px) {
+  .wrapper-summary {
+    width: 508px;
+    height: 166px;
+  }
+}
+
 </style>
