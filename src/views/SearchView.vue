@@ -41,6 +41,7 @@ export default {
   beforeMount(){ // life cycle hook
     this.$store.dispatch('fetchAllCharacters')
     this.$store.dispatch('fetchAllFilms')
+    this.$store.dispatch('fetchAllStarships')
   }
 }
 </script>

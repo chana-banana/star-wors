@@ -5,6 +5,14 @@
              <div class="atribute"><h5>Label: &nbsp;</h5><h5 class="arr-result">{{ data.title }}xx</h5></div>
             </div>
     </div>
+    <!-- <div class="bio-wrapper" v-if="data">
+            <h4>{{ title }}</h4>
+                <div
+                v-for="films in characterItems.films" :key="films"
+                class="atribute">
+                {{ data.title }}
+                </div>
+            </div> -->
 </template>
 
 <script>
@@ -15,6 +23,7 @@ export default {
     },
     onMount() {
         this.$store.dispatch('compareCharacterFilms')
+        this.$store.dispatch('compareCharacterStarships')
     }
 }
 

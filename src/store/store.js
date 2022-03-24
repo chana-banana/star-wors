@@ -18,6 +18,10 @@ const store = createStore({
         films: [],
         filter: '',
       },
+      starshipList: {
+        starships: [],
+        filter: '',
+      },
       characterItems: {
         person: [],
         films: [],
@@ -25,10 +29,6 @@ const store = createStore({
         species: [],
         vehicles: []
       },
-      // starshipList: {
-      //   starships: [],
-      //   filter: '',
-      // },
       // speciesList: {
       //   species: [],
       //   filter: '',
@@ -57,9 +57,9 @@ const store = createStore({
     },
     appendCharacter(state, character) {
       this.state.characterItems.person = character
-    }
-
+    },
   },
+
   actions: {
     fetchAllCharacters() {
       fetch(`${baseUrl}/people`)
@@ -75,37 +75,53 @@ const store = createStore({
         this.state.filmList.films.push(...data.results)
       })
     },
-
-
+    fetchAllStarships() {
+      fetch(`${baseUrl}/starships`)
+      .then(response => response.json())
+      .then(data => {
+        this.state.starshipList.starships.push(...data.results)
+      })
+    },
 
     characterSpecific({commit}, characterId) {
       let getPerson = this.state.characterList.people.find(item => item.name === characterId)
       commit('appendCharacter', getPerson)
     },
+
     compareCharacterFilms() {
-      // console.log(this.state.filmList.films)
-      let same = []
+        console.log(this.state.filmList.films)
+      let sameFilm = []
       this.state.characterItems.person.films.forEach(characterFilm => { // loop through all films of character
-        // console.log(characterFilm)
-        let foundFilm = this.state.filmList.films.find(film => film.url === characterFilm);
-        // console.log(foundFilm)
-        same.push(foundFilm)
+        console.log(characterFilm)
+      let foundFilm = this.state.filmList.films.find(film => film.url === characterFilm);
+        console.log(foundFilm)
+        sameFilm.push(foundFilm)
       });
-      // console.log(same)
-      if (same.length > 0) {
-        this.state.characterItems.films = same
-      } else if (same.length < 0) {
+        console.log(sameFilm)
+      if (sameFilm.length > 0) {
+        this.state.characterItems.films = sameFilm
+      } else if (sameFilm.length < 0) {
               return ('no films')
       }
   },
 
-    // fetchAllStarships() {
-    //   fetch(`${baseUrl}/starships`)
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     this.state.starshipList.starships.push(...data.results)
-    //   })
-    // },
+compareCharacterStarships() {
+    console.log(this.state.starshipList.starships) // happy
+    let sameShip = []
+    this.state.characterItems.person.starships.forEach(characterStarship => { // loop through all starships of character
+      console.log(characterStarship) // happy
+      let foundStarship = this.state.starshipList.starships.find(starship => starship.url === characterStarship);
+      console.log(foundStarship) // kinda happy - console logs fine but returns first ship right and second ship as undefined - only have first page of results currently!
+      sameShip.push(foundStarship)
+    });
+    console.log(sameShip) // kinda happy - same as previous
+    if (sameShip.length > 0) {
+      this.state.characterItems.starships = sameShip
+    } else if (sameShip.length < 0) {
+            return ('no starships')
+    }
+},
+
     // fetchAllSpecies() {
     //   fetch(`${baseUrl}/species`)
     //   .then(response => response.json())

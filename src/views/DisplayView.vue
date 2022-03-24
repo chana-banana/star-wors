@@ -6,9 +6,11 @@
         title="Films"
         :data="characterItems.films"
         />
-        <!-- <AccordianComponent
-        title="Starships" />
         <AccordianComponent
+        title="Starships"
+        :data="characterItems.starships"
+        />
+        <!-- <AccordianComponent
         title="Species" />
         <AccordianComponent
         title="Vehicles" /> -->
@@ -33,15 +35,10 @@ export default {
       },
 
   },
-  // async beforeMount(){ // life cycle hook
-  //   await this.$store.dispatch('fetchAllFilms')
-  //   // this.$store.dispatch('fetchAllStarships')
-  //   // this.$store.dispatch('fetchAllSpecies')
-  //   // this.$store.dispatch('fetchAllVehicles')
-  // },
   mounted() {
     this.$store.dispatch('characterSpecific', this.id)  // create action person dispatch
     this.$store.dispatch('compareCharacterFilms')
+    this.$store.dispatch('compareCharacterStarships')
   },
 }
 </script>
