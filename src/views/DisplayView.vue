@@ -1,10 +1,10 @@
 <template>
     <div>
         <CharacterDisplay
-        :person="person" ></CharacterDisplay>
+        :person="characterItems.person" ></CharacterDisplay>
         <AccordianComponent
         title="Films"
-        :characterItems="characterItems"
+        :data="characterItems.films"
         />
         <!-- <AccordianComponent
         title="Starships" />
@@ -28,19 +28,19 @@ export default {
     AccordianComponent
   },
   computed: {
-      person() {
-          return this.$store.state.characterList.people.find(item => item.name === this.id) // create action  return this.$store.state.person
+      characterItems() {
+          return this.$store.state.characterItems // create action  return this.$store.state.person
       },
 
   },
-  beforeMount(){ // life cycle hook
-    this.$store.dispatch('fetchAllFilms')
-    // this.$store.dispatch('fetchAllStarships')
-    // this.$store.dispatch('fetchAllSpecies')
-    // this.$store.dispatch('fetchAllVehicles')
-  },
-  onMount() {
-    this.$store.dispatch('characterSpecific')  // create action person dispatch
+  // async beforeMount(){ // life cycle hook
+  //   await this.$store.dispatch('fetchAllFilms')
+  //   // this.$store.dispatch('fetchAllStarships')
+  //   // this.$store.dispatch('fetchAllSpecies')
+  //   // this.$store.dispatch('fetchAllVehicles')
+  // },
+  mounted() {
+    this.$store.dispatch('characterSpecific', this.id)  // create action person dispatch
     this.$store.dispatch('compareCharacterFilms')
   },
 }

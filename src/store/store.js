@@ -55,6 +55,9 @@ const store = createStore({
     appendCartTotal(state) { // index number
       state.cart.totalCartCount +=1 // mutate count by adding 1
     },
+    appendCharacter(state, character) {
+      this.state.characterItems.person = character
+    }
 
   },
   actions: {
@@ -71,20 +74,26 @@ const store = createStore({
       .then(data => {
         this.state.filmList.films.push(...data.results)
       })
-      console.log(this.state.filmList.films)
     },
 
 
 
-    characterSpecific() {
-      // let getPerson =
-      return this.$store.state.characterList.people.find(item => item.name === this.id)
-      // this.state.characterItems.person.push(getPerson)
+    characterSpecific({commit}, characterId) {
+      let getPerson = this.state.characterList.people.find(item => item.name === characterId)
+      commit('appendCharacter', getPerson)
     },
     compareCharacterFilms() {
-      let same = this.state.characterList.person.films.filter(x => this.state.filmList.films.url.includes(x));
+      // console.log(this.state.filmList.films)
+      let same = []
+      this.state.characterItems.person.films.forEach(characterFilm => { // loop through all films of character
+        // console.log(characterFilm)
+        let foundFilm = this.state.filmList.films.find(film => film.url === characterFilm);
+        // console.log(foundFilm)
+        same.push(foundFilm)
+      });
+      // console.log(same)
       if (same.length > 0) {
-        this.state.characterItems.films.push(...same) // using spread operator because of array within array?
+        this.state.characterItems.films = same
       } else if (same.length < 0) {
               return ('no films')
       }

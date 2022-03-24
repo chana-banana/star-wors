@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="bio-wrapper" >
+        <div class="bio-wrapper">
             <h4>{{ title }}</h4>
-             <div class="atribute"><h5>Label: &nbsp;</h5><h5 class="arr-result">{{  }}xx</h5></div> // characterItems.films
+             <div class="atribute"><h5>Label: &nbsp;</h5><h5 class="arr-result">{{ data.title }}xx</h5></div>
             </div>
     </div>
 </template>
@@ -11,15 +11,10 @@
 export default {
     props: {
         title: String,
-        characterItems: Object
+        data: Object
     },
     onMount() {
         this.$store.dispatch('compareCharacterFilms')
-    },
-    computed: {
-        characterFilms() {
-            return this.$store.actions.compareCharacterFilms.same
-        }
     }
 }
 
