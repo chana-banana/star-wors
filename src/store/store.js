@@ -58,6 +58,12 @@ const store = createStore({
     appendCharacter(state, character) {
       this.state.characterItems.person = character
     },
+    updateCharacterItems (state, data) {
+      this.state.characterItems = {
+        ...state.characterItems,
+        ...data
+      }
+    }
   },
 
   actions: {
@@ -88,38 +94,45 @@ const store = createStore({
       commit('appendCharacter', getPerson)
     },
 
-    compareCharacterFilms() {
-        console.log(this.state.filmList.films)
+    compareCharacterFilms({commit}) {
+        // console.log(this.state.filmList.films)
       let sameFilm = []
       this.state.characterItems.person.films.forEach(characterFilm => { // loop through all films of character
-        console.log(characterFilm)
+        // console.log(characterFilm)
       let foundFilm = this.state.filmList.films.find(film => film.url === characterFilm);
-        console.log(foundFilm)
-        sameFilm.push(foundFilm)
+        // console.log(foundFilm)
+        if (foundFilm) {
+          sameFilm.push(foundFilm)
+        }
       });
-        console.log(sameFilm)
+        // console.log(sameFilm)
       if (sameFilm.length > 0) {
-        this.state.characterItems.films = sameFilm
+        commit('updateCharacterItems', {films: sameFilm});
+
       } else if (sameFilm.length < 0) {
               return ('no films')
       }
+      commit('updateCharacterItems')
   },
 
-compareCharacterStarships() {
-    console.log(this.state.starshipList.starships) // happy
+compareCharacterStarships({commit}) {
+    console.log(this.state.starshipList.starships)
     let sameShip = []
     this.state.characterItems.person.starships.forEach(characterStarship => { // loop through all starships of character
-      console.log(characterStarship) // happy
+      // console.log(characterStarship) // happy
       let foundStarship = this.state.starshipList.starships.find(starship => starship.url === characterStarship);
-      console.log(foundStarship) // kinda happy - console logs fine but returns first ship right and second ship as undefined - only have first page of results currently!
-      sameShip.push(foundStarship)
+      // console.log(this.state.starshipList.starships)
+      if (foundStarship) {
+        sameShip.push(foundStarship)
+      }
     });
-    console.log(sameShip) // kinda happy - same as previous
+    // console.log(sameShip)
     if (sameShip.length > 0) {
-      this.state.characterItems.starships = sameShip
+      commit('updateCharacterItems', {starships: sameShip});
     } else if (sameShip.length < 0) {
             return ('no starships')
     }
+    commit('updateCharacterItems')
 },
 
     // fetchAllSpecies() {

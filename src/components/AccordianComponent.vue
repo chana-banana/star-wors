@@ -1,29 +1,29 @@
 <template>
     <div>
-        <div class="bio-wrapper">
+        <!-- <div class="bio-wrapper">
             <h4>{{ title }}</h4>
              <div class="atribute"><h5>Label: &nbsp;</h5><h5 class="arr-result">{{ data.title }}xx</h5></div>
             </div>
-    </div>
-    <!-- <div class="bio-wrapper" v-if="data">
+    </div> -->
+    <div class="bio-wrapper" v-if="items.length">
             <h4>{{ title }}</h4>
                 <div
-                v-for="films in characterItems.films" :key="films"
-                class="atribute">
-                {{ data.title }}
+                    v-for="item in items" :key="item"
+                    class="atribute">
+                    {{ title === 'Films' ? item.title : item.name }}
                 </div>
-            </div> -->
+            </div>
+            </div>
 </template>
 
 <script>
 export default {
     props: {
         title: String,
-        data: Object
+        items: Array
     },
-    onMount() {
-        this.$store.dispatch('compareCharacterFilms')
-        this.$store.dispatch('compareCharacterStarships')
+    mounted() {
+        console.log(this.items)
     }
 }
 

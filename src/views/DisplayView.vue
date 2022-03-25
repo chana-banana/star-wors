@@ -4,12 +4,12 @@
         :person="characterItems.person" ></CharacterDisplay>
         <AccordianComponent
         title="Films"
-        :data="characterItems.films"
-        />
-        <AccordianComponent
+        :items="films"
+        ></AccordianComponent>
+        <!-- <AccordianComponent
         title="Starships"
-        :data="characterItems.starships"
-        />
+        :items="characterItems.starships?.map(ship => ship.name)"
+        ></AccordianComponent> -->
         <!-- <AccordianComponent
         title="Species" />
         <AccordianComponent
@@ -33,10 +33,14 @@ export default {
       characterItems() {
           return this.$store.state.characterItems // create action  return this.$store.state.person
       },
-
+      films(){
+        return this.characterItems?.films?.map(film => film.title)
+      }
   },
   mounted() {
     this.$store.dispatch('characterSpecific', this.id)  // create action person dispatch
+    this.$store.dispatch('compareCharacterFilms')
+    this.$store.dispatch('compareCharacterStarships')
     this.$store.dispatch('compareCharacterFilms')
     this.$store.dispatch('compareCharacterStarships')
   },
