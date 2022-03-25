@@ -10,10 +10,10 @@
         title="Starships"
         :items="characterItems.starships?.map(ship => ship.name)"
         ></AccordianComponent>
-        <!-- <AccordianComponent
+        <AccordianComponent
         title="Species" />
         <AccordianComponent
-        title="Vehicles" /> -->
+        title="Vehicles" />
     </div>
 </template>
 
@@ -22,8 +22,8 @@ import CharacterDisplay from '../components/CharacterDisplay'
 import AccordianComponent from '../components/AccordianComponent'
 
 export default {
-    props: {
-        id: { type: String, required: true },
+  props: {
+    id: { type: String, required: true },
     },
   components: {
     CharacterDisplay,
