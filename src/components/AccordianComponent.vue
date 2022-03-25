@@ -1,16 +1,11 @@
 <template>
     <div>
-        <!-- <div class="bio-wrapper">
-            <h4>{{ title }}</h4>
-             <div class="atribute"><h5>Label: &nbsp;</h5><h5 class="arr-result">{{ data.title }}xx</h5></div>
-            </div>
-    </div> -->
     <div class="bio-wrapper" v-if="items.length">
             <h4>{{ title }}</h4>
                 <div
                     v-for="item in items" :key="item"
                     class="atribute">
-                    {{ title === 'Films' ? item.title : item.name }}
+                    {{ item }}
                 </div>
             </div>
             </div>
@@ -21,9 +16,6 @@ export default {
     props: {
         title: String,
         items: Array
-    },
-    mounted() {
-        console.log(this.items)
     }
 }
 
