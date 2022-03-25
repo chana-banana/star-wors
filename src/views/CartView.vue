@@ -22,10 +22,5 @@ export default {
 .cart-wrapper {
     display: block;
 }
-/*
-@media screen and (min-width: 1440px) {
-    .cart-wrapper {
-        display: flex;
-    }
-} */
+
 </style>
