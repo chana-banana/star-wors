@@ -88,6 +88,20 @@ actions: {
       this.state.starshipList.starships.push(...data.results)
     })
   },
+  fetchAllSpecies() {
+    fetch(`${baseUrl}/species`)
+    .then(response => response.json())
+    .then(data => {
+      this.state.speciesList.species.push(...data.results)
+    })
+  },
+  fetchAllVehicles() {
+    fetch(`${baseUrl}/vehicles`)
+    .then(response => response.json())
+    .then(data => {
+      this.state.vehicleList.vehicles.push(...data.results)
+    })
+  },
 
   characterSpecific({commit}, characterId) {
     let getPerson = this.state.characterList.people.find(item => item.name === characterId)
@@ -108,31 +122,42 @@ actions: {
   },
 
   compareCharacterStarships({commit}) {
-      let sameShip = []
-      this.state.characterItems.person.starships.forEach(characterStarship => { // loop through all starships of character
-        let foundStarship = this.state.starshipList.starships.find(starship => starship.url === characterStarship);
-        if (foundStarship) {
-          sameShip.push(foundStarship)
-        }
-      });
-      if (sameShip.length > 0) {
-        commit('updateCharacterItems', {starships: sameShip});
+    let sameShip = []
+    this.state.characterItems.person.starships.forEach(characterStarship => { // loop through all starships of character
+      let foundStarship = this.state.starshipList.starships.find(starship => starship.url === characterStarship);
+      if (foundStarship) {
+        sameShip.push(foundStarship)
       }
+    });
+    if (sameShip.length > 0) {
+      commit('updateCharacterItems', {starships: sameShip});
+    }
+},
+
+  compareCharacterSpecies({commit}) {
+    let sameSpecies = []
+    this.state.characterItems.person.species.forEach(characterSpecies => { // loop through all starships of character
+      let foundSpecies = this.state.speciesList.species.find(species => species.url === characterSpecies);
+      if (foundSpecies) {
+        sameSpecies.push(foundSpecies)
+      }
+    });
+    if (sameSpecies.length > 0) {
+      commit('updateCharacterItems', {species: sameSpecies});
+    }
   },
 
-  fetchAllSpecies() {
-    fetch(`${baseUrl}/species`)
-    .then(response => response.json())
-    .then(data => {
-      this.state.speciesList.species.push(...data.results)
-    })
-  },
-  fetchAllVehicles() {
-    fetch(`${baseUrl}/vehicles`)
-    .then(response => response.json())
-    .then(data => {
-      this.state.vehicleList.vehicles.push(...data.results)
-    })
+  compareCharacterVehicles({commit}) {
+    let sameVehicles = []
+    this.state.characterItems.person.vehicles.forEach(characterVehicles => { // loop through all starships of character
+      let foundVehicles = this.state.vehicleList.vehicles.find(vehicles => vehicles.url === characterVehicles);
+      if (foundVehicles) {
+        sameVehicles.push(foundVehicles)
+      }
+    });
+    if (sameVehicles.length > 0) {
+      commit('updateCharacterItems', {vehicles: sameVehicles});
+    }
   },
 
   addItemToCart({commit}, name){

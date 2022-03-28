@@ -10,9 +10,13 @@
         :items="characterItems.starships?.map(ship => ship.name)"
         ></AccordianComponent>
         <AccordianComponent
-        title="Species" />
+        title="Species"
+        :items="characterItems.species?.map(species => species.name)"
+        ></AccordianComponent>
         <AccordianComponent
-        title="Vehicles" />
+        title="Vehicles"
+        :items="characterItems.vehicles?.map(vehicles => vehicles.name)"
+        ></AccordianComponent>
     </div>
 </template>
 
@@ -37,6 +41,8 @@ export default {
     this.$store.dispatch('characterSpecific', this.id)  // create action person dispatch
     this.$store.dispatch('compareCharacterFilms')
     this.$store.dispatch('compareCharacterStarships')
+    this.$store.dispatch('compareCharacterSpecies')
+    this.$store.dispatch('compareCharacterVehicles')
   },
 }
 </script>
