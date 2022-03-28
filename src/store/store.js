@@ -104,11 +104,7 @@ actions: {
     });
     if (sameFilm.length > 0) {
       commit('updateCharacterItems', {films: sameFilm});
-
-    } else if (sameFilm.length < 0) {
-            return ('no films')
     }
-    commit('updateCharacterItems')
   },
 
   compareCharacterStarships({commit}) {
@@ -121,31 +117,28 @@ actions: {
       });
       if (sameShip.length > 0) {
         commit('updateCharacterItems', {starships: sameShip});
-      } else if (sameShip.length < 0) {
-              return ('no starships')
       }
-      commit('updateCharacterItems')
   },
 
-    fetchAllSpecies() {
-      fetch(`${baseUrl}/species`)
-      .then(response => response.json())
-      .then(data => {
-        this.state.speciesList.species.push(...data.results)
-      })
-    },
-    fetchAllVehicles() {
-      fetch(`${baseUrl}/vehicles`)
-      .then(response => response.json())
-      .then(data => {
-        this.state.vehicleList.vehicles.push(...data.results)
-      })
-    },
+  fetchAllSpecies() {
+    fetch(`${baseUrl}/species`)
+    .then(response => response.json())
+    .then(data => {
+      this.state.speciesList.species.push(...data.results)
+    })
+  },
+  fetchAllVehicles() {
+    fetch(`${baseUrl}/vehicles`)
+    .then(response => response.json())
+    .then(data => {
+      this.state.vehicleList.vehicles.push(...data.results)
+    })
+  },
 
   addItemToCart({commit}, name){
-    let findCharacter = (this.state.cart.items.find(x => x.id === name)) // object  - looking for object in array of objects using the name
-    if(findCharacter){
-      commit('appendCart', this.state.cart.items.indexOf(findCharacter));
+    let foundCharacter = (this.state.cart.items.find(x => x.id === name)) // object  - looking for object in array of objects using the name
+    if(foundCharacter){
+      commit('appendCart', this.state.cart.items.indexOf(foundCharacter));
     }
     else {
       const cartItemObject = {
@@ -154,8 +147,7 @@ actions: {
       }
       this.state.cart.items.push(cartItemObject)
     }
-
-    commit('appendCartTotal')
+      commit('appendCartTotal')
   },
 }
 })

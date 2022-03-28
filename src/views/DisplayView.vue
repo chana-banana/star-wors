@@ -1,10 +1,9 @@
 <template>
     <div>
-        <CharacterDisplay
-        :person="characterItems.person" ></CharacterDisplay>
+        <CharacterDisplay :person="characterItems.person" ></CharacterDisplay>
         <AccordianComponent
         title="Films"
-        :items="films"
+        :items="characterItems.films?.map(film => film.title)"
         ></AccordianComponent>
         <AccordianComponent
         title="Starships"
@@ -32,9 +31,6 @@ export default {
   computed: {
       characterItems() {
           return this.$store.state.characterItems // create action  return this.$store.state.person
-      },
-      films(){
-        return this.characterItems?.films?.map(film => film.title)
       }
   },
   mounted() {

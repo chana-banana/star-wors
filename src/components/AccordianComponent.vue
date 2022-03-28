@@ -1,14 +1,14 @@
 <template>
     <div>
-    <div class="bio-wrapper" v-if="items.length">
+        <div class="bio-wrapper">
             <h4>{{ title }}</h4>
                 <div
                     v-for="item in items" :key="item"
                     class="atribute">
                     {{ item }}
                 </div>
-            </div>
-            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -25,9 +25,7 @@ export default {
 .bio-wrapper {
     width: 278px;
     min-height: 344px;
-    border-style: solid;
-    border-color: #ffe81f;
-    border-width: 2px;
+    border: solid 2px #ffe81f;
     margin: 2rem auto;
     padding: 1rem;
     position: relative;
