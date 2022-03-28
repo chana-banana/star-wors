@@ -20,8 +20,7 @@ export default {
 
 <style>
 .cart-wrapper {
-    display: flex;
-    justify-content: center;
-
+    display: block;
 }
+
 </style>

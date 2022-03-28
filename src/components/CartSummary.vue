@@ -1,7 +1,9 @@
 <template>
     <div>
         <div class="wrapper-summary">
-            <div class="summary-head">Summary</div>
+            <div class="summary-head">
+              <h5 class="summary-text">Summary</h5>
+            </div>
             <div class="summary-content">
               <div>Cart Total: &nbsp;</div>
               <div>R400</div>
@@ -12,22 +14,30 @@
 </template>
 
 <style scoped>
+* {
+    font-weight: bold;
+}
 
 .wrapper-summary {
   border: 3px solid #ffe81f;
-  width: 261px;
+  width: 90vw;
   height: 166px;
+  margin: auto;
 }
 
 .summary-head {
   background-color: #ffe81f;
-  color: #000000;
-  width: 261px;
   height: 43px;
-  font-weight: bold;
+  text-align: left;
+  padding: 10px 20px;
 }
 .summary-content {
   display: flex;
+  padding: 20px;
+}
+
+.summary-text {
+  color: #000000;
 }
 
 .checkout-btn {
@@ -37,11 +47,17 @@
     align-items: center;
     padding: 0.5rem;
     text-transform: uppercase;
-    font-weight: bold;
 }
 
 .checkout-btn:hover {
     background-color: #000000;
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapper-summary {
+    width: 508px;
+    height: 166px;
+  }
 }
 
 </style>
