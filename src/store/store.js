@@ -84,7 +84,7 @@ actions: {
       } catch (err) {
         console.error(`Oeps, something is wrong ${err}`)
       }
-    } while (lastResult.next !== null || page < 5); // keep running until there's no next page
+    } while (lastResult.next !== null || page === 4); // keep running until there's no next page
     console.log(this.characterList.people)
   }
 
