@@ -22,13 +22,6 @@ const store = createStore({
         starships: [],
         filter: '',
       },
-      characterItems: {
-        person: [],
-        films: [],
-        starships: [],
-        species: [],
-        vehicles: []
-      },
       speciesList: {
         species: [],
         filter: '',
@@ -37,6 +30,14 @@ const store = createStore({
         vehicles: [],
         filter: '',
       },
+      characterItems: {
+        person: [],
+        films: [],
+        starships: [],
+        species: [],
+        vehicles: []
+      },
+
       cart: {
         totalCartCount: 0,
         items: [ // array of objects
@@ -68,12 +69,26 @@ mutations: {
 
 actions: {
   fetchAllCharacters() {
-    fetch(`${baseUrl}/people`)
-    .then(response => response.json())
-    .then(data => {
-      this.state.characterList.people.push(...data.results)
-    })
-  },
+    let page = 1;
+    let lastResult = [];
+    do{
+      try {
+        fetch(`${baseUrl}${page}/people`)
+        .then(response => response.json())
+        .then(data => {
+          this.state.characterList.people.push(...data.results)
+          this.lastResult = data
+        });
+        console.log(this.lastResult)
+          page++; // increment the page with 1 on each loop
+      } catch (err) {
+        console.error(`Oeps, something is wrong ${err}`)
+      }
+    } while (lastResult.next !== null || page < 5); // keep running until there's no next page
+    console.log(this.characterList.people)
+  }
+
+},
   fetchAllFilms() {
     fetch(`${baseUrl}/films`)
     .then(response => response.json())
@@ -174,7 +189,6 @@ actions: {
     }
       commit('appendCartTotal')
   },
-}
 })
 
 export default store
