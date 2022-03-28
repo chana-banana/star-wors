@@ -1,24 +1,23 @@
 <template>
-    <div class="card-wrapper" @click="viewCharacter">
-        <div>
+    <div>
+        <div class="bio-wrapper" v-if="person">
             <h4>{{ person.name }}</h4>
-        </div>
-        <div class="character-arr">
             <div class="atribute"><h5>Birth Year: &nbsp;</h5><h5 class="arr-result">{{ person.birth_year }}</h5></div>
             <div class="atribute"><h5>Hair Color: &nbsp;</h5><h5 class="arr-result">{{ person.hair_color }}</h5></div>
             <div class="atribute"><h5>Skin Color: &nbsp;</h5><h5 class="arr-result">{{ person.skin_color }}</h5></div>
             <div class="atribute"><h5>Eye Color: &nbsp;</h5><h5 class="arr-result">{{ person.eye_color }}</h5></div>
             <div class="atribute"><h5>Gender: &nbsp;</h5><h5 class="arr-result">{{ person.gender }}</h5></div>
-        </div>
-        <div class="price-wrapper">
+
+            <div class="price-wrapper">
             <div class="price-text">
-                <div>R100</div>
+            <div>R100</div>
             </div>
             <button @click.stop="addItemToCart(person.name)" class="add-cart">
-                <fa icon="plus" class="fa-plus" />
-                <img src="../assets/icons/cart-yellow.svg" alt="cart" class="cart-yellow">
-                <img src="../assets/icons/cart-black.svg" alt="cart" class="cart-black">
+            <fa icon="plus" class="fa-plus" />
+            <img src="../assets/icons/cart-yellow.svg" alt="cart" class="cart-yellow">
+            <img src="../assets/icons/cart-black.svg" alt="cart" class="cart-black">
             </button>
+            </div>
         </div>
     </div>
 </template>
@@ -31,26 +30,22 @@ export default {
     methods: {
         addItemToCart(name) {
             this.$store.dispatch('addItemToCart', name)
-        },
-        viewCharacter() {
-            this.$router.push({ name: 'DisplayView', params: { id: this.person.name } })
         }
     }
 }
+
 </script>
 
 <style scoped>
-.card-wrapper {
-    width: 243px;
+.bio-wrapper {
+    width: 278px;
     min-height: 344px;
     border-style: solid;
     border-color: #ffe81f;
-    border-radius: 13px;
     border-width: 2px;
-    margin: 1rem 3rem;
+    margin: 2rem auto;
     padding: 1rem;
     position: relative;
-    cursor: pointer;
 }
 
 .price-wrapper {
@@ -105,10 +100,6 @@ export default {
     margin: 5px;
 }
 
-.character-arr {
-    display: block;
-}
-
 .atribute {
     display: flex;
     padding: 0.75rem 0;
@@ -116,10 +107,6 @@ export default {
 
 .arr-result {
     font-weight: 100;
-}
-
-.price-text {
-    font-weight: bold;
 }
 
 </style>
