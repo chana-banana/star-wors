@@ -82,7 +82,6 @@ actions: {
             .then(data => {
               this.state.characterList.people.push(...data.results)
               lastResult = data
-              console.log(lastResult)
             });
              // increment the page with 1 on each loop
       } catch (err) {
@@ -90,7 +89,6 @@ actions: {
       }
       page++;
     } while (lastResult.next === null || page < 10)
-      console.log('After loop')
 },
   fetchAllFilms() {
     fetch(`${baseUrl}/films`)
