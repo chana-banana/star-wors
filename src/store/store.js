@@ -98,12 +98,27 @@ actions: {
     })
   },
   fetchAllStarships() {
-    fetch(`${baseUrl}/starships`)
-    .then(response => response.json())
-    .then(data => {
-      this.state.starshipList.starships.push(...data.results)
-    })
-  },
+    let page = 1;
+    let lastResult = {};
+    var directPath = '/starships/';
+
+    do {
+      var queryParams = `?page=${page}`
+
+      try {
+        fetch(`${baseUrl}${directPath}${queryParams}`) // if st om te check of daar klaar data is, then  no run again
+            .then(response => response.json())
+            .then(data => {
+              this.state.starshipList.starships.push(...data.results)
+              lastResult = data
+            });
+             // increment the page with 1 on each loop
+      } catch (err) {
+        console.error(`Oops, something is wrong ${err}`)
+      }
+      page++;
+    } while (lastResult.next === null || page < 4)
+},
   fetchAllSpecies() {
     fetch(`${baseUrl}/species`)
     .then(response => response.json())
