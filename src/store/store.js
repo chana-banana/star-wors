@@ -22,13 +22,6 @@ const store = createStore({
         starships: [],
         filter: '',
       },
-      characterItems: {
-        person: [],
-        films: [],
-        starships: [],
-        species: [],
-        vehicles: []
-      },
       speciesList: {
         species: [],
         filter: '',
@@ -37,6 +30,14 @@ const store = createStore({
         vehicles: [],
         filter: '',
       },
+      characterItems: {
+        person: [],
+        films: [],
+        starships: [],
+        species: [],
+        vehicles: []
+      },
+
       cart: {
         totalCartCount: 0,
         items: [ // array of objects
@@ -68,12 +69,27 @@ mutations: {
 
 actions: {
   fetchAllCharacters() {
-    fetch(`${baseUrl}/people`)
-    .then(response => response.json())
-    .then(data => {
-      this.state.characterList.people.push(...data.results)
-    })
-  },
+    let page = 1;
+    let lastResult = {};
+    var directPath = '/people/';
+
+    do {
+      var queryParams = `?page=${page}`
+
+      try {
+        fetch(`${baseUrl}${directPath}${queryParams}`) // if st om te check of daar klaar data is, then  no run again
+            .then(response => response.json())
+            .then(data => {
+              this.state.characterList.people.push(...data.results)
+              lastResult = data
+            });
+             // increment the page with 1 on each loop
+      } catch (err) {
+        console.error(`Oops, something is wrong ${err}`)
+      }
+      page++;
+    } while (lastResult.next === null || page < 10)
+},
   fetchAllFilms() {
     fetch(`${baseUrl}/films`)
     .then(response => response.json())
@@ -174,7 +190,6 @@ actions: {
     }
       commit('appendCartTotal')
   },
-}
-})
+}})
 
 export default store
