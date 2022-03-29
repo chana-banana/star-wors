@@ -70,24 +70,27 @@ mutations: {
 actions: {
   fetchAllCharacters() {
     let page = 1;
-    let lastResult = [];
-    do{
-      try {
-        fetch(`${baseUrl}${page}/people`)
-        .then(response => response.json())
-        .then(data => {
-          this.state.characterList.people.push(...data.results)
-          this.lastResult = data
-        });
-        console.log(this.lastResult)
-          page++; // increment the page with 1 on each loop
-      } catch (err) {
-        console.error(`Oeps, something is wrong ${err}`)
-      }
-    } while (lastResult.next !== null || page === 4); // keep running until there's no next page
-    console.log(this.characterList.people)
-  }
+    let lastResult = {};
+    var directPath = '/people/';
 
+    do {
+      var queryParams = `?page=${page}`
+
+      try {
+        fetch(`${baseUrl}${directPath}${queryParams}`) // if st om te check of daar klaar data is, then  no run again
+            .then(response => response.json())
+            .then(data => {
+              this.state.characterList.people.push(...data.results)
+              lastResult = data
+              console.log(lastResult)
+            });
+             // increment the page with 1 on each loop
+      } catch (err) {
+        console.error(`Oops, something is wrong ${err}`)
+      }
+      page++;
+    } while (lastResult.next === null || page < 10)
+      console.log('After loop')
 },
   fetchAllFilms() {
     fetch(`${baseUrl}/films`)
@@ -189,6 +192,6 @@ actions: {
     }
       commit('appendCartTotal')
   },
-})
+}})
 
 export default store
