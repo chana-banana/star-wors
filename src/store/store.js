@@ -119,7 +119,7 @@ actions: {
           console.error(`Oops, something is wrong ${err}`)
         }
         page++;
-      } while (lastResult.next === null || page < 4)
+      } while (lastResult.next === null || page < 5)
     }
   },
   fetchAllSpecies() {
@@ -141,7 +141,7 @@ actions: {
           console.error(`Oops, something is wrong ${err}`)
         }
         page++;
-      } while (lastResult.next === null || page < 4)
+      } while (lastResult.next === null || page < 5)
     }
   },
   fetchAllVehicles() {
@@ -163,7 +163,7 @@ actions: {
           console.error(`Oops, something is wrong ${err}`)
         }
         page++;
-      } while (lastResult.next === null || page < 4)
+      } while (lastResult.next === null || page < 5)
     }
   },
 
