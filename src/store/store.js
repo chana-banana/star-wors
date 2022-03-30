@@ -120,7 +120,8 @@ actions: {
     } while (lastResult.next === null || page < 4)
 },
   fetchAllSpecies() {
-    fetch(`${baseUrl}/species`)
+    var directPath = '/species';
+    fetch(`${baseUrl}${directPath}`)
     .then(response => response.json())
     .then(data => {
       this.state.speciesList.species.push(...data.results)

@@ -42,6 +42,8 @@ export default {
     this.$store.dispatch('fetchAllCharacters')
     this.$store.dispatch('fetchAllFilms')
     this.$store.dispatch('fetchAllStarships')
+    this.$store.dispatch('fetchAllSpecies')
+    this.$store.dispatch('fetchAllVehicles')
   }
 }
 </script>
