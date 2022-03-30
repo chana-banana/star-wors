@@ -88,7 +88,7 @@ actions: {
       }
       page++;
     } while (lastResult.next === null || page < 10)
-},
+  },
   fetchAllFilms() {
     fetch(`${baseUrl}/films`)
     .then(response => response.json())
@@ -116,7 +116,7 @@ actions: {
       }
       page++;
     } while (lastResult.next === null || page < 4)
-},
+  },
   fetchAllSpecies() {
     let page = 1;
     let lastResult = {};
@@ -167,7 +167,7 @@ actions: {
 
   compareCharacterFilms({commit}) {
     let sameFilm = []
-    this.state.characterItems.person.films.forEach(characterFilm => { // loop through all films of character
+    this.state.characterItems.person.films.forEach(characterFilm => {
     let foundFilm = this.state.filmList.films.find(film => film.url === characterFilm);
       if (foundFilm) {
         sameFilm.push(foundFilm)
@@ -180,7 +180,7 @@ actions: {
 
   compareCharacterStarships({commit}) {
     let sameShip = []
-    this.state.characterItems.person.starships.forEach(characterStarship => { // loop through all starships of character
+    this.state.characterItems.person.starships.forEach(characterStarship => {
       let foundStarship = this.state.starshipList.starships.find(starship => starship.url === characterStarship);
       if (foundStarship) {
         sameShip.push(foundStarship)
@@ -189,11 +189,11 @@ actions: {
     if (sameShip.length > 0) {
       commit('updateCharacterItems', {starships: sameShip});
     }
-},
+  },
 
   compareCharacterSpecies({commit}) {
     let sameSpecies = []
-    this.state.characterItems.person.species.forEach(characterSpecies => { // loop through all starships of character
+    this.state.characterItems.person.species.forEach(characterSpecies => {
       let foundSpecies = this.state.speciesList.species.find(species => species.url === characterSpecies);
       if (foundSpecies) {
         sameSpecies.push(foundSpecies)
@@ -206,7 +206,7 @@ actions: {
 
   compareCharacterVehicles({commit}) {
     let sameVehicles = []
-    this.state.characterItems.person.vehicles.forEach(characterVehicles => { // loop through all starships of character
+    this.state.characterItems.person.vehicles.forEach(characterVehicles => {
       let foundVehicles = this.state.vehicleList.vehicles.find(vehicles => vehicles.url === characterVehicles);
       if (foundVehicles) {
         sameVehicles.push(foundVehicles)
