@@ -77,19 +77,18 @@ actions: {
       var queryParams = `?page=${page}`
 
       try {
-        fetch(`${baseUrl}${directPath}${queryParams}`) // if st om te check of daar klaar data is, then  no run again
+        fetch(`${baseUrl}${directPath}${queryParams}`)
             .then(response => response.json())
             .then(data => {
               this.state.characterList.people.push(...data.results)
               lastResult = data
             });
-             // increment the page with 1 on each loop
       } catch (err) {
         console.error(`Oops, something is wrong ${err}`)
       }
       page++;
     } while (lastResult.next === null || page < 10)
-},
+  },
   fetchAllFilms() {
     fetch(`${baseUrl}/films`)
     .then(response => response.json())
@@ -112,26 +111,53 @@ actions: {
               this.state.starshipList.starships.push(...data.results)
               lastResult = data
             });
-             // increment the page with 1 on each loop
       } catch (err) {
         console.error(`Oops, something is wrong ${err}`)
       }
       page++;
     } while (lastResult.next === null || page < 4)
-},
+  },
   fetchAllSpecies() {
-    fetch(`${baseUrl}/species`)
-    .then(response => response.json())
-    .then(data => {
-      this.state.speciesList.species.push(...data.results)
-    })
+    let page = 1;
+    let lastResult = {};
+    var directPath = '/species/';
+
+    do {
+      var queryParams = `?page=${page}`
+
+      try {
+        fetch(`${baseUrl}${directPath}${queryParams}`)
+            .then(response => response.json())
+            .then(data => {
+              this.state.speciesList.species.push(...data.results)
+              lastResult = data
+            });
+      } catch (err) {
+        console.error(`Oops, something is wrong ${err}`)
+      }
+      page++;
+    } while (lastResult.next === null || page < 4)
   },
   fetchAllVehicles() {
-    fetch(`${baseUrl}/vehicles`)
-    .then(response => response.json())
-    .then(data => {
-      this.state.vehicleList.vehicles.push(...data.results)
-    })
+    let page = 1;
+    let lastResult = {};
+    var directPath = '/vehicles/';
+
+    do {
+      var queryParams = `?page=${page}`
+
+      try {
+        fetch(`${baseUrl}${directPath}${queryParams}`)
+            .then(response => response.json())
+            .then(data => {
+              this.state.vehicleList.vehicles.push(...data.results)
+              lastResult = data
+            });
+      } catch (err) {
+        console.error(`Oops, something is wrong ${err}`)
+      }
+      page++;
+    } while (lastResult.next === null || page < 4)
   },
 
   characterSpecific({commit}, characterId) {
@@ -141,7 +167,7 @@ actions: {
 
   compareCharacterFilms({commit}) {
     let sameFilm = []
-    this.state.characterItems.person.films.forEach(characterFilm => { // loop through all films of character
+    this.state.characterItems.person.films.forEach(characterFilm => {
     let foundFilm = this.state.filmList.films.find(film => film.url === characterFilm);
       if (foundFilm) {
         sameFilm.push(foundFilm)
@@ -154,7 +180,7 @@ actions: {
 
   compareCharacterStarships({commit}) {
     let sameShip = []
-    this.state.characterItems.person.starships.forEach(characterStarship => { // loop through all starships of character
+    this.state.characterItems.person.starships.forEach(characterStarship => {
       let foundStarship = this.state.starshipList.starships.find(starship => starship.url === characterStarship);
       if (foundStarship) {
         sameShip.push(foundStarship)
@@ -163,11 +189,11 @@ actions: {
     if (sameShip.length > 0) {
       commit('updateCharacterItems', {starships: sameShip});
     }
-},
+  },
 
   compareCharacterSpecies({commit}) {
     let sameSpecies = []
-    this.state.characterItems.person.species.forEach(characterSpecies => { // loop through all starships of character
+    this.state.characterItems.person.species.forEach(characterSpecies => {
       let foundSpecies = this.state.speciesList.species.find(species => species.url === characterSpecies);
       if (foundSpecies) {
         sameSpecies.push(foundSpecies)
@@ -180,7 +206,7 @@ actions: {
 
   compareCharacterVehicles({commit}) {
     let sameVehicles = []
-    this.state.characterItems.person.vehicles.forEach(characterVehicles => { // loop through all starships of character
+    this.state.characterItems.person.vehicles.forEach(characterVehicles => {
       let foundVehicles = this.state.vehicleList.vehicles.find(vehicles => vehicles.url === characterVehicles);
       if (foundVehicles) {
         sameVehicles.push(foundVehicles)
