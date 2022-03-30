@@ -68,11 +68,12 @@ mutations: {
 },
 
 actions: {
+
   fetchAllCharacters() {
     let page = 1;
     let lastResult = {};
     var directPath = '/people/';
-
+    if (this.state.characterList?.people?.length <= 0) {
     do {
       var queryParams = `?page=${page}`
 
@@ -88,76 +89,82 @@ actions: {
       }
       page++;
     } while (lastResult.next === null || page < 10)
+    }
   },
   fetchAllFilms() {
-    fetch(`${baseUrl}/films`)
-    .then(response => response.json())
-    .then(data => {
-      this.state.filmList.films.push(...data.results)
-    })
+    if(this.state.filmList?.films?.length <= 0) {
+      fetch(`${baseUrl}/films`)
+      .then(response => response.json())
+      .then(data => {
+        this.state.filmList.films.push(...data.results)
+      })
+    }
   },
   fetchAllStarships() {
     let page = 1;
     let lastResult = {};
     var directPath = '/starships/';
+    if(this.state.starshipList?.starships?.length <= 0) {
+      do {
+        var queryParams = `?page=${page}`
 
-    do {
-      var queryParams = `?page=${page}`
-
-      try {
-        fetch(`${baseUrl}${directPath}${queryParams}`)
-            .then(response => response.json())
-            .then(data => {
-              this.state.starshipList.starships.push(...data.results)
-              lastResult = data
-            });
-      } catch (err) {
-        console.error(`Oops, something is wrong ${err}`)
-      }
-      page++;
-    } while (lastResult.next === null || page < 4)
+        try {
+          fetch(`${baseUrl}${directPath}${queryParams}`)
+              .then(response => response.json())
+              .then(data => {
+                this.state.starshipList.starships.push(...data.results)
+                lastResult = data
+              });
+        } catch (err) {
+          console.error(`Oops, something is wrong ${err}`)
+        }
+        page++;
+      } while (lastResult.next === null || page < 4)
+    }
   },
   fetchAllSpecies() {
     let page = 1;
     let lastResult = {};
     var directPath = '/species/';
+    if(this.state.speciesList?.species?.length <= 0) {
+      do {
+        var queryParams = `?page=${page}`
 
-    do {
-      var queryParams = `?page=${page}`
-
-      try {
-        fetch(`${baseUrl}${directPath}${queryParams}`)
-            .then(response => response.json())
-            .then(data => {
-              this.state.speciesList.species.push(...data.results)
-              lastResult = data
-            });
-      } catch (err) {
-        console.error(`Oops, something is wrong ${err}`)
-      }
-      page++;
-    } while (lastResult.next === null || page < 4)
+        try {
+          fetch(`${baseUrl}${directPath}${queryParams}`)
+              .then(response => response.json())
+              .then(data => {
+                this.state.speciesList.species.push(...data.results)
+                lastResult = data
+              });
+        } catch (err) {
+          console.error(`Oops, something is wrong ${err}`)
+        }
+        page++;
+      } while (lastResult.next === null || page < 4)
+    }
   },
   fetchAllVehicles() {
     let page = 1;
     let lastResult = {};
     var directPath = '/vehicles/';
+    if(this.state.vehicleList?.vehicles?.length <= 0) {
+      do {
+        var queryParams = `?page=${page}`
 
-    do {
-      var queryParams = `?page=${page}`
-
-      try {
-        fetch(`${baseUrl}${directPath}${queryParams}`)
-            .then(response => response.json())
-            .then(data => {
-              this.state.vehicleList.vehicles.push(...data.results)
-              lastResult = data
-            });
-      } catch (err) {
-        console.error(`Oops, something is wrong ${err}`)
-      }
-      page++;
-    } while (lastResult.next === null || page < 4)
+        try {
+          fetch(`${baseUrl}${directPath}${queryParams}`)
+              .then(response => response.json())
+              .then(data => {
+                this.state.vehicleList.vehicles.push(...data.results)
+                lastResult = data
+              });
+        } catch (err) {
+          console.error(`Oops, something is wrong ${err}`)
+        }
+        page++;
+      } while (lastResult.next === null || page < 4)
+    }
   },
 
   characterSpecific({commit}, characterId) {
