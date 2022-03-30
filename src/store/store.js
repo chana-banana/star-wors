@@ -68,11 +68,12 @@ mutations: {
 },
 
 actions: {
+
   fetchAllCharacters() {
     let page = 1;
     let lastResult = {};
     var directPath = '/people/';
-
+    if (this.state.characterList?.people?.length <= 0) {
     do {
       var queryParams = `?page=${page}`
 
@@ -88,6 +89,7 @@ actions: {
       }
       page++;
     } while (lastResult.next === null || page < 10)
+    }
   },
   fetchAllFilms() {
     fetch(`${baseUrl}/films`)
