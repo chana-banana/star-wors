@@ -106,7 +106,7 @@ actions: {
       var queryParams = `?page=${page}`
 
       try {
-        fetch(`${baseUrl}${directPath}${queryParams}`) // if st om te check of daar klaar data is, then  no run again
+        fetch(`${baseUrl}${directPath}${queryParams}`)
             .then(response => response.json())
             .then(data => {
               this.state.starshipList.starships.push(...data.results)
