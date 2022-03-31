@@ -9,7 +9,7 @@
     <div class="atribute"><h5>Gender: &nbsp;</h5><h5 class="arr-result">{{ person.gender }}</h5></div>
       <div class="price-wrapper">
         <div class="price-text">
-        <div>R100</div>
+        <div>R{{ person.price }}</div>
           </div>
             <button @click.stop="addItemToCart(person.name)" class="add-cart">
               <fa icon="plus" class="fa-plus" />
@@ -66,6 +66,7 @@ export default {
     align-items: center;
     border-radius: 5px;
     padding: 0.5rem;
+    font-weight: bold;
 }
 .add-cart {
     background-color: #000000;
