@@ -4,15 +4,15 @@
         <div class="item-wrapper">
             <div class="item-left">
                 <img src="../assets/icons/user-outline-yellow.svg" class="user-icon">
-                <div class="item-name">{{}}name of character</div>
+                <div class="item-name">{{ item.id }}</div>
             </div>
             <div class="item-middle">
                 <button class="quantity-icon"><fa icon="minus" class="fa-quantity-icon" /></button>
-                <div class="quantity">02</div>
+                <div class="quantity">{{ item.count }}</div>
                 <button class="quantity-icon"><fa icon="plus" class="fa-quantity-icon" /></button>
             </div>
             <div class="item-end">
-                <div class="quantity-price">R200</div>
+                <div class="quantity-price">R{{item.count * 100}}</div>
                 <button class="remove-item"><fa icon="xmark" class="fa-quantity-icon" /></button>
             </div>
 
@@ -23,7 +23,8 @@
 <script>
     export default {
         props: {
-            person: Object
+            // person: Object,
+            item: Object
         }
     }
 </script>

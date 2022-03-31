@@ -40,12 +40,8 @@ const store = createStore({
 
       cart: {
         totalCartCount: 0,
-        items: [ // array of objects
-          { // object
-            id: 'name', //string
-            count: 0, //number
-          }
-        ]
+        // totalCartAmount: ?,
+        items: []
       }
     }
   },

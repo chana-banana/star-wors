@@ -6,9 +6,11 @@
             </div>
             <div class="summary-content">
               <div>Cart Total: &nbsp;</div>
-              <div>R400</div>
+              <div>{{  }}</div>
             </div>
-            <button class="checkout-btn">checkout</button>
+            <router-link to="/success">
+              <button class="checkout-btn">checkout</button>
+            </router-link>
         </div>
     </div>
 </template>
