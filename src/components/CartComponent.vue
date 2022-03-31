@@ -12,10 +12,9 @@
                 <button class="quantity-icon"><fa icon="plus" class="fa-quantity-icon" /></button>
             </div>
             <div class="item-end">
-                <div class="quantity-price">R{{item.count * 100}}</div>
+                <div class="quantity-price">R{{ item.price * item.count }}</div>
                 <button class="remove-item"><fa icon="xmark" class="fa-quantity-icon" /></button>
             </div>
-
         </div>
     </div>
 </template>
@@ -23,7 +22,6 @@
 <script>
     export default {
         props: {
-            // person: Object,
             item: Object
         }
     }

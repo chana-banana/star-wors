@@ -1,10 +1,11 @@
 <template>
     <div class="cart-wrapper">
         <CartComponent
-        v-for="item in CartItems"
+          v-for="item in CartItems"
           :key="item"
-          :item="item" />
-        <CartSummary />
+          :item="item"
+        />
+        <CartSummary/>
     </div>
 </template>
 

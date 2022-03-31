@@ -6,7 +6,7 @@
             </div>
             <div class="summary-content">
               <div>Cart Total: &nbsp;</div>
-              <div>{{  }}</div>
+              <div>R{{ totalCartAmount }}</div>
             </div>
             <router-link to="/success">
               <button class="checkout-btn">checkout</button>
@@ -14,6 +14,19 @@
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+      props: {
+          item: Object
+      },
+      computed: {
+        totalCartAmount() {
+          return this.$store.state.cart?.totalCartAmount
+        }
+      }
+    }
+</script>
 
 <style scoped>
 * {
