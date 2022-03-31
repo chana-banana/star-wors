@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="component-wrapper">
         <div class="wrapper-summary">
             <div class="summary-head">
               <h5 class="summary-text">Summary</h5>
@@ -30,7 +30,10 @@
 
 <style scoped>
 * {
-    font-weight: bold;
+  font-weight: bold;
+}
+.component-wrapper {
+  padding-top: 50px;
 }
 
 .wrapper-summary {
@@ -62,6 +65,7 @@
     align-items: center;
     padding: 0.5rem;
     text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .checkout-btn:hover {

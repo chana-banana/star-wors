@@ -1,6 +1,5 @@
 <template>
     <div class="cart-wrapper">
-        <div class="cart-head">Cart</div>
         <div class="item-wrapper">
             <div class="item-left">
                 <img src="../assets/icons/user-outline-yellow.svg" class="user-icon">
@@ -37,7 +36,6 @@
     display: block;
     max-width: 90vw;
     margin: auto;
-    padding: 30px 0;
 }
 
 .item-wrapper {
@@ -55,11 +53,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.cart-head {
-    border-bottom: 2px solid #ffe81f;
-    padding-bottom: 10px;
 }
 
 .item-name {
@@ -107,6 +100,5 @@
         min-width: 972px;
     }
   }
-
 
 </style>
