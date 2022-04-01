@@ -261,6 +261,9 @@ actions: {
         commit('appendCartTotalMinus')
         commit('appendCartTotalAmount')
       }
+  },
+  removeCartItems() {
+
   }
 }})
 
