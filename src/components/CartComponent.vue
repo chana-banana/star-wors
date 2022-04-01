@@ -1,21 +1,19 @@
 <template>
     <div class="cart-wrapper">
-        <div class="cart-head">Cart</div>
         <div class="item-wrapper">
             <div class="item-left">
                 <img src="../assets/icons/user-outline-yellow.svg" class="user-icon">
-                <div class="item-name">{{}}name of character</div>
+                <div class="item-name">{{ item.id }}</div>
             </div>
             <div class="item-middle">
                 <button class="quantity-icon"><fa icon="minus" class="fa-quantity-icon" /></button>
-                <div class="quantity">02</div>
+                <div class="quantity">{{ item.count }}</div>
                 <button class="quantity-icon"><fa icon="plus" class="fa-quantity-icon" /></button>
             </div>
             <div class="item-end">
-                <div class="quantity-price">R200</div>
+                <div class="quantity-price">R{{ item.price * item.count }}</div>
                 <button class="remove-item"><fa icon="xmark" class="fa-quantity-icon" /></button>
             </div>
-
         </div>
     </div>
 </template>
@@ -23,7 +21,7 @@
 <script>
     export default {
         props: {
-            person: Object
+            item: Object
         }
     }
 </script>
@@ -38,7 +36,6 @@
     display: block;
     max-width: 90vw;
     margin: auto;
-    padding: 30px 0;
 }
 
 .item-wrapper {
@@ -56,11 +53,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.cart-head {
-    border-bottom: 2px solid #ffe81f;
-    padding-bottom: 10px;
 }
 
 .item-name {
@@ -108,6 +100,5 @@
         min-width: 972px;
     }
   }
-
 
 </style>

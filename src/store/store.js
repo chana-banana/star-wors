@@ -40,21 +40,20 @@ const store = createStore({
 
       cart: {
         totalCartCount: 0,
-        items: [ // array of objects
-          { // object
-            id: 'name', //string
-            count: 0, //number
-          }
-        ]
+        totalCartAmount: 0,
+        items: []
       }
     }
   },
 mutations: {
-  appendCart(state, index) { // index number
-    this.state.cart.items[index].count +=1 // mutate count by adding 1
+  appendCart(state, index) {
+    this.state.cart.items[index].count +=1
   },
-  appendCartTotal(state) { // index number
-    state.cart.totalCartCount +=1 // mutate count by adding 1
+  appendCartTotal(state) {
+    state.cart.totalCartCount +=1
+  },
+  appendCartTotalAmount(state) {
+    this.state.cart.totalCartAmount = state.cart.items.map(x => x.price * x.count).reduce((prev,current) => prev + current, 0)
   },
   appendCharacter(state, character) {
     this.state.characterItems.person = character
@@ -72,23 +71,23 @@ actions: {
   fetchAllCharacters() {
     let page = 1;
     let lastResult = {};
-    var directPath = '/people/';
+    let directPath = '/people/';
     if (this.state.characterList?.people?.length <= 0) {
-    do {
-      var queryParams = `?page=${page}`
+      do {
+        let queryParams = `?page=${page}`
 
-      try {
-        fetch(`${baseUrl}${directPath}${queryParams}`)
-            .then(response => response.json())
-            .then(data => {
-              this.state.characterList.people.push(...data.results)
-              lastResult = data
-            });
-      } catch (err) {
-        console.error(`Oops, something is wrong ${err}`)
-      }
-      page++;
-    } while (lastResult.next === null || page < 10)
+        try {
+          fetch(`${baseUrl}${directPath}${queryParams}`)
+              .then(response => response.json())
+              .then(data => {
+                this.state.characterList.people.push(...data.results.map(x => ({...x, price: 175})))
+                lastResult = data
+              });
+        } catch (err) {
+          console.error(`Oops, something is wrong ${err}`)
+        }
+        page++;
+      } while (lastResult.next === null || page < 10)
     }
   },
   fetchAllFilms() {
@@ -103,10 +102,10 @@ actions: {
   fetchAllStarships() {
     let page = 1;
     let lastResult = {};
-    var directPath = '/starships/';
+    let directPath = '/starships/';
     if(this.state.starshipList?.starships?.length <= 0) {
       do {
-        var queryParams = `?page=${page}`
+        let queryParams = `?page=${page}`
 
         try {
           fetch(`${baseUrl}${directPath}${queryParams}`)
@@ -125,10 +124,10 @@ actions: {
   fetchAllSpecies() {
     let page = 1;
     let lastResult = {};
-    var directPath = '/species/';
+    let directPath = '/species/';
     if(this.state.speciesList?.species?.length <= 0) {
       do {
-        var queryParams = `?page=${page}`
+        let queryParams = `?page=${page}`
 
         try {
           fetch(`${baseUrl}${directPath}${queryParams}`)
@@ -147,10 +146,10 @@ actions: {
   fetchAllVehicles() {
     let page = 1;
     let lastResult = {};
-    var directPath = '/vehicles/';
+    let directPath = '/vehicles/';
     if(this.state.vehicleList?.vehicles?.length <= 0) {
       do {
-        var queryParams = `?page=${page}`
+        let queryParams = `?page=${page}`
 
         try {
           fetch(`${baseUrl}${directPath}${queryParams}`)
@@ -224,19 +223,21 @@ actions: {
     }
   },
 
-  addItemToCart({commit}, name){
-    let foundCharacter = (this.state.cart.items.find(x => x.id === name)) // object  - looking for object in array of objects using the name
+  addItemToCart({commit}, character){
+    let foundCharacter = (this.state.cart.items.find(x => x.id === character.name)) // object  - looking for object in array of objects using the name
     if(foundCharacter){
       commit('appendCart', this.state.cart.items.indexOf(foundCharacter));
     }
     else {
       const cartItemObject = {
-        id: name,
-        count: 1
+        id: character.name,
+        count: 1,
+        price: character.price
       }
       this.state.cart.items.push(cartItemObject)
     }
       commit('appendCartTotal')
+      commit('appendCartTotalAmount')
   },
 }})
 

@@ -12,7 +12,7 @@
         </div>
         <div class="price-wrapper">
             <div class="price-text">
-                <div>R100</div>
+                <div>R{{ person.price }}</div>
             </div>
             <button @click.stop="addItemToCart(person.name)" class="add-cart">
                 <fa icon="plus" class="fa-plus" />
@@ -29,8 +29,8 @@ export default {
         person: Object,
     },
     methods: {
-        addItemToCart(name) {
-            this.$store.dispatch('addItemToCart', name)
+        addItemToCart() {
+            this.$store.dispatch('addItemToCart', this.person)
         },
         viewCharacter() {
             this.$router.push({ name: 'DisplayView', params: { id: this.person.name } })
