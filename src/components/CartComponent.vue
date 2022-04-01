@@ -6,7 +6,7 @@
                 <div class="item-name">{{ item.id }}</div>
             </div>
             <div class="item-middle">
-                <button class="quantity-icon"><fa icon="minus" class="fa-quantity-icon" /></button>
+                <button @click.stop="updateCartItemsLess(item.id)" class="quantity-icon"><fa icon="minus" class="fa-quantity-icon" /></button>
                 <div class="quantity">{{ item.count }}</div>
                 <button @click.stop="updateCartItems(item.id)" class="quantity-icon"><fa icon="plus" class="fa-quantity-icon" /></button>
             </div>
@@ -26,6 +26,9 @@
         methods: {
             updateCartItems(id) {
                 this.$store.dispatch('updateCartItems', id)
+            },
+            updateCartItemsLess(id) {
+                this.$store.dispatch('updateCartItemsLess', id)
             }
         }
     }
