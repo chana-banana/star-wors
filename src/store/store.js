@@ -49,8 +49,14 @@ mutations: {
   appendCart(state, index) {
     this.state.cart.items[index].count +=1
   },
-  appendCartTotal(state) {
+  appendCartLess(state, index) {
+    this.state.cart.items[index].count -=1
+  },
+  appendCartTotal(state) { // adds to navbar cartTotal
     state.cart.totalCartCount +=1
+  },
+  appendCartTotalMinus(state) { // removes from navbar cartTotal
+    state.cart.totalCartCount -=1
   },
   appendCartTotalAmount(state) {
     this.state.cart.totalCartAmount = state.cart.items.map(x => x.price * x.count).reduce((prev,current) => prev + current, 0)
@@ -239,6 +245,23 @@ actions: {
       commit('appendCartTotal')
       commit('appendCartTotalAmount')
   },
+
+  updateCartItems({commit}, id) { // when increasing quantity of item in cart
+    let cartItem = this.state.cart.items.find(x => x.id === id)
+      if(cartItem){
+        commit('appendCart', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
+        commit('appendCartTotal')
+        commit('appendCartTotalAmount')
+      }
+  },
+  updateCartItemsLess({commit}, id) { // when decreasing quantity of item in cart
+    let cartItem = this.state.cart.items.find(x => x.id === id)
+      if(cartItem){
+        commit('appendCartLess', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
+        commit('appendCartTotalMinus')
+        commit('appendCartTotalAmount')
+      }
+  }
 }})
 
 export default store

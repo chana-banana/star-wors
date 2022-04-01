@@ -6,9 +6,9 @@
                 <div class="item-name">{{ item.id }}</div>
             </div>
             <div class="item-middle">
-                <button class="quantity-icon"><fa icon="minus" class="fa-quantity-icon" /></button>
+                <button @click.stop="updateCartItemsLess(item.id)" class="quantity-icon"><fa icon="minus" class="fa-quantity-icon" /></button>
                 <div class="quantity">{{ item.count }}</div>
-                <button class="quantity-icon"><fa icon="plus" class="fa-quantity-icon" /></button>
+                <button @click.stop="updateCartItems(item.id)" class="quantity-icon"><fa icon="plus" class="fa-quantity-icon" /></button>
             </div>
             <div class="item-end">
                 <div class="quantity-price">R{{ item.price * item.count }}</div>
@@ -22,6 +22,14 @@
     export default {
         props: {
             item: Object
+        },
+        methods: {
+            updateCartItems(id) {
+                this.$store.dispatch('updateCartItems', id)
+            },
+            updateCartItemsLess(id) {
+                this.$store.dispatch('updateCartItemsLess', id)
+            }
         }
     }
 </script>
