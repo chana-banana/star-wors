@@ -239,6 +239,15 @@ actions: {
       commit('appendCartTotal')
       commit('appendCartTotalAmount')
   },
+
+  updateCartItems({commit}, id) {
+    let cartItem = this.state.cart.items.find(x => x.id === id)
+      if(cartItem){
+        commit('appendCart', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
+        commit('appendCartTotal')
+        commit('appendCartTotalAmount')
+      }
+  }
 }})
 
 export default store
