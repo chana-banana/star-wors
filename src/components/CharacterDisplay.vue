@@ -11,7 +11,7 @@
         <div class="price-text">
         <div>R{{ person.price }}</div>
           </div>
-            <button @click.stop="addItemToCart(person.name)" class="add-cart">
+            <button @click.stop="addItemToCart" class="add-cart">
               <fa icon="plus" class="fa-plus" />
               <img src="../assets/icons/cart-yellow.svg" alt="cart" class="cart-yellow">
               <img src="../assets/icons/cart-black.svg" alt="cart" class="cart-black">

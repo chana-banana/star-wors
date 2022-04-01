@@ -71,10 +71,10 @@ actions: {
   fetchAllCharacters() {
     let page = 1;
     let lastResult = {};
-    var directPath = '/people/';
+    let directPath = '/people/';
     if (this.state.characterList?.people?.length <= 0) {
       do {
-        var queryParams = `?page=${page}`
+        let queryParams = `?page=${page}`
 
         try {
           fetch(`${baseUrl}${directPath}${queryParams}`)
@@ -102,10 +102,10 @@ actions: {
   fetchAllStarships() {
     let page = 1;
     let lastResult = {};
-    var directPath = '/starships/';
+    let directPath = '/starships/';
     if(this.state.starshipList?.starships?.length <= 0) {
       do {
-        var queryParams = `?page=${page}`
+        let queryParams = `?page=${page}`
 
         try {
           fetch(`${baseUrl}${directPath}${queryParams}`)
@@ -124,10 +124,10 @@ actions: {
   fetchAllSpecies() {
     let page = 1;
     let lastResult = {};
-    var directPath = '/species/';
+    let directPath = '/species/';
     if(this.state.speciesList?.species?.length <= 0) {
       do {
-        var queryParams = `?page=${page}`
+        let queryParams = `?page=${page}`
 
         try {
           fetch(`${baseUrl}${directPath}${queryParams}`)
@@ -146,10 +146,10 @@ actions: {
   fetchAllVehicles() {
     let page = 1;
     let lastResult = {};
-    var directPath = '/vehicles/';
+    let directPath = '/vehicles/';
     if(this.state.vehicleList?.vehicles?.length <= 0) {
       do {
-        var queryParams = `?page=${page}`
+        let queryParams = `?page=${page}`
 
         try {
           fetch(`${baseUrl}${directPath}${queryParams}`)
