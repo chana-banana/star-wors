@@ -71,6 +71,11 @@ mutations: {
   appendCharacter(state, character) {
     this.state.characterItems.person = character
   },
+  clearCart() {
+    this.state.cart.items.splice(0, this.state.cart.items.length) // array
+    this.state.cart.totalCartAmount = 0 // number
+    this.state.cart.totalCartCount = 0 // number
+  },
   updateCharacterItems (state, data) {
     this.state.characterItems = {
       ...state.characterItems,
@@ -275,7 +280,7 @@ actions: {
         commit('calculateCartTotalAmount')
       }
   },
-  storeOrder() {
+  storeOrder({commit}) {
     if(this.state.cart.totalCartCount >= 1) {
       const tempCart = {
         totalCartCount: this.state.cart.totalCartCount,
@@ -284,6 +289,7 @@ actions: {
         orderNumber: this.state.history.length === 0 ? 1 : this.state.history[this.state.history.length-1]?.orderNumber + 1,
       }
       this.state.history.push(tempCart)
+      commit('clearCart')
     }
   }
 }})
