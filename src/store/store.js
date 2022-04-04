@@ -65,7 +65,7 @@ mutations: {
     state.cart.items.splice([index], 1)
   },
   calculateCartTotalAmount(state) { // calculates cart total
-    this.state.cart.totalCartAmount = state.cart.items.map(x => x.price).reduce((prev,current) => prev + current, 0)
+    this.state.cart.totalCartAmount = state.cart.items.map(x => x.price * x.count).reduce((prev,current) => prev + current, 0)
   },
   appendCharacter(state, character) {
     this.state.characterItems.person = character
