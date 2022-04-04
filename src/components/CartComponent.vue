@@ -30,9 +30,9 @@
             updateCartItemsLess(id) {
                 this.$store.dispatch('updateCartItemsLess', id)
             },
-            // removeCartItems(id) {
-            //     this.$store.dispatch('removeCartItems', id)
-            // }
+            removeCartItems(id) {
+                this.$store.dispatch('removeCartItems', id)
+            }
         }
     }
 </script>

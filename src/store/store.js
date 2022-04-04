@@ -47,19 +47,25 @@ const store = createStore({
   },
 mutations: {
   appendCart(state, index) {
-    this.state.cart.items[index].count +=1
+    this.state.cart.items[index].count +=1 // adds 1 item to cart
   },
   appendCartLess(state, index) {
-    this.state.cart.items[index].count -=1
+    this.state.cart.items[index].count -=1 // removes 1 item from cart
   },
-  appendCartTotal(state) { // adds to navbar cartTotal
+  appendCartTotal(state) { // adds 1 to navbar cartTotal
     state.cart.totalCartCount +=1
   },
-  appendCartTotalMinus(state) { // removes from navbar cartTotal
+  appendCartTotalMinus(state) { // removes 1 from navbar cartTotal
     state.cart.totalCartCount -=1
   },
-  appendCartTotalAmount(state) {
-    this.state.cart.totalCartAmount = state.cart.items.map(x => x.price * x.count).reduce((prev,current) => prev + current, 0)
+  appendCartTotalQty(state) { // removes itemTotal qty from navbar cartTotal // not happy
+    this.state.cart.totalCartCount = state.cart.items.map(x => x.count).reduce((prev,current) => prev + current, 0)
+  },
+  appendCartRemoveItem(state, index) { // removes item from cart
+    state.cart.items.splice([index], 1)
+  },
+  appendCartTotalAmount(state) { // calculates cart total
+    this.state.cart.totalCartAmount = state.cart.items.map(x => x.price).reduce((prev,current) => prev + current, 0)
   },
   appendCharacter(state, character) {
     this.state.characterItems.person = character
@@ -262,8 +268,14 @@ actions: {
         commit('appendCartTotalAmount')
       }
   },
-  removeCartItems() {
+  removeCartItems({commit}, id) {
+    let cartItem = this.state.cart.items.find(x => x.id === id)
+      if(cartItem){
+        commit('appendCartRemoveItem', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
+        commit('appendCartTotalAmount')
+        commit('appendCartTotalQty')
 
+      }
   }
 }})
 
