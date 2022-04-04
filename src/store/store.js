@@ -49,7 +49,7 @@ mutations: {
   appendCart(state, index) {
     this.state.cart.items[index].count +=1 // adds 1 item to cart
   },
-  appendCartLess(state, index) {
+  removeSingularItem(state, index) {
     this.state.cart.items[index].count -=1 // removes 1 item from cart
   },
   appendCartTotal(state) { // adds 1 to navbar cartTotal
@@ -58,13 +58,13 @@ mutations: {
   appendCartTotalMinus(state) { // removes 1 from navbar cartTotal
     state.cart.totalCartCount -=1
   },
-  appendCartTotalQty(state) { // removes itemTotal qty from navbar cartTotal // not happy
+  updateCartTotalQty(state) { // removes itemTotal qty from navbar cartTotal // not happy
     this.state.cart.totalCartCount = state.cart.items.map(x => x.count).reduce((prev,current) => prev + current, 0)
   },
-  appendCartRemoveItem(state, index) { // removes item from cart
+  CartRemoveItem(state, index) { // removes item from cart
     state.cart.items.splice([index], 1)
   },
-  appendCartTotalAmount(state) { // calculates cart total
+  calculateCartTotalAmount(state) { // calculates cart total
     this.state.cart.totalCartAmount = state.cart.items.map(x => x.price).reduce((prev,current) => prev + current, 0)
   },
   appendCharacter(state, character) {
@@ -249,7 +249,7 @@ actions: {
       this.state.cart.items.push(cartItemObject)
     }
       commit('appendCartTotal')
-      commit('appendCartTotalAmount')
+      commit('calculateCartTotalAmount')
   },
 
   updateCartItems({commit}, id) { // when increasing quantity of item in cart
@@ -257,24 +257,23 @@ actions: {
       if(cartItem){
         commit('appendCart', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
         commit('appendCartTotal')
-        commit('appendCartTotalAmount')
+        commit('calculateCartTotalAmount')
       }
   },
   updateCartItemsLess({commit}, id) { // when decreasing quantity of item in cart
     let cartItem = this.state.cart.items.find(x => x.id === id)
       if(cartItem){
-        commit('appendCartLess', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
+        commit('removeSingularItem', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
         commit('appendCartTotalMinus')
-        commit('appendCartTotalAmount')
+        commit('calculateCartTotalAmount')
       }
   },
   removeCartItems({commit}, id) {
     let cartItem = this.state.cart.items.find(x => x.id === id)
       if(cartItem){
-        commit('appendCartRemoveItem', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
-        commit('appendCartTotalAmount')
-        commit('appendCartTotalQty')
-
+        commit('CartRemoveItem', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
+        commit('calculateCartTotalAmount')
+        commit('updateCartTotalQty')
       }
   }
 }})
