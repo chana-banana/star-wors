@@ -58,10 +58,10 @@ mutations: {
   appendCartTotalMinus(state) { // removes 1 from navbar cartTotal
     state.cart.totalCartCount -=1
   },
-  updateCartTotalQty(state) { // removes itemTotal qty from navbar cartTotal // not happy
+  updateCartTotalQty(state) { // removes itemTotal qty from navbar cartTotal
     this.state.cart.totalCartCount = state.cart.items.map(x => x.count).reduce((prev,current) => prev + current, 0)
   },
-  CartRemoveItem(state, index) { // removes item from cart
+  cartRemoveItem(state, index) { // removes item from cart
     state.cart.items.splice([index], 1)
   },
   calculateCartTotalAmount(state) { // calculates cart total
@@ -271,7 +271,7 @@ actions: {
   removeCartItems({commit}, id) {
     let cartItem = this.state.cart.items.find(x => x.id === id)
       if(cartItem){
-        commit('CartRemoveItem', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
+        commit('cartRemoveItem', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
         commit('updateCartTotalQty')
         commit('calculateCartTotalAmount')
       }
