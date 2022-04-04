@@ -5,7 +5,7 @@
         </div>
         <div class="success-right">
           <p class="hero-text">Success.. We have received the order we were looking for</p>
-          <router-link to="/cart"><button class="back-btn">back to search</button></router-link>
+          <router-link to="/"><button class="back-btn">back to search</button></router-link>
         </div>
     </div>
 </template>
@@ -27,7 +27,6 @@
   background-color: #ffe81f;
   border-radius: 5px;
   border-color: #ffe81f;
-  color: #000000;
   position: relative;
   margin: 0 auto;
   padding: 0.5rem;
