@@ -43,12 +43,7 @@ const store = createStore({
         totalCartAmount: 0,
         items: []
       },
-      history: {
-        totalCartCount: 0,
-        totalCartAmount: 0,
-        items: [],
-        orderNumber: 1
-      }
+      history: []
     }
   },
 mutations: {
@@ -76,9 +71,6 @@ mutations: {
   appendCharacter(state, character) {
     this.state.characterItems.person = character
   },
-  appendOrderNumber(state) { // adds 1 item to orderHistory
-    state.history.orderNumber +=1
-  },
   updateCharacterItems (state, data) {
     this.state.characterItems = {
       ...state.characterItems,
@@ -96,7 +88,6 @@ actions: {
     if (this.state.characterList?.people?.length <= 0) {
       do {
         let queryParams = `?page=${page}`
-
         try {
           fetch(`${baseUrl}${directPath}${queryParams}`)
               .then(response => response.json())
@@ -284,19 +275,16 @@ actions: {
         commit('calculateCartTotalAmount')
       }
   },
-  storeOrder({commit}, cart) {
-    // let history = {}
-    if(this.state.cart.items <= 1) {
-      // this.state.cart.items.push(history)
-      const history = {
-        totalCartCount: cart.totalCartCount,
-        totalCartAmount: cart.totalCartCount,
-        items: cart.items,
-        orderNumber: 1
+  storeOrder() {
+    if(this.state.cart.totalCartCount >= 1) {
+      const tempCart = {
+        totalCartCount: this.state.cart.totalCartCount,
+        totalCartAmount: this.state.cart.totalCartAmount,
+        items: this.state.cart.items,
+        orderNumber: this.state.history.length === 0 ? 1 : this.state.history[this.state.history.length-1]?.orderNumber + 1,
       }
-      this.state.cart.items.push(history)
-
-    } commit('appendOrderNumber') // happy}
+      this.state.history.push(tempCart)
+    }
   }
 }})
 
