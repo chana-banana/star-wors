@@ -12,7 +12,7 @@
             </div>
             <div class="item-end">
                 <div class="quantity-price">R{{ item.price * item.count }}</div>
-                <button class="remove-item"><fa icon="xmark" class="fa-quantity-icon" /></button>
+                <button @click.stop="removeCartItems(item.id)" class="remove-item"><fa icon="xmark" class="fa-quantity-icon" /></button>
             </div>
         </div>
     </div>
@@ -29,6 +29,9 @@
             },
             updateCartItemsLess(id) {
                 this.$store.dispatch('updateCartItemsLess', id)
+            },
+            removeCartItems(id) {
+                this.$store.dispatch('removeCartItems', id)
             }
         }
     }
