@@ -8,24 +8,29 @@
               <div>Cart Total: &nbsp;</div>
               <div>R{{ totalCartAmount }}</div>
             </div>
-            <router-link to="/success">
-              <button class="checkout-btn">checkout</button>
-            </router-link>
+            <!-- <router-link to="/success"> -->
+              <button @click.stop="storeOrder" class="checkout-btn">checkout</button>
+            <!-- </router-link> -->
         </div>
     </div>
 </template>
 
 <script>
-    export default {
-      props: {
-          item: Object
-      },
-      computed: {
-        totalCartAmount() {
-          return this.$store.state.cart?.totalCartAmount
-        }
+  export default {
+    props: {
+      item: Object
+    },
+    computed: {
+      totalCartAmount() {
+        return this.$store.state.cart?.totalCartAmount
+      }
+    },
+    methods: {
+      storeOrder() {
+        this.$store.dispatch('storeOrder')
       }
     }
+  }
 </script>
 
 <style scoped>

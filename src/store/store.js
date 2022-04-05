@@ -42,7 +42,8 @@ const store = createStore({
         totalCartCount: 0,
         totalCartAmount: 0,
         items: []
-      }
+      },
+      history: []
     }
   },
 mutations: {
@@ -87,7 +88,6 @@ actions: {
     if (this.state.characterList?.people?.length <= 0) {
       do {
         let queryParams = `?page=${page}`
-
         try {
           fetch(`${baseUrl}${directPath}${queryParams}`)
               .then(response => response.json())
@@ -263,7 +263,7 @@ actions: {
   updateCartItemsLess({commit}, id) { // when decreasing quantity of item in cart
     let cartItem = this.state.cart.items.find(x => x.id === id)
       if(cartItem){
-        commit('removeSingularItem', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
+        commit('removeSingularItem', this.state.cart.items.indexOf(cartItem))
         commit('appendCartTotalMinus')
         commit('calculateCartTotalAmount')
       }
@@ -271,10 +271,20 @@ actions: {
   removeCartItems({commit}, id) {
     let cartItem = this.state.cart.items.find(x => x.id === id)
       if(cartItem){
-        commit('cartRemoveItem', this.state.cart.items.indexOf(cartItem)) // getting actual index of where in array item, is, needed to update value
-        commit('updateCartTotalQty')
+        commit('cartRemoveItem', this.state.cart.items.indexOf(cartItem))
         commit('calculateCartTotalAmount')
       }
+  },
+  storeOrder() {
+    if(this.state.cart.totalCartCount >= 1) {
+      const tempCart = {
+        totalCartCount: this.state.cart.totalCartCount,
+        totalCartAmount: this.state.cart.totalCartAmount,
+        items: this.state.cart.items,
+        orderNumber: this.state.history.length === 0 ? 1 : this.state.history[this.state.history.length-1]?.orderNumber + 1,
+      }
+      this.state.history.push(tempCart)
+    }
   }
 }})
 
