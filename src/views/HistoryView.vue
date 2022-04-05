@@ -3,7 +3,11 @@
     <h4 class="order-head">
       Order History
     </h4>
-    <OrderComponent />
+    <OrderComponent
+      v-for="order in OrderHistory"
+      :key="order"
+      :order="order"
+    />
   </div>
 </template>
 
@@ -11,6 +15,11 @@
 import OrderComponent from '../components/OrderComponent'
 
 export default {
+  computed: {
+    OrderHistory() {
+      return this.$store.state.history
+    }
+  },
   components: {
     OrderComponent
   }

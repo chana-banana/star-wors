@@ -16,7 +16,7 @@ import CartSummary from '../components/CartSummary'
 
 export default {
     computed: {
-        CartItems(){
+        CartItems() {
                 return this.$store.state.cart?.items
         }
     },
