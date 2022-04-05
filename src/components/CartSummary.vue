@@ -8,9 +8,7 @@
               <div>Cart Total: &nbsp;</div>
               <div>R{{ totalCartAmount }}</div>
             </div>
-            <!-- <router-link to="/success"> -->
-              <button @click.stop="storeOrder" class="checkout-btn">checkout</button>
-            <!-- </router-link> -->
+              <button @click.stop="storeOrder" class="checkout-btn"><router-link to="/success">checkout</router-link></button>
         </div>
     </div>
 </template>
@@ -37,6 +35,13 @@
 * {
   font-weight: bold;
 }
+
+a {
+  color: #000000;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .component-wrapper {
   padding-top: 50px;
 }
