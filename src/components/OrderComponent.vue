@@ -28,7 +28,6 @@
   display: block;
   max-width: 90vw;
   margin: auto;
-
 }
 
 .order-wrapper {
@@ -50,7 +49,6 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
 }
-
 
 @media screen and (min-width: 1440px) {
   .cart-wrapper {
