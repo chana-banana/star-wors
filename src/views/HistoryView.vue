@@ -19,16 +19,16 @@ export default {
 
 <style scoped>
 .order-wrapper {
-    display: block;
+  display: block;
 }
 
 .order-head {
-    border-bottom: 2px solid #ffe81f;
-    padding-bottom: 10px;
-    max-width: 90vw;
-    margin: auto;
-    text-align: left;
-    font-weight: bold;
-    padding-top: 40px;
+  border-bottom: 2px solid #ffe81f;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  max-width: 90vw;
+  margin: auto;
+  text-align: left;
+  font-weight: bold;
 }
 </style>
