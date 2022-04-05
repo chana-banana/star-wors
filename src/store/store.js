@@ -71,6 +71,15 @@ mutations: {
   appendCharacter(state, character) {
     this.state.characterItems.person = character
   },
+
+
+
+  appendOrder(index, order) {
+    this.state.history[index] = order
+  },
+
+
+
   clearCart() {
     this.state.cart.items.splice(0, this.state.cart.items.length) // array
     this.state.cart.totalCartAmount = 0 // number
@@ -187,6 +196,17 @@ actions: {
     let getPerson = this.state.characterList.people.find(item => item.name === characterId)
     commit('appendCharacter', getPerson)
   },
+
+
+
+
+  orderSpecific({commit}, orderId) {
+    let getOrder = this.state.history.find(order => order.orderNumber === orderId)
+    commit('appendOrder', getOrder)
+  },
+
+
+
 
   compareCharacterFilms({commit}) {
     let sameFilm = []

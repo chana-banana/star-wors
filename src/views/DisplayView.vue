@@ -34,7 +34,7 @@ export default {
   },
   computed: {
       characterItems() {
-          return this.$store.state.characterItems // create action  return this.$store.state.person
+          return this.$store.state.characterItems
       }
   },
   mounted() {
