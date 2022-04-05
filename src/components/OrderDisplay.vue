@@ -18,3 +18,10 @@ export default {
 }
 
 </script>
+
+<style scoped>
+  .item-wrapper {
+    display: flex;
+    color: #ffe81f;
+  }
+</style>
