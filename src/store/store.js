@@ -285,9 +285,10 @@ actions: {
       const tempCart = {
         totalCartCount: this.state.cart.totalCartCount,
         totalCartAmount: this.state.cart.totalCartAmount,
-        items: this.state.cart.items,
+        items: [],
         orderNumber: this.state.history.length === 0 ? 1 : this.state.history[this.state.history.length-1]?.orderNumber + 1,
       }
+      tempCart.items.push(...this.state.cart.items) // item info kept on checkout
       this.state.history.push(tempCart)
       commit('clearCart')
     }
