@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="btn-wrap">
-      <router-link to="/history:id" >
+      <router-link to="/history" >
         <button class="back">back to order history</button>
       </router-link>
     </div>

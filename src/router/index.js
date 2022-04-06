@@ -44,13 +44,13 @@ const routes = [
     component: CartView,
   },
   {
-    path: '/history:id',
+    path: '/history',
     name: 'HistoryView',
     component: HistoryView,
     props: true
   },
   {
-    path: '/order:id',
+    path: '/order/:id',
     name: 'OrderView',
     component: OrderView,
     props: true
