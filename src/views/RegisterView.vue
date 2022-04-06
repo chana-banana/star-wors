@@ -35,7 +35,7 @@
   }
 
   .columns {
-    display: flex;
+    display: inline-flex;
   }
 
   .cut {
