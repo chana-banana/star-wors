@@ -10,6 +10,23 @@ const store = createStore({
         password: '',
         passwordType: 'password',
       },
+      users: [
+        {
+          id: 1,
+          email: 'example1@mail.com',
+          password: 'example1'
+        },
+        {
+          id: 2,
+          email: 'example2@mail.com',
+          password: 'example2'
+        },
+        {
+          id: 3,
+          email: 'example3@mail.com',
+          password: 'example3'
+        },
+      ],
       characterList: {
         people: [],
         filter: '',
@@ -37,7 +54,6 @@ const store = createStore({
         species: [],
         vehicles: []
       },
-
       cart: {
         totalCartCount: 0,
         totalCartAmount: 0,
