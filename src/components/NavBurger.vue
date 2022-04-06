@@ -10,6 +10,7 @@
             <span class="line line3"></span>
           </div>
           <div class="menu-items">
+            <li><router-link to="/">Search</router-link></li>
             <li><router-link to="/history">Order History</router-link></li>
             <li><router-link to="/cart">Cart</router-link></li>
             <li><router-link to="/login">Log out</router-link></li>
@@ -20,12 +21,6 @@
     </nav>
   </div>
 </template>
-
-
-<script>
-</script>
-
-
 
 <style scoped>
 
@@ -47,14 +42,8 @@
 }
 
 .navbar {
-  width: 100%;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 62px;
+  background-color: #000000;
+  z-index: 999;
 }
 
 .navbar .menu-items {
@@ -81,6 +70,7 @@
   display: block;
   position: relative;
   height: 60px;
+  width: 60px;
 }
 
 .nav-container .checkbox {
@@ -132,8 +122,8 @@
 
 .navbar .menu-items {
   padding-top: 120px;
-  height: 300px;
-  width: 300%;
+  height: 100vh;
+  width: 100vw;
   transform: translate(-150%);
   display: flex;
   flex-direction: column;
@@ -141,7 +131,7 @@
   padding-left: 50px;
   transition: transform 0.5s ease-in-out;
   text-align: center;
-  background-color: #ffe81f;
+  background-color: #000000;
 }
 
 .navbar .menu-items li {
@@ -177,8 +167,7 @@
 
 .search {
   padding: 1em;
-  margin-top: 10px;
-  margin-right: 110px;
+  margin: 5px 0 10px 30px;
 }
 
 input {
