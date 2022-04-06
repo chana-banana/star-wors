@@ -22,6 +22,13 @@
   max-width: 145px;
 }
 
+.hero-text {
+  font-family: 'anakinmono';
+  font-weight: 300;
+  line-height: 60px;
+  letter-spacing: 5px;
+}
+
 .back-btn {
   color: #000000;
   background-color: #ffe81f;

@@ -2,7 +2,7 @@
   <div>
         <div>
           <form>
-            <h1 class="sign-label">Sign In</h1>
+            <h1 class="sign-label">sign in</h1>
               <input type="email" id="mail" name="user_email" placeholder="Email" v-model="email" />
               <div class="input-button-wrap">
                 <input :type="passwordType" id="password" name="user_password" placeholder="Password" v-model="password" />
@@ -44,6 +44,8 @@
 
 .sign-label {
   text-align: center;
+  font-family: 'Starjedi';
+  font-weight: 300;
 }
 
 .toggle-password {
