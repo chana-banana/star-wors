@@ -29,7 +29,7 @@ export default {
 
   nav {
     height: 80px;
-    width: 100vw;
+    width: 95vw;
     display: flex;
     justify-content: space-between;
     position: sticky;
@@ -70,6 +70,12 @@ export default {
 
   .cart-quantity {
     padding: 0 1rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    nav {
+      display: none;
+    }
   }
 
 </style>
