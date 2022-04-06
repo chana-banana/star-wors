@@ -3,7 +3,7 @@
     <div class="order-wrapper">
       <div class="order-number"># {{ order.orderNumber }}</div>
       <div>Items: {{ order.totalCartCount }}</div>
-      <button class="view-order">view order</button>
+      <button @click="viewOrder" class="view-order">view order</button>
       <div class="total-amount">R{{ order.totalCartAmount }}</div>
     </div>
 	</div>
@@ -13,6 +13,11 @@
   export default {
     props: {
       order: Object
+    },
+    methods: {
+      viewOrder() {
+        this.$router.push({ name: 'OrderView', params: { id: this.order.orderNumber } })
+      }
     }
   }
 </script>
@@ -23,7 +28,6 @@
   display: block;
   max-width: 90vw;
   margin: auto;
-
 }
 
 .order-wrapper {
@@ -45,7 +49,6 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
 }
-
 
 @media screen and (min-width: 1440px) {
   .cart-wrapper {

@@ -71,6 +71,7 @@ mutations: {
   appendCharacter(state, character) {
     this.state.characterItems.person = character
   },
+
   clearCart() {
     this.state.cart.items.splice(0, this.state.cart.items.length) // array
     this.state.cart.totalCartAmount = 0 // number

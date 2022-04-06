@@ -6,6 +6,7 @@ import DisplayView from '../views/DisplayView.vue'
 import SuccessView from '../views/SuccessView.vue'
 import CartView from '../views/CartView.vue'
 import HistoryView from '../views/HistoryView.vue'
+import OrderView from '../views/OrderView.vue'
 
 const routes = [
   {
@@ -46,6 +47,13 @@ const routes = [
     path: '/history',
     name: 'HistoryView',
     component: HistoryView,
+    props: true
+  },
+  {
+    path: '/order/:id',
+    name: 'OrderView',
+    component: OrderView,
+    props: true
   }
 ]
 
