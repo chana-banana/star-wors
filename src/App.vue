@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavBurger v-if="!$route.meta.isPublic" />
     <Navbar v-if="!$route.meta.isPublic" />
       <router-view/>
     <FooterComponent v-if="!$route.meta.isPublic" />
@@ -9,11 +10,13 @@
 <script>
   import Navbar from './components/NavBar.vue';
   import FooterComponent from './components/FooterComponent.vue';
+  import NavBurger from './components/NavBurger.vue';
 
   export default {
     components: {
       Navbar,
-      FooterComponent
+      FooterComponent,
+      NavBurger
     }
   }
 </script>
