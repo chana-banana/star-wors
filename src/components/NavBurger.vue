@@ -63,7 +63,7 @@
 }
 
 .navbar .nav-container a:hover{
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 .nav-container {
