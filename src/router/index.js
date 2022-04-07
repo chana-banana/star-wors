@@ -13,6 +13,7 @@ const routes = [
     path: '/',
     name: 'SearchView',
     component: SearchView,
+    meta: {isPublic: false}
   },
   {
     path: '/login',
@@ -30,6 +31,7 @@ const routes = [
     path: '/display/:id',
     name: 'DisplayView',
     component: DisplayView,
+    meta: {isPublic: false},
     props: true
   },
   {
@@ -42,11 +44,13 @@ const routes = [
     path: '/cart',
     name: 'CartView',
     component: CartView,
+    meta: {isPublic: false}
   },
   {
     path: '/history',
     name: 'HistoryView',
     component: HistoryView,
+    meta: {isPublic: false},
     props: true
   },
   {
@@ -61,5 +65,14 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  let token = localStorage.getItem('key-anuReeves');
+    if(token || to.meta.isPublic) {
+      next()
+    } else {
+      next('/login');
+    }
+});
 
 export default router

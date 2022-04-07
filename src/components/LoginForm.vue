@@ -1,17 +1,17 @@
 <template>
   <div>
-        <div>
-          <form>
-            <h1 class="sign-label">sign in</h1>
-              <input type="email" id="userEmail" name="user_email" placeholder="Email" v-model="email" />
-              <div class="input-button-wrap">
-                <input :type="passwordType" id="userPassword" name="user_password" placeholder="Password" v-model="password" />
-                <button @click.prevent="toggleShow" class="toggle-password"><fa icon="eye" class="input-icon" /></button>
-              </div>
-              <button class="submit" type="submit" @click.prevent="signIn">Submit</button>
-            <p>Not a member yet? <router-link id="sign-up" to="/register">Sign up here</router-link></p>
-          </form>
+    <div>
+      <form>
+        <h1 class="sign-label">sign in</h1>
+        <input type="email" id="userEmail" name="user_email" placeholder="Email" v-model="email" />
+        <div class="input-button-wrap">
+          <input :type="passwordType" id="userPassword" name="user_password" placeholder="Password" v-model="password" />
+          <button @click.prevent="toggleShow" class="toggle-password"><fa icon="eye" class="input-icon" /></button>
         </div>
+        <button class="submit" type="submit" @click.prevent="signIn">Submit</button>
+        <p>Not a member yet? <router-link id="sign-up" to="/register">Sign up here</router-link></p>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -19,6 +19,8 @@
   export default {
     data() {
       return {
+        email: '',
+        password: '',
         passwordType: 'password'    // need this for show/hide password
       }
     },
