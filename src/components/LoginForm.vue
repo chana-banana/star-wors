@@ -3,12 +3,12 @@
         <div>
           <form>
             <h1 class="sign-label">sign in</h1>
-              <input type="email" id="mail" name="user_email" placeholder="Email" v-model="email" />
+              <input type="email" id="userEmail" name="user_email" placeholder="Email" v-model="email" />
               <div class="input-button-wrap">
-                <input :type="passwordType" id="password" name="user_password" placeholder="Password" v-model="password" />
+                <input :type="passwordType" id="userPassword" name="user_password" placeholder="Password" v-model="password" />
                 <button @click.prevent="toggleShow" class="toggle-password"><fa icon="eye" class="input-icon" /></button>
               </div>
-              <button class="submit" type="submit" @click="signIn">Submit</button>
+              <button class="submit" type="submit" @click.prevent="signIn">Submit</button>
             <p>Not a member yet? <router-link id="sign-up" to="/register">Sign up here</router-link></p>
           </form>
         </div>
@@ -17,17 +17,20 @@
 
 <script>
   export default {
-    computed: {
-      authentication(){
-          return this.$store.state.auth
+    data() {
+      return {
+        passwordType: 'password'    // need this for show/hide password
       }
-    },
-    mounted() {
-      console.log(this.authentication.email)
     },
     methods: {
       signIn() {
-        console.log(this.email,this.password)
+        let sameDetails = this.$store.state.users.find(userDetails => userDetails.storedEmail == this.email && userDetails.storedPassword == this.password)
+        if (sameDetails) {
+          localStorage.setItem('key-anuReeves', this.w1a2s3d4)
+          this.$router.push('/')
+        } else {
+          console.log('no matchy') // insert: 'email or password is incorrect'
+        }
       },
       toggleShow() {
         if (this.passwordType === 'password') {

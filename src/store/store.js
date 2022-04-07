@@ -5,26 +5,18 @@ const baseUrl = "https://swapi.dev/api";
 const store = createStore({
   state () {
     return {
-      auth: {
-        email: '',
-        password: '',
-        passwordType: 'password',
-      },
       users: [
         {
-          id: 1,
-          email: 'example1@mail.com',
-          password: 'example1'
+          storedEmail: 'example1@mail.com',
+          storedPassword: 'example1'
         },
         {
-          id: 2,
-          email: 'example2@mail.com',
-          password: 'example2'
+          storedEmail: 'example2@mail.com',
+          storedPassword: 'example2'
         },
         {
-          id: 3,
-          email: 'example3@mail.com',
-          password: 'example3'
+          storedEmail: 'example3@mail.com',
+          storedPassword: 'example3'
         },
       ],
       characterList: {
