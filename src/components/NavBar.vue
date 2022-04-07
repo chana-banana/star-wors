@@ -10,7 +10,7 @@
       <router-link to="/history"><p>Order History</p></router-link>
       <router-link to="/cart"><img src="../assets/icons/cart-yellow.svg" alt="cart" class="nav-icon"></router-link>
       <div class="cart-quantity">({{ countItems }})</div>
-      <router-link to="/login"><img src="../assets/icons/exit-yellow.svg" alt="exit" class="nav-icon"></router-link>
+      <button @click="logOut" class="log-out"><img src="../assets/icons/exit-yellow.svg" alt="exit" class="nav-icon"></button>
     </div>
   </nav>
 </template>
@@ -20,6 +20,12 @@ export default {
     computed: {
       countItems() {
         return this.$store.state.cart?.totalCartCount
+      }
+    },
+    methods: {
+      logOut() {
+        localStorage.removeItem('key-anuReeves')
+        this.$router.push('/login')
       }
     }
 }
@@ -70,6 +76,11 @@ export default {
 
   .cart-quantity {
     padding: 0 1rem;
+  }
+
+  .log-out {
+    background-color: transparent;
+    border: none;
   }
 
   @media screen and (max-width: 1024px) {
