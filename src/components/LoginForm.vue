@@ -31,7 +31,7 @@
           localStorage.setItem('key-anuReeves', this.w1a2s3d4)
           this.$router.push('/')
         } else {
-          console.log('no matchy') // insert: 'email or password is incorrect'
+          console.log('no user') // insert: 'email or password is incorrect'
         }
       },
       toggleShow() {
