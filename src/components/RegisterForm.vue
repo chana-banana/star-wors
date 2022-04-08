@@ -55,10 +55,6 @@
   bottom: 45px;
 }
 
-.input-div {
-  position: relative;
-}
-
 .input-button-wrap {
   display: flex;
   justify-content: center;
