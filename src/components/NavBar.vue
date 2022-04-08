@@ -4,7 +4,7 @@
         <div @click="$router.push('/')" class="home-btn-wrapper">
           <img src="../assets/icons/falcon-yellow.svg" alt="home" class="home">
         </div>
-      <input type="text" class="search" placeholder="Search" />
+      <input type="text" class="search" placeholder="Search" v-model="searchInput" />
     </div>
     <div class="nav-right">
       <router-link to="/history"><p>Order History</p></router-link>
@@ -17,11 +17,27 @@
 
 <script>
 export default {
-    computed: {
-      countItems() {
-        return this.$store.state.cart?.totalCartCount
+  data() {
+    return {
+      searchInput: ''
+    }
+  },
+  computed: {
+    countItems() {
+      return this.$store.state.cart?.totalCartCount
+    },
+    characters(){
+      return this.$store.state.characterList?.people
+    }
+  },
+  methods: {
+    filteredList() {
+      let searchResults = this.characters.filter(x => x.name == this.searchInput)
+      if(searchResults) {
+        return
       }
     }
+  }
 }
 </script>
 
