@@ -4,10 +4,12 @@
             <div>
                 <div @click="notVisible" class="title">{{ title }}</div>
             </div>
-            <div
-                v-for="item in items" :key="item"
-                class="isVisible">
-                {{ item }}
+            <div v-if="isVisible">
+                <div
+                    v-for="item in items" :key="item"
+                    class="isVisible">
+                    {{ item }}
+                </div>
             </div>
         </div>
     </div>
@@ -19,15 +21,14 @@ export default {
         return {
             isVisible: false
         }
-
     },
     props: {
         title: String,
         items: Array
     },
     methods: {
-        if() {
-            this.isVisible = true
+        notVisible() {
+            this.isVisible = !this.isVisible
         }
     }
 }
