@@ -12,7 +12,8 @@
             <input :type="passwordType" id="confirm-password" name="confirm_password" placeholder="Confirm Password" v-model="confirmPassword" />
             <button @click.prevent="toggleShow" class="toggle-password"><fa icon="eye" class="input-icon" /></button>
           </div>
-        <router-link id="sign-up" to="/"><button class="submit" type="submit" @click="signUp">Sign Up</button></router-link>
+          <div v-if="this.password !== this.confirmPassword" class="error">*passwords do not match</div>
+        <router-link id="sign-up" to="/"><button class="submit" type="submit" @click.prevent="signUp">Sign Up</button></router-link>
       </form>
     </div>
   </div>
@@ -39,8 +40,6 @@
           localStorage.setItem('key-anuReeves', this.w1a2s3d4)
           this.$store.state.users.push(newUser)
           this.$router.push('/')
-        } else {
-          console.log('passwords no matchy') // insert: 'password is not same'
         }
       },
       toggleShow() {
@@ -67,10 +66,15 @@
   z-index: 2;
 }
 
-.fok-wrap {
+.input-button-wrap {
   display: flex;
   justify-content: center;
   padding-right: 9px;
+}
+
+.error {
+  color: red;
+  margin-bottom: 30px;
 }
 
 </style>
