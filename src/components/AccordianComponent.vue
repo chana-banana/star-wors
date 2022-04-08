@@ -39,7 +39,6 @@ export default {
 .bio-wrapper {
     width: 278px;
     margin: 2rem auto;
-    /* padding: 1rem; */
     position: relative;
 }
 
