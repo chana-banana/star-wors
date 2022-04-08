@@ -31,19 +31,13 @@ export default {
   computed: {
     countItems() {
       return this.$store.state.cart?.totalCartCount
-    },
-    characters(){
-      return this.$store.state.characterList?.people
     }
   },
   methods: {
     filteredList() {
-      let searchResults = this.characters.filter(x => x.name == this.searchInput)
-      if(searchResults) {
-        return
-      }
+      this.$store.dispatch('filteredList', this.searchInput)
     }
-  }
+  },
 }
 </script>
 

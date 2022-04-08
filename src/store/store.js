@@ -14,6 +14,10 @@ const store = createStore({
         people: [],
         filter: '',
       },
+      filteredCharacter: {
+        people: [],
+        filter: '',
+      },
       filmList: {
         films: [],
         filter: '',
@@ -71,7 +75,6 @@ mutations: {
   appendCharacter(state, character) {
     this.state.characterItems.person = character
   },
-
   clearCart() {
     this.state.cart.items.splice(0, this.state.cart.items.length) // array
     this.state.cart.totalCartAmount = 0 // number
@@ -82,11 +85,13 @@ mutations: {
       ...state.characterItems,
       ...data
     }
+  },
+  updateFilteredCharacter (state, data) {
+    this.state.filteredCharacter.people = data
   }
 },
 
 actions: {
-
   fetchAllCharacters() {
     let page = 1;
     let lastResult = {};
@@ -106,6 +111,7 @@ actions: {
         }
         page++;
       } while (lastResult.next === null || page < 10)
+      this.state.filteredCharacter.people = this.state.characterList.people
     }
   },
   fetchAllFilms() {
@@ -292,6 +298,12 @@ actions: {
       tempCart.items.push(...this.state.cart.items) // item info kept on checkout
       this.state.history.push(tempCart)
       commit('clearCart')
+    }
+  },
+  filteredList({commit}, searchInput) {
+    let searchResults = this.state.characterList.people.filter(x => x.name.toLowerCase().includes(searchInput.toLowerCase()))
+    if(searchResults) {
+      commit('updateFilteredCharacter', searchResults)
     }
   }
 }})
