@@ -7,7 +7,10 @@
         <div class="input-button-wrap">
           <input :type="passwordType" id="userPassword" name="user_password" placeholder="Password" v-model="password" />
           <button @click.prevent="toggleShow" class="toggle-password"><fa icon="eye" class="input-icon" /></button>
-        </div>
+        </div >
+          <div class="error" v-if="error">
+            *email or password is incorrect
+          </div>
         <button class="submit" type="submit" @click.prevent="signIn">Submit</button>
         <p>Not a member yet? <router-link id="sign-up" to="/register">Sign up here</router-link></p>
       </form>
@@ -21,7 +24,8 @@
       return {
         email: '',
         password: '',
-        passwordType: 'password'    // need this for show/hide password
+        passwordType: 'password',   // need this for show/hide password
+        error: false
       }
     },
     methods: {
@@ -31,7 +35,7 @@
           localStorage.setItem('key-anuReeves', this.w1a2s3d4)
           this.$router.push('/')
         } else {
-          console.log('no user') // insert: 'email or password is incorrect'
+            this.error = true
         }
       },
       toggleShow() {
@@ -73,4 +77,9 @@ p {
   font-family: 'Montserrat', sans-serif;
 }
 
+.error {
+  /* display: none; */
+  color: red;
+  margin-bottom: 30px;
+}
 </style>
