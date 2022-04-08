@@ -2,7 +2,7 @@
     <div>
         <div v-if="items.length > 0" class="bio-wrapper">
             <div>
-                <div @click="notVisible" class="title">{{ title }}</div>
+                <h4 @click="notVisible" class="title">{{ title }}</h4>
             </div>
             <div v-if="isVisible">
                 <div
@@ -37,10 +37,8 @@ export default {
 <style scoped>
 .bio-wrapper {
     width: 278px;
-    min-height: 344px;
-    border: solid 2px #ffe81f;
     margin: 2rem auto;
-    padding: 1rem;
+    /* padding: 1rem; */
     position: relative;
 }
 
@@ -97,47 +95,19 @@ export default {
 }
 
 .isVisible {
-    border-top: 1px solid #ffe81f;
+    border: 1px solid #ffe81f;
     display: flex;
-    padding: 0.75rem 0;
+    padding: 1rem;
 }
 
 .title {
     background-color: #ffe81f;
     color: #000000;
+    padding: 1rem;
 }
 
 .arr-result {
     font-weight: 100;
 }
 
-/* accordian styling */
-.accordion {
-  background-color: #ffe81f;
-  color: #000000;
-  cursor: pointer;
-  padding: 18px;
-  width: 278px;
-  text-align: left;
-  font-weight: bold;
-  display: block;
-  border: none;
-  outline: none;
-  margin: auto;
-}
-
-
-/* .active, .accordion:hover {
-
-} */
-
-.panel {
-  padding: 0 1rem;
-  background-color: transparent;
-  border: 2px solid #ffe81f;
-  display: none;
-  overflow: hidden;
-  /* width: 278px */
-  text-align: left;
-}
 </style>
