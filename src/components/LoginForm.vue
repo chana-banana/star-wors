@@ -35,7 +35,7 @@
           localStorage.setItem('key-anuReeves', this.w1a2s3d4)
           this.$router.push('/')
         } else {
-            this.error = true
+          this.error = true
         }
       },
       toggleShow() {
@@ -78,7 +78,6 @@ p {
 }
 
 .error {
-  /* display: none; */
   color: red;
   margin-bottom: 30px;
 }
