@@ -24,7 +24,6 @@
   </div>
 </template>
 
-
 <script>
 
 import CharacterCard from '../components/CharacterCard'
@@ -32,7 +31,7 @@ import CharacterCard from '../components/CharacterCard'
 export default {
   computed: {
     characters(){
-          return this.$store.state.characterList?.people
+          return this.$store.state.filteredCharacter?.people
       }
   },
   components: {

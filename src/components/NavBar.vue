@@ -1,10 +1,16 @@
 <template>
   <nav>
     <div class="nav-left">
-        <div @click="$router.push('/')" class="home-btn-wrapper">
-          <img src="../assets/icons/falcon-yellow.svg" alt="home" class="home">
-        </div>
-      <input type="text" class="search" placeholder="Search" />
+      <div @click="$router.push('/')" class="home-btn-wrapper">
+        <img src="../assets/icons/falcon-yellow.svg" alt="home" class="home">
+      </div>
+      <div class="input-button-wrap">
+        <input type="text" class="search" placeholder="Search" v-model="searchInput" />
+        <button class="search-button"
+         @click.prevent="filteredList">
+          <img src="../assets/icons/magnifying-glass-yellow.svg" alt="search" class="search-icon">
+        </button>
+      </div>
     </div>
     <div class="nav-right">
       <router-link to="/history"><p>Order History</p></router-link>
@@ -17,11 +23,21 @@
 
 <script>
 export default {
-    computed: {
-      countItems() {
-        return this.$store.state.cart?.totalCartCount
-      }
+  data() {
+    return {
+      searchInput: ''
     }
+  },
+  computed: {
+    countItems() {
+      return this.$store.state.cart?.totalCartCount
+    }
+  },
+  methods: {
+    filteredList() {
+      this.$store.dispatch('filteredList', this.searchInput)
+    }
+  },
 }
 </script>
 
@@ -72,11 +88,26 @@ export default {
     padding: 0 1rem;
   }
 
-  @media screen and (max-width: 1024px) {
-    nav {
-      display: none;
-    }
+  .input-button-wrap {
+    display: flex;
+    justify-content: center;
+    position: relative;
   }
+
+  .search-button {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 11px;
+    bottom: 40px;
+    cursor: pointer;
+  }
+
+@media screen and (max-width: 1024px) {
+  nav {
+    display: none;
+  }
+}
 
 </style>
 
