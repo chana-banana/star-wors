@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bio-wrapper">
+        <div v-if="items.length > 0" class="bio-wrapper">
             <h4>{{ title }}</h4>
                 <div
                     v-for="item in items" :key="item"
