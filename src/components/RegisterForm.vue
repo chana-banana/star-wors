@@ -50,15 +50,25 @@
 }
 
 .toggle-password {
-  margin-left: -35px;
-  margin-top: -25px;
-  z-index: 2;
+  position: absolute;
+  right: 58px;
+  bottom: 45px;
 }
 
-.fok-wrap {
+.input-div {
+  position: relative;
+}
+
+.input-button-wrap {
   display: flex;
   justify-content: center;
-  padding-right: 9px;
+}
+
+@media screen and (min-width: 393px) {
+  .toggle-password {
+    right: 30px;
+    bottom: 45px;
+  }
 }
 
 </style>
