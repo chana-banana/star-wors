@@ -1,8 +1,9 @@
 <template>
     <div>
         <div v-if="items.length > 0" class="bio-wrapper">
-            <div>
-                <h4 @click="notVisible" class="title">{{ title }}</h4>
+            <div class="title-div">
+                <img src="../assets/icons/plus-solid-black.svg" class="plus">
+                <h5 @click="notVisible" class="title">{{ title }}</h5>
             </div>
             <div v-if="isVisible">
                 <div
@@ -106,8 +107,19 @@ export default {
     padding: 1rem;
 }
 
+.title-div {
+    position: relative;
+}
+
 .arr-result {
     font-weight: 100;
+}
+
+.plus {
+    position: absolute;
+    width: 15px;
+    right: 15px;
+    bottom: 18px;
 }
 
 </style>
