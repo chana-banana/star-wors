@@ -16,7 +16,7 @@
       <router-link to="/history"><p>Order History</p></router-link>
       <router-link to="/cart"><img src="../assets/icons/cart-yellow.svg" alt="cart" class="nav-icon"></router-link>
       <div class="cart-quantity">({{ countItems }})</div>
-      <router-link to="/login"><img src="../assets/icons/exit-yellow.svg" alt="exit" class="nav-icon"></router-link>
+      <button @click="logOut" class="log-out"><img src="../assets/icons/exit-yellow.svg" alt="exit" class="nav-icon"></button>
     </div>
   </nav>
 </template>
@@ -34,10 +34,14 @@ export default {
     }
   },
   methods: {
+    logOut() {
+      localStorage.removeItem('key-anuReeves')
+      this.$router.push('/login')
+    },
     filteredList() {
       this.$store.dispatch('filteredList', this.searchInput)
     }
-  },
+  }
 }
 </script>
 
@@ -88,10 +92,9 @@ export default {
     padding: 0 1rem;
   }
 
-  .input-button-wrap {
-    display: flex;
-    justify-content: center;
-    position: relative;
+  .log-out {
+    background-color: transparent;
+    border: none;
   }
 
   .search-button {
@@ -106,6 +109,11 @@ export default {
 @media screen and (max-width: 1024px) {
   nav {
     display: none;
+  }
+  .input-button-wrap {
+    display: flex;
+    justify-content: center;
+    position: relative;
   }
 }
 

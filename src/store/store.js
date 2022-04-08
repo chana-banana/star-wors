@@ -5,11 +5,20 @@ const baseUrl = "https://swapi.dev/api";
 const store = createStore({
   state () {
     return {
-      auth: {
-        email: '',
-        password: '',
-        passwordType: 'password',
-      },
+      users: [
+        {
+          storedEmail: 'example1@mail.com',
+          storedPassword: 'example1'
+        },
+        {
+          storedEmail: 'example2@mail.com',
+          storedPassword: 'example2'
+        },
+        {
+          storedEmail: 'example3@mail.com',
+          storedPassword: 'example3'
+        },
+      ],
       characterList: {
         people: [],
         filter: '',
@@ -41,7 +50,6 @@ const store = createStore({
         species: [],
         vehicles: []
       },
-
       cart: {
         totalCartCount: 0,
         totalCartAmount: 0,
