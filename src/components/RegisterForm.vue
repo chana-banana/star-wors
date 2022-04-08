@@ -61,20 +61,27 @@
 }
 
 .toggle-password {
-  margin-left: -35px;
-  margin-top: -25px;
-  z-index: 2;
+  position: absolute;
+  right: 58px;
+  bottom: 45px;
 }
 
 .input-button-wrap {
   display: flex;
   justify-content: center;
-  padding-right: 9px;
+  position: relative;
 }
 
 .error {
   color: red;
   margin-bottom: 30px;
+}
+
+@media screen and (min-width: 393px) {
+  .toggle-password {
+    right: 30px;
+    bottom: 45px;
+  }
 }
 
 </style>
