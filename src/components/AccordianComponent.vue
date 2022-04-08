@@ -1,24 +1,36 @@
 <template>
     <div>
         <div v-if="items.length > 0" class="bio-wrapper">
-            <h4>{{ title }}</h4>
-                <div
-                    v-for="item in items" :key="item"
-                    class="atribute">
-                    {{ item }}
-                </div>
+            <div>
+                <div @click="notVisible" class="title">{{ title }}</div>
+            </div>
+            <div
+                v-for="item in items" :key="item"
+                class="isVisible">
+                {{ item }}
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            isVisible: false
+        }
+
+    },
     props: {
         title: String,
         items: Array
+    },
+    methods: {
+        if() {
+            this.isVisible = true
+        }
     }
 }
-
 </script>
 
 <style scoped>
@@ -83,9 +95,15 @@ export default {
     margin: 5px;
 }
 
-.atribute {
+.isVisible {
+    border-top: 1px solid #ffe81f;
     display: flex;
     padding: 0.75rem 0;
+}
+
+.title {
+    background-color: #ffe81f;
+    color: #000000;
 }
 
 .arr-result {
