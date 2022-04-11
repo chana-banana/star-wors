@@ -51,9 +51,9 @@ export default {
 .character-cards {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1280px;
-  margin: 0 auto;
-  justify-content: left;
+  max-width: 1500px;
+  margin: auto;
+  justify-content: center;
 }
 
 .search-cta {
