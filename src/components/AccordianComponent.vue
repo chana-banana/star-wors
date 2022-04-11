@@ -1,33 +1,44 @@
 <template>
     <div>
-        <div class="bio-wrapper">
-            <h4>{{ title }}</h4>
+        <div v-if="items.length > 0" class="bio-wrapper">
+            <div class="title-div">
+                <img src="../assets/icons/plus-solid-black.svg" class="plus">
+                <h5 @click="notVisible" class="title">{{ title }}</h5>
+            </div>
+            <div v-if="isVisible">
                 <div
                     v-for="item in items" :key="item"
-                    class="atribute">
+                    class="isVisible">
                     {{ item }}
                 </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            isVisible: false
+        }
+    },
     props: {
         title: String,
         items: Array
+    },
+    methods: {
+        notVisible() {
+            this.isVisible = !this.isVisible
+        }
     }
 }
-
 </script>
 
 <style scoped>
 .bio-wrapper {
     width: 278px;
-    min-height: 344px;
-    border: solid 2px #ffe81f;
     margin: 2rem auto;
-    padding: 1rem;
     position: relative;
 }
 
@@ -83,42 +94,31 @@ export default {
     margin: 5px;
 }
 
-.atribute {
+.isVisible {
+    border: 1px solid #ffe81f;
     display: flex;
-    padding: 0.75rem 0;
+    padding: 1rem;
+}
+
+.title {
+    background-color: #ffe81f;
+    color: #000000;
+    padding: 1rem;
+}
+
+.title-div {
+    position: relative;
 }
 
 .arr-result {
     font-weight: 100;
 }
 
-/* accordian styling */
-.accordion {
-  background-color: #ffe81f;
-  color: #000000;
-  cursor: pointer;
-  padding: 18px;
-  width: 278px;
-  text-align: left;
-  font-weight: bold;
-  display: block;
-  border: none;
-  outline: none;
-  margin: auto;
+.plus {
+    position: absolute;
+    width: 15px;
+    right: 15px;
+    bottom: 18px;
 }
 
-
-/* .active, .accordion:hover {
-
-} */
-
-.panel {
-  padding: 0 1rem;
-  background-color: transparent;
-  border: 2px solid #ffe81f;
-  display: none;
-  overflow: hidden;
-  /* width: 278px */
-  text-align: left;
-}
 </style>
