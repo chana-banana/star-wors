@@ -4,10 +4,7 @@
       <div v-if="!filter" class="search-cta">
         <div>
           <img src="../assets/icons/stormtrooper-icon-yellow.svg" alt="stormtrooper" class="trooper">
-        </div>
-        <div>
-          <img src="../assets/icons/star-wars-logo-yellow.svg" alt="star-wars-logo" class="star-wars-logo">
-          <p class="hero-text">Go ahead, search for any Star Wars character!</p>
+          <p class="load">loading . . . </p>
         </div>
       </div>
       <div v-else class="no-results">
@@ -37,13 +34,13 @@ export default {
   components: {
     CharacterCard,
   },
-  beforeMount(){ // life cycle hook
-    this.$store.dispatch('fetchAllCharacters')
-    this.$store.dispatch('fetchAllFilms')
-    this.$store.dispatch('fetchAllStarships')
-    this.$store.dispatch('fetchAllSpecies')
-    this.$store.dispatch('fetchAllVehicles')
-  }
+  // beforeMount(){ // life cycle hook
+  //   this.$store.dispatch('fetchAllCharacters')
+  //   this.$store.dispatch('fetchAllFilms')
+  //   this.$store.dispatch('fetchAllStarships')
+  //   this.$store.dispatch('fetchAllSpecies')
+  //   this.$store.dispatch('fetchAllVehicles')
+  // }
 }
 </script>
 
@@ -68,9 +65,9 @@ export default {
   margin: 5rem auto 1rem auto;
 }
 
-  .star-wars-logo {
-    display: none;
-  }
+.star-wars-logo {
+  display: none;
+}
 
 @media screen and (min-width: 375px) {
   .trooper {
@@ -82,6 +79,9 @@ export default {
   .trooper {
     height: 500px;
     margin: 7rem auto 5rem auto;
+  }
+  .load {
+    font-size: 3rem;
   }
 }
 
