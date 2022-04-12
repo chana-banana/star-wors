@@ -6,15 +6,23 @@
       </router-link>
     </div>
     <h4 class="header">Order # {{ id }}</h4>
-    <div>
-      <div class="items" v-for="item in orderLog.items" :key="item.id">
-        <div>{{item.id}}</div>
-        <div class="count">{{item.count}}</div>
-        <div>R{{item.price * item.count}}</div>
-      </div>
-      <div class="total" v-if="orderLog" >
-        <div>Total: R{{ orderLog.totalCartAmount }}</div>
-      </div>
+    <div v-for="item in orderLog.items" :key="item.id">
+      <table>
+        <tr>
+        <th class="column-1">
+          <div>{{item.id}}</div>
+        </th>
+        <th class="column-2">
+          <div class="count">{{item.count}}</div>
+        </th>
+        <th class="column-3">
+          <div>R{{item.price * item.count}}</div>
+        </th>
+        </tr>
+      </table>
+    </div>
+    <div class="total" v-if="orderLog" >
+      <div>Total: R{{ orderLog.totalCartAmount }}</div>
     </div>
   </div>
 </template>
@@ -34,25 +42,41 @@ export default {
 </script>
 
 <style scoped>
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border-bottom: 2px solid #ffe81f;
+}
+
+.column-1 {
+  text-align: left;
+}
+
+.column-2 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  padding: 20px 0;
+}
+
+.column-3 {
+  text-align: right;
+}
+
 .wrapper {
   display: block;
   max-width: 90vw;
   margin: auto;
   font-weight: bold;
 }
-.items {
-  border-bottom: 2px solid #ffe81f;
-  padding: 15px 0;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .count {
+  width: 30px;
   border: 1px solid #ffe81f;
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .total {
