@@ -34,13 +34,13 @@ export default {
   components: {
     CharacterCard,
   },
-  // beforeMount(){ // life cycle hook
-  //   this.$store.dispatch('fetchAllCharacters')
-  //   this.$store.dispatch('fetchAllFilms')
-  //   this.$store.dispatch('fetchAllStarships')
-  //   this.$store.dispatch('fetchAllSpecies')
-  //   this.$store.dispatch('fetchAllVehicles')
-  // }
+  beforeMount(){
+    this.$store.dispatch('fetchAllCharacters')
+    this.$store.dispatch('fetchAllFilms')
+    this.$store.dispatch('fetchAllStarships')
+    this.$store.dispatch('fetchAllSpecies')
+    this.$store.dispatch('fetchAllVehicles')
+  }
 }
 </script>
 
