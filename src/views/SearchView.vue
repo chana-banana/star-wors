@@ -65,10 +65,6 @@ export default {
   margin: 5rem auto 1rem auto;
 }
 
-.star-wars-logo {
-  display: none;
-}
-
 @media screen and (min-width: 375px) {
   .trooper {
     margin-top: 9rem;
@@ -95,11 +91,6 @@ export default {
   .trooper {
     margin: 4rem 8rem auto auto;
   }
-  .star-wars-logo {
-    height: 250px;
-    display: block;
-    margin: 13rem auto 7rem auto;
-  }
   .wrapper {
     display: inline-flex;
   }
@@ -108,10 +99,6 @@ export default {
 @media screen and (min-width: 2560px) {
   .trooper {
     height: 900px;
-  }
-  .star-wars-logo {
-    height: 550px;
-    margin: 25rem auto 7rem auto;
   }
 }
 
