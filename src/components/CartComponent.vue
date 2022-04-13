@@ -1,19 +1,23 @@
 <template>
     <div class="cart-wrapper">
         <div class="item-wrapper">
-            <div class="item-left">
-                <img src="../assets/icons/user-outline-yellow.svg" class="user-icon">
-                <div class="item-name">{{ item.id }}</div>
-            </div>
-            <div class="item-middle">
-                <button @click.stop="updateCartItemsLess(item.id)" class="quantity-icon"><fa icon="minus" class="fa-quantity-icon" /></button>
-                <div class="quantity">{{ item.count }}</div>
-                <button @click.stop="updateCartItems(item.id)" class="quantity-icon"><fa icon="plus" class="fa-quantity-icon" /></button>
-            </div>
-            <div class="item-end">
-                <div class="quantity-price">R{{ item.price * item.count }}</div>
-                <button @click.stop="removeCartItems(item.id)" class="remove-item"><fa icon="xmark" class="fa-quantity-icon" /></button>
-            </div>
+            <table>
+                <tr>
+                    <th class="item-left">
+                        <img src="../assets/icons/user-outline-yellow.svg" class="user-icon">
+                        {{ item.id }}
+                    </th>
+                    <th class="item-middle">
+                        <button @click.stop="updateCartItemsLess(item.id)" class="quantity-icon"><fa icon="minus" class="fa-quantity-icon" /></button>
+                        {{ item.count }}
+                        <button @click.stop="updateCartItems(item.id)" class="quantity-icon"><fa icon="plus" class="fa-quantity-icon" /></button>
+                    </th>
+                    <th class="item-end">
+                        R{{ item.price * item.count }}
+                        <button @click.stop="removeCartItems(item.id)" class="remove-item"><fa icon="xmark" class="fa-quantity-icon" /></button>
+                    </th>
+                </tr>
+            </table>
         </div>
     </div>
 </template>
@@ -40,7 +44,6 @@
 <style scoped>
 * {
     font-weight: bold;
-    text-align: left;
 }
 
 .cart-wrapper {
@@ -53,21 +56,28 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #ffe81f;
 }
 
-.item-middle, .item-end {
-    display: flex;
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border-bottom: 2px solid #ffe81f;
 }
 
 .item-left {
     display: flex;
-    justify-content: center;
     align-items: center;
+    padding: 20px 0;
+    text-align: left;
 }
 
-.item-name {
-    padding: 20px 0;
+.item-middle {
+    text-align: center;
+}
+
+.item-end {
+    text-align: right;
 }
 
 .quantity {

@@ -47,7 +47,7 @@ export default {
     border-color: #ffe81f;
     border-radius: 13px;
     border-width: 2px;
-    margin: 1rem 3rem;
+    margin: 20px;
     padding: 1rem;
     position: relative;
     cursor: pointer;

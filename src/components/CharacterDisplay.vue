@@ -1,21 +1,27 @@
 <template>
   <div>
     <div class="bio-wrapper" v-if="person">
-    <h4>{{ person.name }}</h4>
-    <div class="atribute"><h5>Birth Year: &nbsp;</h5><h5 class="arr-result">{{ person.birth_year }}</h5></div>
-    <div class="atribute"><h5>Hair Color: &nbsp;</h5><h5 class="arr-result">{{ person.hair_color }}</h5></div>
-    <div class="atribute"><h5>Skin Color: &nbsp;</h5><h5 class="arr-result">{{ person.skin_color }}</h5></div>
-    <div class="atribute"><h5>Eye Color: &nbsp;</h5><h5 class="arr-result">{{ person.eye_color }}</h5></div>
-    <div class="atribute"><h5>Gender: &nbsp;</h5><h5 class="arr-result">{{ person.gender }}</h5></div>
-      <div class="price-wrapper">
-        <div class="price-text">
-        <div>R{{ person.price }}</div>
-          </div>
-            <button @click.stop="addItemToCart" class="add-cart">
-              <fa icon="plus" class="fa-plus" />
-              <img src="../assets/icons/cart-yellow.svg" alt="cart" class="cart-yellow">
-              <img src="../assets/icons/cart-black.svg" alt="cart" class="cart-black">
-            </button>
+        <div class="column head">
+            <h4 class="name">{{ person.name }}</h4>
+        </div>
+        <div class="column">
+            <div class="atribute"><h5>Birth Year: &nbsp;</h5><h5 class="arr-result">{{ person.birth_year }}</h5></div>
+            <div class="atribute"><h5>Hair Color: &nbsp;</h5><h5 class="arr-result">{{ person.hair_color }}</h5></div>
+            <div class="atribute"><h5>Skin Color: &nbsp;</h5><h5 class="arr-result">{{ person.skin_color }}</h5></div>
+        </div>
+        <div class="column">
+            <div class="atribute"><h5>Eye Color: &nbsp;</h5><h5 class="arr-result">{{ person.eye_color }}</h5></div>
+            <div class="atribute"><h5>Gender: &nbsp;</h5><h5 class="arr-result">{{ person.gender }}</h5></div>
+            <div class="price-wrapper">
+                <div class="price-text">
+                    <div>R{{ person.price }}</div>
+                </div>
+                <button @click.stop="addItemToCart" class="add-cart">
+                    <fa icon="plus" class="fa-plus" />
+                    <img src="../assets/icons/cart-yellow.svg" alt="cart" class="cart-yellow">
+                    <img src="../assets/icons/cart-black.svg" alt="cart" class="cart-black">
+                </button>
+            </div>
         </div>
     </div>
   </div>
@@ -107,6 +113,32 @@ export default {
 
 .arr-result {
     font-weight: 100;
+}
+
+@media screen and (min-width: 768px) {
+    .bio-wrapper {
+        width: 90vw;
+        display: flex;
+        min-height: 207px;
+        justify-content: space-between;
+    }
+    .column {
+        padding: 30px;
+    }
+    .name {
+        font-size: 3rem;
+    }
+    .price-wrapper {
+        margin-top: 20px;
+        position: relative;
+        bottom: 0;
+    }
+    .price-text {
+        margin-right: 20px;
+    }
+    .head {
+        margin: auto 0;
+    }
 }
 
 </style>

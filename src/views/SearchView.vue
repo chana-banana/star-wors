@@ -4,10 +4,7 @@
       <div v-if="!filter" class="search-cta">
         <div>
           <img src="../assets/icons/stormtrooper-icon-yellow.svg" alt="stormtrooper" class="trooper">
-        </div>
-        <div>
-          <img src="../assets/icons/star-wars-logo-yellow.svg" alt="star-wars-logo" class="star-wars-logo">
-          <p class="hero-text">Go ahead, search for any Star Wars character!</p>
+          <p class="load">loading . . . </p>
         </div>
       </div>
       <div v-else class="no-results">
@@ -37,7 +34,7 @@ export default {
   components: {
     CharacterCard,
   },
-  beforeMount(){ // life cycle hook
+  beforeMount(){
     this.$store.dispatch('fetchAllCharacters')
     this.$store.dispatch('fetchAllFilms')
     this.$store.dispatch('fetchAllStarships')
@@ -51,9 +48,9 @@ export default {
 .character-cards {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1280px;
-  margin: 0 auto;
-  justify-content: left;
+  max-width: 1500px;
+  margin: auto;
+  justify-content: center;
 }
 
 .search-cta {
@@ -68,10 +65,6 @@ export default {
   margin: 5rem auto 1rem auto;
 }
 
-  .star-wars-logo {
-    display: none;
-  }
-
 @media screen and (min-width: 375px) {
   .trooper {
     margin-top: 9rem;
@@ -83,6 +76,9 @@ export default {
     height: 500px;
     margin: 7rem auto 5rem auto;
   }
+  .load {
+    font-size: 3rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -93,12 +89,7 @@ export default {
 
 @media screen and (min-width: 1440px) {
   .trooper {
-    margin: 8rem 8rem auto auto;
-  }
-  .star-wars-logo {
-    height: 250px;
-    display: block;
-    margin: 13rem auto 7rem auto;
+    margin: 4rem 8rem auto auto;
   }
   .wrapper {
     display: inline-flex;
@@ -108,11 +99,6 @@ export default {
 @media screen and (min-width: 2560px) {
   .trooper {
     height: 900px;
-    margin-top: 15rem;
-  }
-  .star-wars-logo {
-    height: 550px;
-    margin: 25rem auto 7rem auto;
   }
 }
 

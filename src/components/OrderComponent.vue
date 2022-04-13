@@ -1,10 +1,22 @@
 <template>
 	<div class="wrapper">
     <div class="order-wrapper">
-      <div class="order-number"># {{ order.orderNumber }}</div>
-      <div>Items: {{ order.totalCartCount }}</div>
-      <button @click="viewOrder" class="view-order">view order</button>
-      <div class="total-amount">R{{ order.totalCartAmount }}</div>
+      <table>
+        <tr>
+          <th class="column-1">
+            <div class="order-number"># {{ order.orderNumber }}</div>
+          </th>
+          <th class="column-2">
+            <div>Items: {{ order.totalCartCount }}</div>
+          </th>
+          <th class="column-3">
+            <button @click="viewOrder" class="view-order">view order</button>
+          </th>
+          <th class="column-4">
+            <div class="total-amount">R{{ order.totalCartAmount }}</div>
+          </th>
+        </tr>
+        </table>
     </div>
 	</div>
 </template>
@@ -24,6 +36,26 @@
 
 
 <style scoped>
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border-bottom: 2px solid #ffe81f;
+}
+
+.column-1 {
+  padding: 20px 0;
+  text-align: left;
+}
+
+.column-2 {
+  text-align: left;
+}
+
+.column-4 {
+  text-align: right;
+}
+
 .wrapper {
   display: block;
   max-width: 90vw;
@@ -34,9 +66,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #ffe81f;
-  text-align: left;
-  padding: 15px 0;
 }
 
 .view-order {

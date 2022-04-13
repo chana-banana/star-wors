@@ -121,4 +121,10 @@ export default {
     bottom: 18px;
 }
 
+@media screen and (min-width: 768px) {
+    .bio-wrapper {
+        width: 40vw;
+    }
+}
+
 </style>
